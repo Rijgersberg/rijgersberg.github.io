@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>GoingDutch.ai</title>
-    <link>http://goingdutch.io/en/</link>
+    <link>http://goingdutch.ai/en/</link>
     <description>Recent content on GoingDutch.ai</description>
     <image>
       <title>GoingDutch.ai</title>
-      <url>http://goingdutch.io/papermod-cover.png</url>
-      <link>http://goingdutch.io/papermod-cover.png</link>
+      <url>http://goingdutch.ai/papermod-cover.png</url>
+      <link>http://goingdutch.ai/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://goingdutch.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://goingdutch.ai/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My talk at EuroPython 2023: &#34;Threat to Life — Preventing Planned Murders with Python&#34;</title>
-      <link>http://goingdutch.io/en/posts/europython-2023-ttl/</link>
+      <link>http://goingdutch.ai/en/posts/europython-2023-ttl/</link>
       <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://goingdutch.io/en/posts/europython-2023-ttl/</guid>
+      <guid>http://goingdutch.ai/en/posts/europython-2023-ttl/</guid>
       <description>I can&amp;rsquo;t often publicly share details about the kind of projects we undertake at the Netherlands Forensic Institute with the help of AI, but at the recent EuroPython 2023 in Prague, I was able to discuss a case that unfolded a few years ago and on which the NFI had previously issued a press release: the Threat-to-Life project.
 Police could read along with criminals In 2020, the police managed to read live messages from a provider of so-called cryptophones: modified phones that — for a substantial payment — were used for encrypted communication in the criminal circuit.</description>
     </item>
