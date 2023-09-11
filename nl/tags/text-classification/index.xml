@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Text classification on GoingDutch.ai</title>
-    <link>http://goingdutch.ai/nl/tags/text-classification/</link>
+    <link>https://rijgersberg.github.io/nl/tags/text-classification/</link>
     <description>Recent content in Text classification on GoingDutch.ai</description>
     <image>
       <title>GoingDutch.ai</title>
-      <url>http://goingdutch.ai/papermod-cover.png</url>
-      <link>http://goingdutch.ai/papermod-cover.png</link>
+      <url>https://rijgersberg.github.io/papermod-cover.png</url>
+      <link>https://rijgersberg.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl</language>
-    <lastBuildDate>Sun, 10 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://goingdutch.ai/nl/tags/text-classification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://rijgersberg.github.io/nl/tags/text-classification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mijn praatje op EuroPython 2023: &#34;Threat to Life — Preventing Planned Murders with Python&#34;</title>
-      <link>http://goingdutch.ai/nl/posts/europython-2023-ttl/</link>
+      <link>https://rijgersberg.github.io/nl/posts/europython-2023-ttl/</link>
       <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://goingdutch.ai/nl/posts/europython-2023-ttl/</guid>
+      <guid>https://rijgersberg.github.io/nl/posts/europython-2023-ttl/</guid>
       <description>Ik kan niet vaak publiekelijk iets uit de doeken doen over het soort zaken dat we bij het Nederlands Forensisch Instituut doen met behulp van AI, maar op de afgelopen EuroPython 2023 in Praag heb ik namens het NFI iets kunnen vertellen over een zaak die een paar jaar terug speelde en waar het NFI al eerder een persbericht over uitstuurde: het Threat-to-Life-project.
 Politie kon live meelezen met criminelen Het was de politie in 2020 gelukt om live mee te kunnen lezen bij een aanbieder van zogenaamde cryptotelefoons: gemodificeerde telefoons die &amp;mdash; tegen een flinke betaling &amp;mdash; gebruikt werden om versleuteld te communiceren in het criminele circuit.</description>
     </item>
