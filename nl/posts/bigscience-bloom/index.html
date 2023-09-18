@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="nl" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel | GoingDutch.ai</title>
+<meta name="keywords" content="BigScience, BLOOM, BLOOMZ, Open Language Models, Dutch Large Language models">
+<meta name="description" content="Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden.">
+<meta name="author" content="Edwin Rijgersberg">
+<link rel="canonical" href="https://goingdutch.ai/nl/posts/bigscience-bloom/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://goingdutch.ai/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://goingdutch.ai/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://goingdutch.ai/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://goingdutch.ai/apple-touch-icon.png">
+<link rel="mask-icon" href="https://goingdutch.ai/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://goingdutch.ai/en/posts/bigscience-bloom/">
+<link rel="alternate" hreflang="nl" href="https://goingdutch.ai/nl/posts/bigscience-bloom/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel" />
+<meta property="og:description" content="Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://goingdutch.ai/nl/posts/bigscience-bloom/" />
+<meta property="og:image" content="https://goingdutch.ai/images/bigscience-bloom/bloom.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://goingdutch.ai/images/bigscience-bloom/bloom.png" />
+<meta name="twitter:title" content="De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel"/>
+<meta name="twitter:description" content="Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel",
+      "item": "https://goingdutch.ai/nl/posts/bigscience-bloom/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel",
+  "name": "De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel",
+  "description": "Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden.",
+  "keywords": [
+    "BigScience", "BLOOM", "BLOOMZ", "Open Language Models", "Dutch Large Language models"
+  ],
+  "articleBody": "Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden. Het Nederlands niet. Hoe kan dat?\nBigScience, big dreams Het begon allemaal in 2021. Een groep van meer dan 1.000 onderzoekers had zich verenigd in het virtuele onderzoekscollectief BigScience. Vermoedelijk getriggerd door de capaciteiten van GPT-3 en bezorgd om de opkomst van de grote taalmodellen die door de grote techbedrijven voor angstvallig voor zichzelf gehouden worden, deden ze vanaf mei 2021 mee aan een éénjarige open onderzoeks-workshop op het gebied van meertalige grote taalmodellen.\nGefinancierd door de Franse overheid en de Frans-Amerikaanse start-up Hugging Face — één van de hotste bedrijven op het gebied van AI — wilden ze twee dingen bereiken:\neen zeer grote meertalige tekst-dataset samenstellen van hoge kwaliteit, later ROOTS genoemd; en daarmee een zeer groot meertalig taalmodel trainen dat GPT-3 naar de kroon kon steken: BLOOM. Zij wilden dit zo open mogelijk doen. Het model moest door iedereen te downloaden zijn, zodat je het kunt gebruiken voor toepassingen waar je gesloten modellen als GPT-3 niet voor kunt gebruiken. Als je bijvoorbeeld vertrouwelijke data hebt die je niet naar een Amerikaans techbedrijf wil sturen. Of als je het model wilt onderzoeken op mogelijke biases voordat je het inzet. Of als je gewoon uit principe wilt weten op welke data het model wel en niet gezien heeft in de trainingsfase.\nOm dit voor elkaar te krijgen zijn onderzoekers betrokken vanuit allerlei verschillende vakgebieden en zijn dataset en model vanuit meerdere gezichtspunten onderzocht:\n‍During the workshop, the participants plan to investigate the dataset and the model from all angles: bias, social impact, capabilities, limitations, ethics, potential improvements, specific domain performances, carbon impact, general AI/cognitive research landscape.\nHet hele initiatief is ook uitvoerig beschreven in drie losse wetenschappelijk papers: over het proces, over de dataset en over het model.\nDe BigScience werkgroepen. Akiki, Christopher, et al. “BigScience: A case study in the social construction of a multilingual large language model.” arXiv preprint arXiv:2212.04960 (2022).\nBLOOM: open, ethisch en klimaatvriendelijk Het resultaat: BLOOM, het BigScience Large Open-science Open-access Multilingual Language Model, gelanceerd in juli 2022. Een groot open taalmodel van 176 miljard parameters dat getraind is op 46 verschillende talen (en 13 verschillende programmeertalen). Het is voor iedereen vrij te downloaden, te bestuderen en te gebruiken1. En niet alleen het uiteindelijke model is beschikbaar, maar ook tussentijdse checkpoints van het model van tijdens het trainen zijn met iedereen gedeeld.\nHet model is in 117 dagen getraind op ruim 3.000 GPUs van de Franse Jean Zay supercomputer. Kosten? Ongeveer 3 miljoen euro. De Franse supercomputer is ook de bron van de claim van de klimaatvriendelijkheid van het model. BigScience gaat er namelijk prat op dat de benodigde elektriciteit grotendeels opgewekt is met kernenergie. Het trainen van het model heeft daardoor een lage CO2-uitstoot met zich meegebracht.\nDe Jean Zay Supercomputer. © Photothèque CNRS/Cyril Frésillon\nDe focus op openheid en ethiek leverde lof op vanuit de academische wereld. Onderzoekers van de Stanford University publiceerden recent een onderzoek naar grote taalmodellen. Ze brachten in kaart welke van de grote taalmodellen nu al het best voldoen aan de eisen uit de voorlopige tekst van de EU AI Act: de Verordening Kunstmatige Intelligentie van de Europese Unie. BLOOM scoorde verreweg het best. Ook de Radboud Universiteit deed een vergelijkend onderzoek naar de openheid van taalmodellen (leaderboard, paper). Het meest open model? Wederom BLOOM.\nIn 2022 werd het mode om elk groot taalmodel als een foundation model te beschouwen, en zo’n model te finetunen op chatconversaties om een interactief model te maken á la OpenAI’s InstructGPT. Begin november 2022 is er daarom ook nog een chat-variant van BLOOM uitgebracht: BLOOMZ (website, paper, GitHub). De buzz daaromheen is helaas een beetje verloren gegaan in het geweld van ChatGPT, dat nog geen vier weken later werd gelanceerd.\nScores van grote taalmodellen op de eisen uit de AI-Act. Bommasani, Rishi et al. “Do Foundation Model Providers Comply with the EU AI Act?” https://crfm.stanford.edu/2023/06/15/eu-ai-act.html (2023).\nROOTS-corpus Om BLOOM te kunnen trainen moest er eerst een dataset samengesteld worden: het ROOTS-corpus. Ook hier weer lag de focus op openheid en ethiek. Van alle datasets die in ROOTS zijn opgenomen werden dataset cards gepubliceerd. De data zelf is opgeschoond en gededupliceerd. Persoonsgegevens als telefoonnummers, e-mailadressen en usernames op social media zijn zo veel mogelijk automatisch verwijderd. Zo is ROOTS uitgegroeid tot een dataset van 1,6 terabyte aan tekstdata in 46 natuurlijke talen, aangevuld met 13 verschillende programmeertalen.\nDie 46 verschillende talen vormen een nogal interessante mengelmoes. Uiteraard ontbreken high-resource Europese talen als Engels, Frans, Spaans en Portugees niet in dit toch grotendeels Europese project. Daarnaast maken ook Arabisch en Chinees2 acte de présence. Tenslotte zijn er bewust een aantal low-resource-talen aan de dataset toegevoegd, zoals meerdere talen uit de Niger-Congo-taalfamilie waarvoor maar weinig geschreven tekst beschikbaar is.\nTalen in het ROOTS-corpus. Grafiek uit de BLOOM model card.\nOpvallende ontbrekende talen? Allereerst: het Duits. Daarnaast het Russisch, en eigenlijk alle Slavische talen, net als de Scandinavische talen. En het Nederlands dus. Wel aanwezig: relatief kleine talen als het Catalaans en het Baskisch. Hoe kan dat?\nTaalselectie Hoe werd bepaald welke talen wel en welke talen niet meegenomen werden? Het antwoord is eigenlijk vrij simpel, maar vreemd genoeg niet te vinden in het paper dat het ROOTS-corpus beschrijft. In plaats daarvan komt het aan bod in het paper van BLOOM zelf, op pagina 10 en 11.\nLanguage Choices These considerations led us to an incremental process for choosing which languages were to be included in the corpus. We started with a list of eight of the world’s largest languages by number of speakers for which we did active outreach in the early stages of the project to invite fluent speakers to join the data efforts. Then, on the recommendation of language communities (Nekoto et al., 2020) we expanded Swahili in the original selection to the category of Niger-Congo languages, and Hindi and Urdu to Indic languages (Kunchukuttan et al., 2020). Finally, we proposed that any group of 3 or more participants fluent in an additional language could add it to the supported list if they would commit to selecting sources and guiding processing choices in the language in order to avoid common issues with corpora selected through automatic language identification without specific language expertise (Caswell et al., 2022).\nScao, Teven Le, et al. “Bloom: A 176b-parameter open-access multilingual language model.” arXiv preprint arXiv:2211.05100 (2022)\nVrijwilligers dus. Om precies te zijn: minimaal drie vrijwilligers die de taal vloeiend spreken en bereid waren om bronnen te selecteren, én bereid waren om te bewaken dat het verwerken van die bronnen op een goede manier gebeurde. Ik weet de details niet precies, maar ik schat het op hooguit enkele weken aan werk. Dat waren de kosten om als Nederlands mee te profiteren van een miljoeneninvestering. Blijkbaar waren er niet minimaal drie vrijwilligers beschikbaar die dat voor het Nederlands wilden of konden doen.\nGemiste kans? Had het ook anders kunnen lopen? Misschien wel. Ik hoorde zelf pas van het bestaan van BigScience toen het al te laat was. Vermoedelijk geldt dit ook voor anderen in Nederland of België die er graag aan hadden bijgedragen. Ja, als ik mee had willen doen had ik ergens die tijd vandaan moeten halen. Maar met een helder doel voor ogen en met het duidelijke belang dat we er als Nederland mee hebben was het vast wel gelukt. Het is niet vaak dat je met een kleine tijdsbesteding mee kunt liften op andermans miljoeneninvestering. Ik heb waarschijnlijk al langer in vergaderingen gezeten over consortia voor hypothetische toekomstige Nederlandstalige grote taalmodellen dan ik nodig gehad zou hebben om het Nederlands aan BLOOM toe te voegen.\nAan de andere kant: alle openheid ten spijt is BLOOM nou ook weer niet hét taalmodel geworden dat alle andere taalmodellen heeft doen vergeten. Met 176 miljard parameters is het inderdaad heel groot, maar BLOOM is van een eerdere generatie dan bijvoorbeeld LLaMA van Meta (70 miljard parameters), dat een stuk efficiënter met de parameters omgaat. In de 🤗 Open LLM Leaderboard, een ranglijst van best presterende grote taalmodellen, is BLOOM-178B niet eens opgenomen. Tekenend voor het gebrek aan interesse van de open source community, schat ik zo in. Een kleinere variant van BLOOM, BLOOM-7b1 met “maar” 7 miljard parameters, staat wel op de lijst, maar bevindt zich ergens in de onderste helft. BLOOMZ — de chatversie van BLOOM — komt ook niet op het leaderboard voor.\nBLOOM-7b1 op het 🤗 Open LLM Leaderboard.\nMaar wat meet dat leaderboard eigenlijk? Prestaties in het Engels. De grote open taalmodellen voor het Nederlands staan nog heel erg in de kinderschoenen. Er bestaat naar mijn weten niet eens zo’n leaderbord voor het Nederlands.3 En als er al een leaderboard zou bestaan voor open Nederlandstalige modellen: een hypothetische BLOOM dat ook op het Nederlands getraind zou zijn zou bovenaan de lijst prijken. In de lage landen der blinden zou éénoog koning zijn.\nLessen Welke lessen kan de Nederlandstalige AI-community wat mij betreft hieruit trekken?\nOm te beginnen: we moeten méédoen. De grote Amerikaanse techbedrijven zien Nederland en het Nederlands slechts als bijzaak, en geef ze eens ongelijk. Als sprekers van een kleine taal in een grote wereld moeten we opportunistisch zijn. Als we kunnen meeliften op een bestaand initiatief: capaciteit vrijmaken en doen! Vrijwilligers gezocht? Wij hebben ze klaarstaan! Niet alleen grootse projectplannen, maar vooral ook ijverige handjes.\nWe moeten voorkomen dat we een volgende keer weer de boot missen. Maar dat alleen is niet genoeg. We moeten als land — en dus als overheid — ook investeren in het samenstellen, opschonen en publiceren van Nederlandstalige datasets. Datasets voor het trainen, datasets voor het maken van chatbots en agents, datasets om prestaties te evalueren en om bias te meten. We moeten die datasets overal onder de aandacht brengen. Publiceren op alle plekken waar bedrijven en academici die een taalmodel willen trainen op zoek zijn naar data. Dus niet alleen op data.overheid.nl en de SURF Repository, maar ook op Github, op Hugging Face datasets en op r/MachineLearning. Pushen tot je er niet meer omheen kunt.\nNederlands als bijvangst. Niet per ongeluk, maar als nationale strategie.\nEn daar houdt het niet op. Als maatschappij moeten we ons afvragen waarom technologiebedrijven van eigen bodem momenteel niet dezelfde rol kunnen spelen voor het Nederlands die big tech wel speelt voor het Engels. Waar zijn de open modellen van Albert Heijn, Bol.com, Booking.com en Thuisbezorgd? En waarom kan het Nationaal Groeifonds wel meer dan 200 miljoen euro steken in het AINed-programma, maar kan ik vervolgens op hun website nul ontwikkelde open source datasets of modellen vinden?\nEn als ik dan toch bezig ben: denkt er überhaupt nog iemand aan taalmodellen voor het Fries?\nStrict gezien is het model niet open source. Het is door BigScience vrijgegeven onder de Responsible AI License (RAIL). Die stelt géén restricties aan hergebruik, distributie, commercialisering en aanpassingen, zolang je het maar niet inzet voor één van de restricted use cases in Appendix A. Van tevoren toestemming vragen is niet nodig. ↩︎\nSpecifiek: geschreven Vereenvoudigd Chinees ↩︎\nElke serieuze poging om een groot Nederlandstalig taalmodel te trainen zou eigenlijk moeten beginnen met het samenstellen van datasets waarmee je zo’n model fatsoenlijk zou kunnen evalueren. ↩︎\n",
+  "wordCount" : "1927",
+  "inLanguage": "nl",
+  "image":"https://goingdutch.ai/images/bigscience-bloom/bloom.png","datePublished": "2023-09-18T00:00:00Z",
+  "dateModified": "2023-09-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Edwin Rijgersberg"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goingdutch.ai/nl/posts/bigscience-bloom/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoingDutch.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goingdutch.ai/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://goingdutch.ai/nl/" accesskey="h" title="GoingDutch.ai (Alt + H)">GoingDutch.ai</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://goingdutch.ai/en/" title="English"
+                            aria-label=":uk:">🇬🇧</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://goingdutch.ai/nl/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://goingdutch.ai/nl/search/" title="Zoeken">
+                    <span>Zoeken</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://goingdutch.ai/nl/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Rijgersberg" title="GitHub">
+                    <span>GitHub</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://huggingface.co/Rijgersberg" title="HuggingFace">
+                    <span>HuggingFace</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/edwinrijgersberg/" title="LinkedIn">
+                    <span>LinkedIn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://goingdutch.ai/nl/">Startpagina</a></div>
+    <h1 class="post-title">
+      De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel
+    </h1>
+    <div class="post-meta"><span title='2023-09-18 00:00:00 +0000 UTC'>18 september 2023</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Edwin Rijgersberg&nbsp;|&nbsp;Vertalingen:
+<ul class="i18n_list">
+    <li>
+        <a href="https://goingdutch.ai/en/posts/bigscience-bloom/">🇬🇧</a>
+    </li>
+</ul>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://goingdutch.ai/images/bigscience-bloom/bloom.png" alt="BigScience Bloom">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Inhoudsopgave</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#_bigscience_-big-dreams" aria-label="BigScience, big dreams"><em>BigScience</em>, big dreams</a></li>
+                <li>
+                    <a href="#bloom-open-ethisch-en-klimaatvriendelijk" aria-label="BLOOM: open, ethisch en klimaatvriendelijk">BLOOM: open, ethisch en klimaatvriendelijk</a></li>
+                <li>
+                    <a href="#roots-corpus" aria-label="ROOTS-corpus">ROOTS-corpus</a></li>
+                <li>
+                    <a href="#taalselectie" aria-label="Taalselectie">Taalselectie</a></li>
+                <li>
+                    <a href="#gemiste-kans" aria-label="Gemiste kans?">Gemiste kans?</a></li>
+                <li>
+                    <a href="#lessen" aria-label="Lessen">Lessen</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Drie vrijwilligers.
+Een paar weken aan werk.
+Dat is wat er nodig was om een taal op te nemen in <a href="https://bigscience.huggingface.co/blog/bloom">BigScience BLOOM</a>,
+het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam.
+Het moest een open, meertalig alternatief voor GPT-3 worden.
+Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is.
+Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden.
+Het Nederlands niet. Hoe kan dat?</p>
+<h3 id="_bigscience_-big-dreams"><em>BigScience</em>, big dreams<a hidden class="anchor" aria-hidden="true" href="#_bigscience_-big-dreams">#</a></h3>
+<p>Het begon allemaal in 2021.
+Een groep van meer dan 1.000 onderzoekers had zich verenigd in het virtuele onderzoekscollectief <a href="https://bigscience.huggingface.co">BigScience</a>.
+Vermoedelijk getriggerd door de capaciteiten van GPT-3 en bezorgd om de opkomst van de grote taalmodellen die door de grote techbedrijven voor angstvallig voor zichzelf gehouden worden,
+deden ze vanaf mei 2021 mee aan een éénjarige open <a href="https://arxiv.org/abs/2212.04960">onderzoeks-<em>workshop</em></a> op het gebied van meertalige grote taalmodellen.</p>
+<p>Gefinancierd door de Franse overheid en de Frans-Amerikaanse start-up <a href="https://en.wikipedia.org/wiki/Hugging_Face">Hugging Face</a>
+&mdash; één van de <em>hotste</em> bedrijven op het gebied van AI &mdash;
+wilden ze twee dingen bereiken:</p>
+<ol>
+<li>een zeer grote <strong>meertalige tekst-dataset</strong> samenstellen van hoge kwaliteit, later <a href="https://arxiv.org/abs/2303.03915">ROOTS</a> genoemd; en</li>
+<li>daarmee een zeer groot <strong>meertalig taalmodel</strong> trainen dat GPT-3 naar de kroon kon steken: <a href="https://huggingface.co/bigscience/bloom">BLOOM</a>.</li>
+</ol>
+<p>Zij wilden dit zo open mogelijk doen.
+Het model moest door iedereen te downloaden zijn, zodat je het kunt gebruiken voor toepassingen waar je gesloten modellen als GPT-3 niet voor kunt gebruiken.
+Als je bijvoorbeeld vertrouwelijke data hebt die je niet naar een Amerikaans techbedrijf wil sturen.
+Of als je het model wilt onderzoeken op mogelijke <em>biases</em> voordat je het inzet.
+Of als je gewoon uit principe wilt weten op welke data het model wel en niet gezien heeft in de trainingsfase.</p>
+<p>Om dit voor elkaar te krijgen zijn onderzoekers betrokken vanuit allerlei verschillende vakgebieden en zijn dataset en model vanuit meerdere gezichtspunten <a href="https://bigscience.huggingface.co">onderzocht</a>:</p>
+<blockquote>
+<p>‍During the workshop, the participants plan to investigate the dataset and the model from all angles: <mark>bias, social impact, capabilities, limitations, ethics, potential improvements, specific domain performances, carbon impact, general AI/cognitive research landscape</mark>.</p>
+</blockquote>
+<p>Het hele initiatief is ook uitvoerig beschreven in drie losse wetenschappelijk papers: over het <a href="https://arxiv.org/abs/2212.04960">proces</a>, over de <a href="https://arxiv.org/abs/2303.03915">dataset</a> en over het <a href="https://arxiv.org/abs/2211.05100">model</a>.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/working-groups.png" alt="BigScience werkgroepen"  />
+
+<small>De BigScience werkgroepen. Akiki, Christopher, et al. &ldquo;BigScience: A case study in the social construction of a multilingual large language model.&rdquo; <em>arXiv preprint <a href="https://arxiv.org/abs/2212.04960">arXiv:2212.04960</a></em> (2022).</small></p>
+<h3 id="bloom-open-ethisch-en-klimaatvriendelijk">BLOOM: open, ethisch en klimaatvriendelijk<a hidden class="anchor" aria-hidden="true" href="#bloom-open-ethisch-en-klimaatvriendelijk">#</a></h3>
+<p>Het resultaat: BLOOM, het <em><b>B</b>igScience <b>L</b>arge <b>O</b>pen-science <b>O</b>pen-access <b>M</b>ultilingual Language Model</em>, gelanceerd in juli 2022.
+Een groot open taalmodel van 176 miljard parameters dat getraind is op 46 verschillende talen (en 13 verschillende programmeertalen).
+Het is voor iedereen vrij <a href="https://huggingface.co/bigscience/bloom">te downloaden</a>, te bestuderen en te gebruiken<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
+En niet alleen het uiteindelijke model is beschikbaar, maar ook tussentijdse <em>checkpoints</em> van het model van tijdens het trainen zijn met iedereen gedeeld.</p>
+<p>Het model is in 117 dagen getraind op ruim 3.000 GPUs van de Franse <a href="http://www.idris.fr/eng/jean-zay/jean-zay-presentation-eng.html">Jean Zay supercomputer</a>.
+Kosten? Ongeveer <a href="https://bigscience.huggingface.co/blog/bloom">3 miljoen euro</a>.
+De Franse supercomputer is ook de bron van de claim van de klimaatvriendelijkheid van het model.
+BigScience gaat er namelijk prat op dat de benodigde elektriciteit grotendeels opgewekt is met kernenergie.
+Het trainen van het model heeft daardoor een lage CO<sub>2</sub>-uitstoot met zich meegebracht.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/jean-zay-annonce-01.jpg" alt="Jean Zay Supercomputer"  />
+
+<small>De Jean Zay Supercomputer. <em>© Photothèque CNRS/Cyril Frésillon</em></small></p>
+<p>De focus op openheid en ethiek leverde lof op vanuit de academische wereld.
+Onderzoekers van de Stanford University publiceerden recent een <a href="https://crfm.stanford.edu/2023/06/15/eu-ai-act.html">onderzoek</a> naar grote taalmodellen.
+Ze brachten in kaart welke van de grote taalmodellen nu al het best voldoen aan de eisen uit de voorlopige tekst van de EU AI Act: de <a href="https://nl.wikipedia.org/wiki/Verordening_Kunstmatige_Intelligentie">Verordening Kunstmatige Intelligentie</a> van de Europese Unie.
+BLOOM scoorde verreweg het best.
+Ook de Radboud Universiteit deed een vergelijkend onderzoek naar de openheid van taalmodellen (<a href="https://opening-up-chatgpt.github.io">leaderboard</a>, <a href="https://arxiv.org/abs/2307.05532">paper</a>).
+Het meest open model?
+Wederom BLOOM.</p>
+<p>In 2022 werd het mode om elk groot taalmodel als een <em>foundation model</em> te beschouwen,
+en zo&rsquo;n model te finetunen op chatconversaties om een interactief model te maken á la OpenAI&rsquo;s <a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>.
+Begin november 2022 is er daarom ook nog een chat-variant van BLOOM uitgebracht: BLOOMZ (<a href="https://huggingface.co/bigscience/bloomz">website</a>, <a href="https://arxiv.org/abs/2211.01786">paper</a>, <a href="https://github.com/bigscience-workshop/xmtf">GitHub</a>).
+De buzz daaromheen is helaas een beetje verloren gegaan in het geweld van ChatGPT, dat nog geen vier weken later <a href="https://openai.com/blog/chatgpt">werd gelanceerd</a>.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/eu-ai-act.png" alt="StanfordEU AI Act Scores"  />
+
+<small>Scores van grote taalmodellen op de eisen uit de AI-Act. Bommasani, Rishi et al. &ldquo;Do Foundation Model Providers Comply with the EU AI Act?&rdquo; <em><a href="https://crfm.stanford.edu/2023/06/15/eu-ai-act.html">https://crfm.stanford.edu/2023/06/15/eu-ai-act.html</a></em> (2023).</small></p>
+<h3 id="roots-corpus">ROOTS-corpus<a hidden class="anchor" aria-hidden="true" href="#roots-corpus">#</a></h3>
+<p>Om BLOOM te kunnen trainen moest er eerst een dataset samengesteld worden: het <a href="https://arxiv.org/abs/2303.03915">ROOTS-corpus</a>.
+Ook hier weer lag de focus op openheid en ethiek.
+Van alle datasets die in ROOTS zijn opgenomen werden <a href="https://huggingface.co/spaces/bigscience/BigScienceCorpus"><em>dataset cards</em></a> gepubliceerd.
+De data zelf is opgeschoond en gededupliceerd.
+Persoonsgegevens als telefoonnummers, e-mailadressen en usernames op social media zijn zo veel mogelijk automatisch verwijderd.
+Zo is ROOTS uitgegroeid tot een dataset van 1,6 terabyte aan tekstdata in 46 natuurlijke talen,
+aangevuld met 13 verschillende programmeertalen.</p>
+<p>Die 46 verschillende talen vormen een nogal interessante mengelmoes.
+Uiteraard ontbreken <em>high-resource</em> Europese talen als Engels, Frans, Spaans en Portugees niet in dit toch grotendeels Europese project.
+Daarnaast maken ook Arabisch en Chinees<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> acte de présence.
+Tenslotte zijn er bewust een aantal <em>low-resource</em>-talen aan de dataset toegevoegd,
+zoals meerdere talen uit de <a href="https://nl.wikipedia.org/wiki/Niger-Congotalen">Niger-Congo-taalfamilie</a> waarvoor maar weinig geschreven tekst beschikbaar is.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/languages.png" alt="Taartdiagram van talen in ROOTS"  />
+
+<small>Talen in het ROOTS-corpus. Grafiek uit de BLOOM <a href="https://huggingface.co/bigscience/bloom">model card</a>.</small></p>
+<p>Opvallende ontbrekende talen?
+Allereerst: het Duits.
+Daarnaast het Russisch, en eigenlijk alle Slavische talen, net als de Scandinavische talen.
+En het Nederlands dus.
+Wel aanwezig: relatief kleine talen als het Catalaans en het Baskisch. Hoe kan dat?</p>
+<h3 id="taalselectie">Taalselectie<a hidden class="anchor" aria-hidden="true" href="#taalselectie">#</a></h3>
+<p>Hoe werd bepaald welke talen wel en welke talen niet meegenomen werden?
+Het antwoord is eigenlijk vrij simpel,
+maar vreemd genoeg niet te vinden in het <a href="https://arxiv.org/abs/2303.03915">paper</a> dat het ROOTS-corpus beschrijft.
+In plaats daarvan komt het aan bod in het <a href="https://arxiv.org/abs/2211.05100">paper van BLOOM zelf</a>, op pagina 10 en 11.</p>
+<blockquote>
+<p><strong>Language Choices</strong> These considerations led us to an incremental process for choosing which languages were to be included in the corpus. <mark>We started with a list of eight of the world’s largest languages by number of speakers</mark> for which we did active outreach in the early stages of the project to invite fluent speakers to join the data efforts. Then, on the recommendation of language communities (Nekoto et al., 2020) we expanded Swahili in the original selection to the category of Niger-Congo languages, and Hindi and Urdu to Indic languages (Kunchukuttan et al., 2020). <mark>Finally, we proposed that any group of 3 or more participants fluent in an additional language could add it to the supported list if they would commit to selecting sources and guiding processing choices in the language</mark> in order to avoid common issues with corpora selected through automatic language identification without specific language expertise (Caswell et al., 2022).</p>
+<p><small>Scao, Teven Le, et al. &ldquo;Bloom: A 176b-parameter open-access multilingual language model.&rdquo; <em>arXiv preprint <a href="https://arxiv.org/abs/2211.05100">arXiv:2211.05100</a></em> (2022)</small></p>
+</blockquote>
+<!-- <figure>
+    <img loading="lazy" src="/images/bigscience-bloom/language-selection.png"/> <figcaption>
+            Scao, Teven Le, et al. &#34;Bloom: A 176b-parameter open-access multilingual language model.&#34; arXiv preprint arXiv:2211.05100 (2022).
+        </figcaption>
+</figure>
+ -->
+<p>Vrijwilligers dus.
+Om precies te zijn: minimaal drie vrijwilligers die de taal vloeiend spreken en bereid waren om bronnen te selecteren, én bereid waren om te bewaken dat het verwerken van die bronnen op een goede manier gebeurde.
+Ik weet de details niet precies, maar ik schat het op hooguit enkele weken aan werk.
+Dat waren de kosten om als Nederlands mee te profiteren van een miljoeneninvestering.
+Blijkbaar waren er niet minimaal drie vrijwilligers beschikbaar die dat voor het Nederlands wilden of konden doen.</p>
+<h3 id="gemiste-kans">Gemiste kans?<a hidden class="anchor" aria-hidden="true" href="#gemiste-kans">#</a></h3>
+<p>Had het ook anders kunnen lopen?
+Misschien wel.
+Ik hoorde zelf pas van het bestaan van BigScience toen het al te laat was.
+Vermoedelijk geldt  dit ook  voor anderen in Nederland of België die er graag aan hadden bijgedragen.
+Ja, als ik mee had willen doen had ik ergens die tijd vandaan moeten halen.
+Maar met een helder doel voor ogen en met het duidelijke belang dat we er als Nederland mee hebben was het vast wel gelukt.
+Het is niet vaak dat je met een kleine tijdsbesteding mee kunt liften op andermans miljoeneninvestering.
+Ik heb waarschijnlijk al langer in vergaderingen gezeten over consortia voor hypothetische toekomstige Nederlandstalige grote taalmodellen dan ik nodig gehad zou hebben om het Nederlands aan BLOOM toe te voegen.</p>
+<p>Aan de andere kant: alle openheid ten spijt is BLOOM nou ook weer niet hét taalmodel geworden dat alle andere taalmodellen heeft doen vergeten.
+Met 176 miljard parameters is het inderdaad heel groot,
+maar BLOOM is van een eerdere generatie dan bijvoorbeeld <a href="https://arxiv.org/abs/2302.13971">LLaMA</a> van Meta (70 miljard parameters), dat een stuk efficiënter met de parameters omgaat.
+In de <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">🤗 Open LLM Leaderboard</a>,
+een ranglijst van best presterende grote taalmodellen,
+is BLOOM-178B niet eens opgenomen.
+Tekenend voor het gebrek aan interesse van de open source community, schat ik zo in.
+Een kleinere variant van BLOOM, <a href="https://huggingface.co/bigscience/bloom-7b1">BLOOM-7b1</a> met &ldquo;maar&rdquo; 7 miljard parameters,
+staat wel op de lijst, maar bevindt zich ergens in de onderste helft.
+<a href="https://huggingface.co/bigscience/bloomz">BLOOMZ</a> &mdash; de chatversie van BLOOM &mdash; komt ook niet op het leaderboard voor.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/llm-leaderboard.png" alt="BlOOM op het 🤗 Open LLM Leaderboard"  />
+
+<small>BLOOM-7b1 op het <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">🤗 Open LLM Leaderboard</a>.</small></p>
+<p>Maar wat meet dat leaderboard eigenlijk?
+Prestaties in het Engels.
+De grote open taalmodellen voor het Nederlands staan nog heel erg in de kinderschoenen.
+Er bestaat naar mijn weten niet eens zo&rsquo;n leaderbord voor het Nederlands.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>
+En <em>als</em> er al een leaderboard zou bestaan voor open Nederlandstalige modellen:
+een hypothetische BLOOM dat ook op het Nederlands getraind zou zijn zou bovenaan de lijst prijken.
+In de lage landen der blinden zou éénoog koning zijn.</p>
+<h3 id="lessen">Lessen<a hidden class="anchor" aria-hidden="true" href="#lessen">#</a></h3>
+<p>Welke lessen kan de Nederlandstalige AI-community wat mij betreft hieruit trekken?</p>
+<p>Om te beginnen: we moeten méédoen.
+De grote Amerikaanse techbedrijven zien Nederland en het Nederlands slechts als bijzaak,
+en geef ze eens ongelijk.
+Als sprekers van een kleine taal in een grote wereld moeten we opportunistisch zijn.
+Als we kunnen meeliften op een bestaand initiatief: capaciteit vrijmaken en doen!
+Vrijwilligers gezocht?
+Wij hebben ze klaarstaan!
+Niet alleen grootse projectplannen, maar vooral ook ijverige handjes.</p>
+<p>We moeten voorkomen dat we een volgende keer weer de boot missen.
+Maar dat alleen is niet genoeg.
+We moeten als land &mdash; en dus als overheid &mdash; ook investeren in het samenstellen, opschonen en publiceren van Nederlandstalige datasets.
+Datasets voor het trainen, datasets voor het maken van chatbots en <em>agents</em>, datasets om prestaties te evalueren en om <em>bias</em> te meten.
+We moeten die datasets overal onder de aandacht brengen.
+Publiceren op alle plekken waar bedrijven en academici die een taalmodel willen trainen op zoek zijn naar data.
+Dus niet alleen op <a href="https://data.overheid.nl">data.overheid.nl</a> en de <a href="https://repository.surfsara.nl">SURF Repository</a>, maar ook op <a href="https://github.com/MinBZK">Github</a>, op <a href="https://huggingface.co/datasets">Hugging Face datasets</a> en op <a href="https://www.reddit.com/r/MachineLearning/">r/MachineLearning</a>.
+Pushen tot je er niet meer omheen kunt.</p>
+<p>Nederlands als bijvangst.
+Niet per ongeluk, maar als nationale strategie.</p>
+<p>En daar houdt het niet op.
+Als maatschappij moeten we ons afvragen waarom technologiebedrijven van eigen bodem momenteel niet dezelfde rol kunnen spelen voor het Nederlands die <em>big tech</em> wel speelt voor het Engels.
+Waar zijn de open modellen van <a href="https://nieuws.ah.nl/albert-heijn-innoveert-met-generative-ai-voor-klanten-en-medewerkers/">Albert Heijn</a>, <a href="https://careers.bol.com/nl/expertises/data-analytics/">Bol.com</a>, <a href="https://booking.ai">Booking.com</a> en <a href="https://careers.justeattakeaway.com/global/en/c/data-analytics-jobs">Thuisbezorgd</a>?
+En waarom kan het Nationaal Groeifonds wel <a href="https://www.nationaalgroeifonds.nl/projecten-ronde-1/ained">meer dan 200 miljoen euro steken</a> in het <a href="https://ained.nl">AINed-programma</a>,
+maar kan ik vervolgens op hun website nul ontwikkelde open source datasets of modellen vinden?</p>
+<p>En als ik dan toch bezig ben: denkt er überhaupt nog iemand aan taalmodellen voor het Fries?</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Strict gezien is het model niet <em>open source</em>. Het is door BigScience vrijgegeven onder de <a href="https://bigscience.huggingface.co/blog/the-bigscience-rail-license">Responsible AI License (RAIL)</a>. Die stelt géén restricties aan hergebruik, distributie, commercialisering en aanpassingen, zolang je het maar niet inzet voor één van de <em>restricted use cases</em> in <a href="https://huggingface.co/spaces/bigscience/license">Appendix A</a>. Van tevoren toestemming vragen is niet nodig.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Specifiek: geschreven Vereenvoudigd Chinees&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Elke serieuze poging om een groot Nederlandstalig taalmodel te trainen zou eigenlijk moeten beginnen met het samenstellen van datasets waarmee je zo&rsquo;n model fatsoenlijk zou kunnen evalueren.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://goingdutch.ai/nl/tags/bigscience/">BigScience</a></li>
+      <li><a href="https://goingdutch.ai/nl/tags/bloom/">BLOOM</a></li>
+      <li><a href="https://goingdutch.ai/nl/tags/bloomz/">BLOOMZ</a></li>
+      <li><a href="https://goingdutch.ai/nl/tags/open-language-models/">Open Language Models</a></li>
+      <li><a href="https://goingdutch.ai/nl/tags/dutch-large-language-models/">Dutch Large Language models</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://goingdutch.ai/nl/posts/europython-2023-ttl/">
+    <span class="title">Volgende »</span>
+    <br>
+    <span>Mijn praatje op EuroPython 2023: &#34;Threat to Life — Preventing Planned Murders with Python&#34;</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on twitter"
+        href="https://twitter.com/intent/tweet/?text=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel&amp;url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f&amp;hashtags=BigScience%2cBLOOM%2cBLOOMZ%2cOpenLanguageModels%2cDutchLargeLanguagemodels">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f&amp;title=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel&amp;summary=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel&amp;source=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f&title=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on whatsapp"
+        href="https://api.whatsapp.com/send?text=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel%20-%20https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on telegram"
+        href="https://telegram.me/share/url?text=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel&amp;url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel on ycombinator"
+        href="https://news.ycombinator.com/submitlink?t=De%20boot%20gemist%3a%20waarom%20het%20Nederlands%20ontbreekt%20in%20het%20belangrijkste%20open%20Europese%20taalmodel&u=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+            <path
+                d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <script id="partials/analytics.html" 
+  data-goatcounter="https://goingdutch.goatcounter.com/count"
+  async src="//gc.zgo.at/count.js"></script>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://goingdutch.ai/nl/">GoingDutch.ai</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'kopieer';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'gekopieerd!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'kopieer';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model | GoingDutch.ai</title>
+<meta name="keywords" content="BigScience, BLOOM, BLOOMZ, Open Language Models, Dutch Large Language models">
+<meta name="description" content="Three volunteers. A couple of weeks of work. That&rsquo;s what it took to add a language to BigScience BLOOM, the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022. It aimed to become an open and multilingual alternative to GPT-3. In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on. Even relatively small languages like Basque and Catalan managed to be included.">
+<meta name="author" content="Edwin Rijgersberg">
+<link rel="canonical" href="https://goingdutch.ai/en/posts/bigscience-bloom/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://goingdutch.ai/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://goingdutch.ai/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://goingdutch.ai/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://goingdutch.ai/apple-touch-icon.png">
+<link rel="mask-icon" href="https://goingdutch.ai/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://goingdutch.ai/en/posts/bigscience-bloom/">
+<link rel="alternate" hreflang="nl" href="https://goingdutch.ai/nl/posts/bigscience-bloom/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model" />
+<meta property="og:description" content="Three volunteers. A couple of weeks of work. That&rsquo;s what it took to add a language to BigScience BLOOM, the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022. It aimed to become an open and multilingual alternative to GPT-3. In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on. Even relatively small languages like Basque and Catalan managed to be included." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://goingdutch.ai/en/posts/bigscience-bloom/" />
+<meta property="og:image" content="https://goingdutch.ai/images/bigscience-bloom/bloom.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://goingdutch.ai/images/bigscience-bloom/bloom.png" />
+<meta name="twitter:title" content="Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model"/>
+<meta name="twitter:description" content="Three volunteers. A couple of weeks of work. That&rsquo;s what it took to add a language to BigScience BLOOM, the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022. It aimed to become an open and multilingual alternative to GPT-3. In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on. Even relatively small languages like Basque and Catalan managed to be included."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Left behind: why the Dutch language is absent from Europe's foremost open language model",
+      "item": "https://goingdutch.ai/en/posts/bigscience-bloom/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Left behind: why the Dutch language is absent from Europe's foremost open language model",
+  "name": "Left behind: why the Dutch language is absent from Europe\u0027s foremost open language model",
+  "description": "Three volunteers. A couple of weeks of work. That\u0026rsquo;s what it took to add a language to BigScience BLOOM, the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022. It aimed to become an open and multilingual alternative to GPT-3. In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on. Even relatively small languages like Basque and Catalan managed to be included.",
+  "keywords": [
+    "BigScience", "BLOOM", "BLOOMZ", "Open Language Models", "Dutch Large Language models"
+  ],
+  "articleBody": "Three volunteers. A couple of weeks of work. That’s what it took to add a language to BigScience BLOOM, the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022. It aimed to become an open and multilingual alternative to GPT-3. In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on. Even relatively small languages like Basque and Catalan managed to be included. Dutch did not. How is that possible?\nBigScience, big dreams It all started in 2021. A group of more than 1,000 researchers united in the virtual research collective BigScience. Probably triggered by the capabilities of GPT-3 and concerned about the rise of large language models that were increasingly kept to themselves by big tech companies, they participated from May 2021 in a one-year open research workshop in the field of multilingual large language models.\nFunded by the French government and the French-American start-up Hugging Face — one of the hottest companies in the field of AI — they wanted to achieve two things:\ncompile a very large multilingual text dataset of high quality, later named ROOTS; and train a very large multilingual language model with it that could rival GPT-3: BLOOM. They wanted to do this as openly as possible. The model had to be downloadable by everyone, so that it could be used for applications where you can’t use closed models like GPT-3. For instance, if you have confidential data that you don’t want to send to some American tech company. Or if you want to investigate the model for possible biases before deploying it. Or if you simply want to know what data the model has and hasn’t seen during the training phase.\nTo achieve this, the goal was to involve researchers from all sorts of different fields and to examine the dataset and model from multiple perspectives:\nDuring the workshop, the participants plan to investigate the dataset and the model from all angles: bias, social impact, capabilities, limitations, ethics, potential improvements, specific domain performances, carbon impact, general AI/cognitive research landscape.\nThe whole initiative is also extensively described in three separate scientific papers: about the process, about the dataset, and about the model.\nThe BigScience working groups. Akiki, Christopher, et al. “BigScience: A case study in the social construction of a multilingual large language model.” arXiv preprint arXiv:2212.04960 (2022).\nBLOOM: open, ethical, and climate-friendly The result: BLOOM, the BigScience Large Open-science Open-access Multilingual Language Model, launched in July 2022. A large open language model with 176 billion parameters that has been trained in 46 different languages (and 13 different programming languages). It is available for everyone to download, study, and use1. Not only is the final model available, but intermediate checkpoints of the model from during the training have been shared with everyone.\nThe model was trained in 117 days on more than 3,000 GPUs of the French Jean Zay supercomputer. Cost? About 3 million euros. The French supercomputer is also the source of the claim of the model’s climate friendliness. BigScience proudly states that the required electricity was largely generated by nuclear fission. As a result, the training of the model resulted in low CO2 emissions.\nThe Jean Zay Supercomputer. © Photo Library CNRS/Cyril Frésillon\nThe focus on openness and ethics earned praise from the academic world. Researchers from Stanford University recently published a study on large language models. They mapped out which of the large language models already best meet the requirements of the draft text of the European Union’s AI Act. BLOOM scored by far the best. Radboud University also conducted a comparative study on the openness of language models (leaderboard, paper). The most open model? Once again, BLOOM.\nIn 2022, it became fashionable to consider every large language model as a foundation model, and to fine-tune such a model on chat conversations to create an interactive model similar to OpenAI’s InstructGPT. Therefore, a chat version of BLOOM was also released in early November 2022: BLOOMZ (website, paper, GitHub). Unfortunately, the buzz around it got somewhat lost in the frenzy surrounding ChatGPT, which was launched less than four weeks later.\nScores of large language models on the requirements of the AI Act. Bommasani, Rishi et al. “Do Foundation Model Providers Comply with the EU AI Act?” https://crfm.stanford.edu/2023/06/15/eu-ai-act.html (2023).\nROOTS Corpus In order to train BLOOM, a dataset first had to be assembled: the ROOTS corpus. Here too, the focus was on openness and ethics. Dataset cards were published for all the datasets included in ROOTS. The data itself has been cleaned and deduplicated. Personal private information such as phone numbers, email addresses, and social media usernames have been automatically removed as much as possible. As a result, ROOTS has grown into a dataset of 1.6 terabytes of text data in 46 natural languages, supplemented with 13 different programming languages.\nThese 46 different languages form quite an interesting mix. Obviously, “high-resource” European languages such as English, French, Spanish, and Portuguese are not missing in this largely European project. In addition, Arabic and Chinese2 are also present. Finally, a number of “low-resource” languages have been deliberately added to the dataset, including several languages from the Niger-Congo language family for which there is little written text available.\nLanguages in the ROOTS corpus. Chart from the BLOOM model card.\nNotable missing languages? First and foremost: German. Additionally, Russian, and actually all Slavic languages, as well as the Scandinavian languages. And, of course, Dutch. However, relatively small languages such as Catalan and Basque are included. How can this be?\nLanguage Selection How was it determined which languages would be included and which would not? The answer is actually quite simple, but strangely enough, it is not found in the paper that describes the ROOTS corpus. Instead, it is discussed in the paper on BLOOM itself, on pages 10 and 11.\nLanguage Choices These considerations led us to an incremental process for choosing which languages were to be included in the corpus. We started with a list of eight of the world’s largest languages by number of speakers for which we did active outreach in the early stages of the project to invite fluent speakers to join the data efforts. Then, on the recommendation of language communities (Nekoto et al., 2020) we expanded Swahili in the original selection to the category of Niger-Congo languages, and Hindi and Urdu to Indic languages (Kunchukuttan et al., 2020). Finally, we proposed that any group of 3 or more participants fluent in an additional language could add it to the supported list if they would commit to selecting sources and guiding processing choices in the language in order to avoid common issues with corpora selected through automatic language identification without specific language expertise (Caswell et al., 2022).\nScao, Teven Le, et al. “Bloom: A 176b-parameter open-access multilingual language model.” arXiv preprint arXiv:2211.05100 (2022)\nVolunteers, then. To be precise: at least three volunteers who are fluent in the language and were willing to select sources, and were prepared to ensure that the processing of these sources was done correctly. I don’t know the exact details, but I estimate it at most a few weeks of work. Those were the costs to have the Dutch language benefit from a multi-million euro investment. Apparently, there were not at least three volunteers available who wanted or could do this for Dutch.\nMissed Opportunity? Could it have gone differently? Perhaps. I only heard about the existence of BigScience when it was already too late. Presumably, this is also the case for others in the Netherlands or Belgium who would have liked to contribute. Yes, if I wanted to participate, I would have had to find time somewhere. But with a clear goal in mind and the obvious interest we have as the Netherlands, I probably would have managed. It’s not often that you can benefit from someone else’s million-euro investment with a small time commitment. I probably have spent more time in meetings discussing consortia for hypothetical future Dutch language large language models than it would have taken to add Dutch to BLOOM.\nOn the other hand: despite all openness, BLOOM has not become the language model that made all other language models obsolete. With 176 billion parameters, it is indeed very large, but BLOOM is from an earlier generation than, for example, Meta’s LLaMA (70 billion parameters), which makes use of its parameters much more efficiently. In the 🤗 Open LLM Leaderboard, a list of the best-performing large language models, BLOOM-178B is not even included. Indicative of the lack of interest from the open-source community, I guess. A smaller variant of BLOOM, BLOOM-7b1 with “only” 7 billion parameters, is present, but it ranked somewhere in the bottom half. BLOOMZ — the chat version of BLOOM — is also not found on the leaderboard.\nBLOOM-7b1 on the 🤗 Open LLM Leaderboard.\nBut what does that leaderboard actually measure? Performance in English. The large open language models for Dutch are still very much in their infancy. To my knowledge, such a leaderboard does not even exist for Dutch.3 And if such a leaderboard for open Dutch language models were to exist: a hypothetical BLOOM that had also been trained on Dutch would be at the top of the list. In the lowlands of the blind, one-eyed would be king.\nLessons What lessons can the Dutch-speaking AI community take from this in my opinion?\nTo start with: we have to participate. The large American tech companies only see the Netherlands and the Dutch language as a side issue, and who can blame them? As speakers of a small language in a big world, we have to be opportunistic. If we can ride along on an existing initiative: free up capacity and do it! Volunteers wanted? We have them ready! Not just grandiose project plans, but also simple eager hands.\nWe must prevent being left behind next time. But that alone is not enough. We must, as a country — and therefore as a government — also invest in compiling, cleaning, and publishing Dutch-language datasets. Datasets for training, datasets for creating chatbots and agents, datasets for evaluating performance and measuring bias. We must bring those datasets to everyone’s attention. Publish them everywhere companies and academics looking to train a language model are acquiring their data. So not only on data.overheid.nl and the SURF Repository, but also on Github, on Hugging Face datasets, and on r/MachineLearning. Push our language until it can’t be ignored.\nDutch as something extra on the side. Not by chance, but as a national strategy.\nAnd it doesn’t end there. As a society, we must ask ourselves why our domestic technology companies cannot currently play the same role for Dutch that big tech does for English. Where are the open models of Albert Heijn, Bol.com, Booking.com, and Just Eat Takeaway? And why can the National Growth Fund invest over 200 million euros in the AINed program, but then I find zero developed open-source datasets or models on their website?\nAnd while I’m at it: is there anyone out there even thinking about language models for Frisian?\nThis post was translated from the original Dutch with the help of GPT-4.\nStrictly speaking, the model is not open source. It has been released by BigScience under the Responsible AI License (RAIL). This does not impose restrictions on reuse, distribution, commercialization, and modifications, as long as you do not use it for one of the restricted use cases in Appendix A. No need to ask for permission in advance. ↩︎\nSpecifically: written Simplified Chinese ↩︎\nAny serious attempt to train a large Dutch language model should actually start with compiling datasets with which you could properly evaluate such a model. ↩︎\n",
+  "wordCount" : "1952",
+  "inLanguage": "en",
+  "image":"https://goingdutch.ai/images/bigscience-bloom/bloom.png","datePublished": "2023-09-18T00:00:00Z",
+  "dateModified": "2023-09-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Edwin Rijgersberg"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goingdutch.ai/en/posts/bigscience-bloom/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoingDutch.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goingdutch.ai/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://goingdutch.ai/en/" accesskey="h" title="GoingDutch.ai (Alt + H)">GoingDutch.ai</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://goingdutch.ai/nl/" title="Nederlands"
+                            aria-label="🇳🇱">🇳🇱</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://goingdutch.ai/en/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://goingdutch.ai/en/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://goingdutch.ai/en/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Rijgersberg" title="GitHub">
+                    <span>GitHub</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://huggingface.co/Rijgersberg" title="HuggingFace">
+                    <span>HuggingFace</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/edwinrijgersberg/" title="LinkedIn">
+                    <span>LinkedIn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://goingdutch.ai/en/">Home</a></div>
+    <h1 class="post-title">
+      Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model
+    </h1>
+    <div class="post-meta"><span title='2023-09-18 00:00:00 +0000 UTC'>18 September 2023</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Edwin Rijgersberg&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://goingdutch.ai/nl/posts/bigscience-bloom/">🇳🇱</a>
+    </li>
+</ul>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://goingdutch.ai/images/bigscience-bloom/bloom.png" alt="BigScience Bloom">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#_bigscience_-big-dreams" aria-label="BigScience, big dreams"><em>BigScience</em>, big dreams</a></li>
+                <li>
+                    <a href="#bloom-open-ethical-and-climate-friendly" aria-label="BLOOM: open, ethical, and climate-friendly">BLOOM: open, ethical, and climate-friendly</a></li>
+                <li>
+                    <a href="#roots-corpus" aria-label="ROOTS Corpus">ROOTS Corpus</a></li>
+                <li>
+                    <a href="#language-selection" aria-label="Language Selection">Language Selection</a></li>
+                <li>
+                    <a href="#missed-opportunity" aria-label="Missed Opportunity?">Missed Opportunity?</a></li>
+                <li>
+                    <a href="#lessons" aria-label="Lessons">Lessons</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Three volunteers.
+A couple of weeks of work.
+That&rsquo;s what it took to add a language to <a href="https://bigscience.huggingface.co/blog/bloom">BigScience BLOOM</a>,
+the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022.
+It aimed to become an open and multilingual alternative to GPT-3.
+In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on.
+Even relatively small languages like Basque and Catalan managed to be included.
+Dutch did not. How is that possible?</p>
+<h3 id="_bigscience_-big-dreams"><em>BigScience</em>, big dreams<a hidden class="anchor" aria-hidden="true" href="#_bigscience_-big-dreams">#</a></h3>
+<p>It all started in 2021.
+A group of more than 1,000 researchers united in the virtual research collective <a href="https://bigscience.huggingface.co">BigScience</a>.
+Probably triggered by the capabilities of GPT-3 and concerned about the rise of large language models that were increasingly kept to themselves by big tech companies,
+they participated from May 2021 in a one-year open <a href="https://arxiv.org/abs/2212.04960">research workshop</a> in the field of multilingual large language models.</p>
+<p>Funded by the French government and the French-American start-up <a href="https://en.wikipedia.org/wiki/Hugging_Face">Hugging Face</a>
+&mdash; one of the <em>hottest</em> companies in the field of AI &mdash;
+they wanted to achieve two things:</p>
+<ol>
+<li>compile a very large <strong>multilingual text dataset</strong> of high quality, later named <a href="https://arxiv.org/abs/2303.03915">ROOTS</a>; and</li>
+<li>train a very large <strong>multilingual language model</strong> with it that could rival GPT-3: <a href="https://huggingface.co/bigscience/bloom">BLOOM</a>.</li>
+</ol>
+<p>They wanted to do this as openly as possible.
+The model had to be downloadable by everyone, so that it could be used for applications where you can&rsquo;t use closed models like GPT-3.
+For instance, if you have confidential data that you don&rsquo;t want to send to some American tech company.
+Or if you want to investigate the model for possible biases before deploying it.
+Or if you simply want to know what data the model has and hasn&rsquo;t seen during the training phase.</p>
+<p>To achieve this, the goal was to involve researchers from all sorts of different fields and to <a href="https://bigscience.huggingface.co">examine</a> the dataset and model from multiple perspectives:</p>
+<blockquote>
+<p>During the workshop, the participants plan to investigate the dataset and the model from all angles: <mark>bias, social impact, capabilities, limitations, ethics, potential improvements, specific domain performances, carbon impact, general AI/cognitive research landscape</mark>.</p>
+</blockquote>
+<p>The whole initiative is also extensively described in three separate scientific papers: about the <a href="https://arxiv.org/abs/2212.04960">process</a>, about the <a href="https://arxiv.org/abs/2303.03915">dataset</a>, and about the <a href="https://arxiv.org/abs/2211.05100">model</a>.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/working-groups.png" alt="BigScience working groups"  />
+
+<small>The BigScience working groups. Akiki, Christopher, et al. &ldquo;BigScience: A case study in the social construction of a multilingual large language model.&rdquo; <em>arXiv preprint <a href="https://arxiv.org/abs/2212.04960">arXiv:2212.04960</a></em> (2022).</small></p>
+<h3 id="bloom-open-ethical-and-climate-friendly">BLOOM: open, ethical, and climate-friendly<a hidden class="anchor" aria-hidden="true" href="#bloom-open-ethical-and-climate-friendly">#</a></h3>
+<p>The result: BLOOM, the <em><b>B</b>igScience <b>L</b>arge <b>O</b>pen-science <b>O</b>pen-access <b>M</b>ultilingual Language Model</em>, launched in July 2022.
+A large open language model with 176 billion parameters that has been trained in 46 different languages (and 13 different programming languages).
+It is available for everyone to <a href="https://huggingface.co/bigscience/bloom">download</a>, study, and use<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
+Not only is the final model available, but intermediate <em>checkpoints</em> of the model from during the training have been shared with everyone.</p>
+<p>The model was trained in 117 days on more than 3,000 GPUs of the French <a href="http://www.idris.fr/eng/jean-zay/jean-zay-presentation-eng.html">Jean Zay supercomputer</a>.
+Cost? About <a href="https://bigscience.huggingface.co/blog/bloom">3 million euros</a>.
+The French supercomputer is also the source of the claim of the model&rsquo;s climate friendliness.
+BigScience proudly states that the required electricity was largely generated by nuclear fission.
+As a result, the training of the model resulted in low CO<sub>2</sub> emissions.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/jean-zay-annonce-01.jpg" alt="Jean Zay Supercomputer"  />
+
+<small>The Jean Zay Supercomputer. <em>© Photo Library CNRS/Cyril Frésillon</em></small></p>
+<p>The focus on openness and ethics earned praise from the academic world.
+Researchers from Stanford University recently published a <a href="https://crfm.stanford.edu/2023/06/15/eu-ai-act.html">study</a> on large language models.
+They mapped out which of the large language models already best meet the requirements of the draft text of the European Union&rsquo;s <a href="https://en.wikipedia.org/wiki/Regulation_on_Artificial_Intelligence">AI Act</a>.
+BLOOM scored by far the best.
+Radboud University also conducted a comparative study on the openness of language models (<a href="https://opening-up-chatgpt.github.io">leaderboard</a>, <a href="https://arxiv.org/abs/2307.05532">paper</a>).
+The most open model?
+Once again, BLOOM.</p>
+<p>In 2022, it became fashionable to consider every large language model as a <em>foundation model</em>,
+and to fine-tune such a model on chat conversations to create an interactive model similar to OpenAI&rsquo;s <a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>.
+Therefore, a chat version of BLOOM was also released in early November 2022: BLOOMZ (<a href="https://huggingface.co/bigscience/bloomz">website</a>, <a href="https://arxiv.org/abs/2211.01786">paper</a>, <a href="https://github.com/bigscience-workshop/xmtf">GitHub</a>).
+Unfortunately, the buzz around it got somewhat lost in the frenzy surrounding ChatGPT, which was <a href="https://openai.com/blog/chatgpt">launched</a> less than four weeks later.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/eu-ai-act.png" alt="StanfordEU AI Act Scores"  />
+
+<small>Scores of large language models on the requirements of the AI Act. Bommasani, Rishi et al. &ldquo;Do Foundation Model Providers Comply with the EU AI Act?&rdquo; <em><a href="https://crfm.stanford.edu/2023/06/15/eu-ai-act.html">https://crfm.stanford.edu/2023/06/15/eu-ai-act.html</a></em> (2023).</small></p>
+<h3 id="roots-corpus">ROOTS Corpus<a hidden class="anchor" aria-hidden="true" href="#roots-corpus">#</a></h3>
+<p>In order to train BLOOM, a dataset first had to be assembled: the <a href="https://arxiv.org/abs/2303.03915">ROOTS corpus</a>.
+Here too, the focus was on openness and ethics.
+<a href="https://huggingface.co/spaces/bigscience/BigScienceCorpus">Dataset cards</a> were published for all the datasets included in ROOTS.
+The data itself has been cleaned and deduplicated.
+Personal private information such as phone numbers, email addresses, and social media usernames have been automatically removed as much as possible.
+As a result, ROOTS has grown into a dataset of 1.6 terabytes of text data in 46 natural languages, supplemented with 13 different programming languages.</p>
+<p>These 46 different languages form quite an interesting mix.
+Obviously, &ldquo;high-resource&rdquo; European languages such as English, French, Spanish, and Portuguese are not missing in this largely European project.
+In addition, Arabic and Chinese<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> are also present.
+Finally, a number of &ldquo;low-resource&rdquo; languages have been deliberately added to the dataset, including several languages from the <a href="https://nl.wikipedia.org/wiki/Niger-Congotalen">Niger-Congo language family</a> for which there is little written text available.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/languages.png" alt="Pie chart of languages in ROOTS"  />
+
+<small>Languages in the ROOTS corpus. Chart from the BLOOM <a href="https://huggingface.co/bigscience/bloom">model card</a>.</small></p>
+<p>Notable missing languages?
+First and foremost: German.
+Additionally, Russian, and actually all Slavic languages, as well as the Scandinavian languages.
+And, of course, Dutch.
+However, relatively small languages such as Catalan and Basque are included. How can this be?</p>
+<h3 id="language-selection">Language Selection<a hidden class="anchor" aria-hidden="true" href="#language-selection">#</a></h3>
+<p>How was it determined which languages would be included and which would not?
+The answer is actually quite simple,
+but strangely enough, it is not found in the <a href="https://arxiv.org/abs/2303.03915">paper</a> that describes the ROOTS corpus. Instead, it is discussed in the <a href="https://arxiv.org/abs/2211.05100">paper on BLOOM itself</a>, on pages 10 and 11.</p>
+<blockquote>
+<p><strong>Language Choices</strong> These considerations led us to an incremental process for choosing which languages were to be included in the corpus. <mark>We started with a list of eight of the world’s largest languages by number of speakers</mark> for which we did active outreach in the early stages of the project to invite fluent speakers to join the data efforts. Then, on the recommendation of language communities (Nekoto et al., 2020) we expanded Swahili in the original selection to the category of Niger-Congo languages, and Hindi and Urdu to Indic languages (Kunchukuttan et al., 2020). <mark>Finally, we proposed that any group of 3 or more participants fluent in an additional language could add it to the supported list if they would commit to selecting sources and guiding processing choices in the language</mark> in order to avoid common issues with corpora selected through automatic language identification without specific language expertise (Caswell et al., 2022).</p>
+<p><small>Scao, Teven Le, et al. &ldquo;Bloom: A 176b-parameter open-access multilingual language model.&rdquo; <em>arXiv preprint <a href="https://arxiv.org/abs/2211.05100">arXiv:2211.05100</a></em> (2022)</small></p>
+</blockquote>
+<!-- <figure>
+    <img loading="lazy" src="/images/bigscience-bloom/language-selection.png"/> <figcaption>
+            Scao, Teven Le, et al. &#34;Bloom: A 176b-parameter open-access multilingual language model.&#34; arXiv preprint arXiv:2211.05100 (2022).
+        </figcaption>
+</figure>
+ -->
+<p>Volunteers, then.
+To be precise: at least three volunteers who are fluent in the language and were willing to select sources, and were prepared to ensure that the processing of these sources was done correctly.
+I don&rsquo;t know the exact details, but I estimate it at most a few weeks of work.
+Those were the costs to have the Dutch language benefit from a multi-million euro investment.
+Apparently, there were not at least three volunteers available who wanted or could do this for Dutch.</p>
+<h3 id="missed-opportunity">Missed Opportunity?<a hidden class="anchor" aria-hidden="true" href="#missed-opportunity">#</a></h3>
+<p>Could it have gone differently?
+Perhaps.
+I only heard about the existence of BigScience when it was already too late.
+Presumably, this is also the case for others in the Netherlands or Belgium who would have liked to contribute.
+Yes, if I wanted to participate, I would have had to find time somewhere.
+But with a clear goal in mind and the obvious interest we have as the Netherlands, I probably would have managed.
+It&rsquo;s not often that you can benefit from someone else&rsquo;s million-euro investment with a small time commitment.
+I probably have spent more time in meetings discussing consortia for hypothetical future Dutch language large language models than it would have taken to add Dutch to BLOOM.</p>
+<p>On the other hand: despite all openness, BLOOM has not become the language model that made all other language models obsolete.
+With 176 billion parameters, it is indeed very large,
+but BLOOM is from an earlier generation than, for example, Meta&rsquo;s <a href="https://arxiv.org/abs/2302.13971">LLaMA</a> (70 billion parameters), which makes use of its parameters much more efficiently.
+In the <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">🤗 Open LLM Leaderboard</a>,
+a list of the best-performing large language models,
+BLOOM-178B is not even included.
+Indicative of the lack of interest from the open-source community, I guess.
+A smaller variant of BLOOM, <a href="https://huggingface.co/bigscience/bloom-7b1">BLOOM-7b1</a> with &ldquo;only&rdquo; 7 billion parameters,
+is present, but it ranked somewhere in the bottom half.
+<a href="https://huggingface.co/bigscience/bloomz">BLOOMZ</a> — the chat version of BLOOM — is also not found on the leaderboard.</p>
+<p><img loading="lazy" src="/images/bigscience-bloom/llm-leaderboard.png" alt="BLOOM on the 🤗 Open LLM Leaderboard"  />
+
+<small>BLOOM-7b1 on the <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">🤗 Open LLM Leaderboard</a>.</small></p>
+<p>But what does that leaderboard actually measure?
+Performance in English.
+The large open language models for Dutch are still very much in their infancy.
+To my knowledge, such a leaderboard does not even exist for Dutch.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>
+And <em>if</em> such a leaderboard for open Dutch language models were to exist:
+a hypothetical BLOOM that had also been trained on Dutch would be at the top of the list.
+In the lowlands of the blind, one-eyed would be king.</p>
+<h3 id="lessons">Lessons<a hidden class="anchor" aria-hidden="true" href="#lessons">#</a></h3>
+<p>What lessons can the Dutch-speaking AI community take from this in my opinion?</p>
+<p>To start with: we have to participate.
+The large American tech companies only see the Netherlands and the Dutch language as a side issue,
+and who can blame them?
+As speakers of a small language in a big world, we have to be opportunistic.
+If we can ride along on an existing initiative: free up capacity and do it!
+Volunteers wanted?
+We have them ready!
+Not just grandiose project plans, but also simple eager hands.</p>
+<p>We must prevent being left behind next time.
+But that alone is not enough.
+We must, as a country — and therefore as a government — also invest in compiling, cleaning, and publishing Dutch-language datasets.
+Datasets for training, datasets for creating chatbots and agents, datasets for evaluating performance and measuring bias.
+We must bring those datasets to everyone&rsquo;s attention.
+Publish them everywhere companies and academics looking to train a language model are acquiring their data.
+So not only on <a href="https://data.overheid.nl">data.overheid.nl</a> and the <a href="https://repository.surfsara.nl">SURF Repository</a>, but also on <a href="https://github.com/MinBZK">Github</a>, on <a href="https://huggingface.co/datasets">Hugging Face datasets</a>, and on <a href="https://www.reddit.com/r/MachineLearning/">r/MachineLearning</a>.
+Push our language until it can&rsquo;t be ignored.</p>
+<p>Dutch as something extra on the side.
+Not by chance, but as a national strategy.</p>
+<p>And it doesn&rsquo;t end there.
+As a society, we must ask ourselves why our domestic technology companies cannot currently play the same role for Dutch that <em>big tech</em> does for English.
+Where are the open models of <a href="https://nieuws.ah.nl/albert-heijn-innoveert-met-generative-ai-voor-klanten-en-medewerkers/">Albert Heijn</a>, <a href="https://careers.bol.com/nl/expertises/data-analytics/">Bol.com</a>, <a href="https://booking.ai">Booking.com</a>, and <a href="https://careers.justeattakeaway.com/global/en/c/data-analytics-jobs">Just Eat Takeaway</a>?
+And why can the National Growth Fund invest <a href="https://www.nationaalgroeifonds.nl/projecten-ronde-1/ained">over 200 million euros</a> in the <a href="https://ained.nl">AINed program</a>,
+but then I find zero developed open-source datasets or models on their website?</p>
+<p>And while I&rsquo;m at it: is there anyone out there even thinking about language models for Frisian?</p>
+<p><small><em>This post was translated from the original Dutch with the help of GPT-4.</em></small></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Strictly speaking, the model is not <em>open source</em>. It has been released by BigScience under the <a href="https://bigscience.huggingface.co/blog/the-bigscience-rail-license">Responsible AI License (RAIL)</a>. This does not impose restrictions on reuse, distribution, commercialization, and modifications, as long as you do not use it for one of the <em>restricted use cases</em> in <a href="https://huggingface.co/spaces/bigscience/license">Appendix A</a>. No need to ask for permission in advance.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Specifically: written Simplified Chinese&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Any serious attempt to train a large Dutch language model should actually start with compiling datasets with which you could properly evaluate such a model.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://goingdutch.ai/en/tags/bigscience/">BigScience</a></li>
+      <li><a href="https://goingdutch.ai/en/tags/bloom/">BLOOM</a></li>
+      <li><a href="https://goingdutch.ai/en/tags/bloomz/">BLOOMZ</a></li>
+      <li><a href="https://goingdutch.ai/en/tags/open-language-models/">Open Language Models</a></li>
+      <li><a href="https://goingdutch.ai/en/tags/dutch-large-language-models/">Dutch Large Language models</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://goingdutch.ai/en/posts/europython-2023-ttl/">
+    <span class="title">Next »</span>
+    <br>
+    <span>My talk at EuroPython 2023: &#34;Threat to Life — Preventing Planned Murders with Python&#34;</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on twitter"
+        href="https://twitter.com/intent/tweet/?text=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model&amp;url=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f&amp;hashtags=BigScience%2cBLOOM%2cBLOOMZ%2cOpenLanguageModels%2cDutchLargeLanguagemodels">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f&amp;title=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model&amp;summary=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model&amp;source=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f&title=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on whatsapp"
+        href="https://api.whatsapp.com/send?text=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model%20-%20https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on telegram"
+        href="https://telegram.me/share/url?text=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model&amp;url=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model on ycombinator"
+        href="https://news.ycombinator.com/submitlink?t=Left%20behind%3a%20why%20the%20Dutch%20language%20is%20absent%20from%20Europe%27s%20foremost%20open%20language%20model&u=https%3a%2f%2fgoingdutch.ai%2fen%2fposts%2fbigscience-bloom%2f">
+        <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+            <path
+                d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <script id="partials/analytics.html" 
+  data-goatcounter="https://goingdutch.goatcounter.com/count"
+  async src="//gc.zgo.at/count.js"></script>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://goingdutch.ai/en/">GoingDutch.ai</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

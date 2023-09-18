@@ -11,7 +11,52 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl</language>
-    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BigScience</title>
+      <link>https://goingdutch.ai/nl/tags/bigscience/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/tags/bigscience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BLOOM</title>
+      <link>https://goingdutch.ai/nl/tags/bloom/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/tags/bloom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BLOOMZ</title>
+      <link>https://goingdutch.ai/nl/tags/bloomz/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/tags/bloomz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dutch Large Language models</title>
+      <link>https://goingdutch.ai/nl/tags/dutch-large-language-models/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/tags/dutch-large-language-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Language Models</title>
+      <link>https://goingdutch.ai/nl/tags/open-language-models/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/tags/open-language-models/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>EuroPython</title>
       <link>https://goingdutch.ai/nl/tags/europython/</link>

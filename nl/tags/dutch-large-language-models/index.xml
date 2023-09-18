@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dutch Large Language models on GoingDutch.ai</title>
+    <link>https://goingdutch.ai/nl/tags/dutch-large-language-models/</link>
+    <description>Recent content in Dutch Large Language models on GoingDutch.ai</description>
+    <image>
+      <title>GoingDutch.ai</title>
+      <url>https://goingdutch.ai/papermod-cover.png</url>
+      <link>https://goingdutch.ai/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>nl</language>
+    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/dutch-large-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>De boot gemist: waarom het Nederlands ontbreekt in het belangrijkste open Europese taalmodel</title>
+      <link>https://goingdutch.ai/nl/posts/bigscience-bloom/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/posts/bigscience-bloom/</guid>
+      <description>Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden.</description>
+    </item>
+    
+  </channel>
+</rss>
