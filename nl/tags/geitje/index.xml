@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GEITje on GoingDutch.ai</title>
+    <link>https://goingdutch.ai/nl/tags/geitje/</link>
+    <description>Recent content in GEITje on GoingDutch.ai</description>
+    <image>
+      <title>GoingDutch.ai</title>
+      <url>https://goingdutch.ai/papermod-cover.png</url>
+      <link>https://goingdutch.ai/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>nl</language><atom:link href="https://goingdutch.ai/nl/tags/geitje/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GEITje 7B: een groot open Nederlands taalmodel</title>
+      <link>https://goingdutch.ai/nl/posts/introducing-geitje/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/posts/introducing-geitje/</guid>
+      <description>Het is nu meer dan twee weken geleden dat ik GEITje 7B heb ge-opensourced. Het was een spannend moment, zeker omdat dit mijn eerste grote open source bijdrage is. Maar ik vind het heel leuk om te zien hoe enthousiast alle reacties zijn geweest!
+GEITje is een Nederlandstalig groot open taalmodel met 7 miljard parameters, gebaseerd op Mistral 7B. Het is (verder) getraind op 10 miljard tokens aan Nederlandstalige tekst. Daardoor heeft het beter Nederlands geleerd, en meer kennis over Nederlandse onderwerpen.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -31,5 +31,15 @@
 Police could read along with criminals In 2020, the police managed to read live messages from a provider of so-called cryptophones: modified phones that — for a substantial payment — were used for encrypted communication in the criminal circuit.</description>
     </item>
     
+    <item>
+      <title>GEITje 7B: A Large Open Dutch Language Model</title>
+      <link>https://goingdutch.ai/en/posts/introducing-geitje/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/posts/introducing-geitje/</guid>
+      <description>It has been more than two weeks since I open-sourced GEITje 7B. It was an exciting moment, especially since this is my first major open source contribution. But I am very pleased to see how enthusiastic all the reactions have been!
+GEITje is a large open Dutch language model with 7 billion parameters, based on Mistral 7B. It has been further trained on 10 billion tokens of Dutch text. This has improved its Dutch language skills and increased its knowledge of Dutch topics.</description>
+    </item>
+    
   </channel>
 </rss>
