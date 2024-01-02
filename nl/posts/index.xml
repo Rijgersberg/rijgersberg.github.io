@@ -11,7 +11,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl</language>
-    <lastBuildDate>Tue, 02 Jan 2024 20:00:00 +0100</lastBuildDate><atom:link href="https://goingdutch.ai/nl/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Jan 2024 23:48:00 +0100</lastBuildDate><atom:link href="https://goingdutch.ai/nl/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GEITje FAQs: Waarom ik GEITje heb gemaakt</title>
+      <link>https://goingdutch.ai/nl/posts/why-geitje/</link>
+      <pubDate>Tue, 02 Jan 2024 23:48:00 +0100</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/posts/why-geitje/</guid>
+      <description>De eerste van een serie posts over vragen die ik over GEITje krijg.
+&amp;ldquo;Waarom heb je een taalmodel gemaakt?&amp;rdquo; Die vraag heb ik de afgelopen weken meermaals gekregen. Meestal meteen gevolgd door een vervolgvraag: &amp;ldquo;ChatGPT bestaat toch al?&amp;rdquo; Geen gekke vraag, eigenlijk. Hieronder mijn drie belangrijkste redenen:
+1. Omdat open modellen nodig zijn ChatGPT doet het geweldig in het Nederlands. Als je een toepassing hebt waar je een LLM voor wilt proberen, pak vooral ChatGPT of één van de OpenAI APIs.</description>
+    </item>
+    
     <item>
       <title>GEITje 7B: een groot open Nederlands taalmodel</title>
       <link>https://goingdutch.ai/nl/posts/introducing-geitje/</link>
