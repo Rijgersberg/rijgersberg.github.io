@@ -31,15 +31,5 @@
 Politie kon live meelezen met criminelen Het was de politie in 2020 gelukt om live mee te kunnen lezen bij een aanbieder van zogenaamde cryptotelefoons: gemodificeerde telefoons die &amp;mdash; tegen een flinke betaling &amp;mdash; gebruikt werden om versleuteld te communiceren in het criminele circuit.</description>
     </item>
     
-    <item>
-      <title>GEITje 7B: een groot open Nederlands taalmodel</title>
-      <link>https://goingdutch.ai/nl/posts/introducing-geitje/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://goingdutch.ai/nl/posts/introducing-geitje/</guid>
-      <description>Het is nu meer dan twee weken geleden dat ik GEITje 7B heb ge-opensourced. Het was een spannend moment, zeker omdat dit mijn eerste grote open source bijdrage is. Maar ik vind het heel leuk om te zien hoe enthousiast alle reacties zijn geweest!
-GEITje is een Nederlandstalig groot open taalmodel met 7 miljard parameters, gebaseerd op Mistral 7B. Het is (verder) getraind op 10 miljard tokens aan Nederlandstalige tekst. Daardoor heeft het beter Nederlands geleerd, en meer kennis over Nederlandse onderwerpen.</description>
-    </item>
-    
   </channel>
 </rss>

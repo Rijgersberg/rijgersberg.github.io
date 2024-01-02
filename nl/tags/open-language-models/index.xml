@@ -21,15 +21,5 @@
       <description>Drie vrijwilligers. Een paar weken aan werk. Dat is wat er nodig was om een taal op te nemen in BigScience BLOOM, het open meertalige taalmodel met maar liefst 176 miljard parameters dat halverwege 2022 uitkwam. Het moest een open, meertalig alternatief voor GPT-3 worden. Uiteindelijk zijn er 46 talen van over de hele wereld beland in de dataset waarmee BLOOM getrained is. Ook relatief kleine talen als het Baskisch en het Catalaans kregen het voor elkaar om opgenomen te worden.</description>
     </item>
     
-    <item>
-      <title>GEITje 7B: een groot open Nederlands taalmodel</title>
-      <link>https://goingdutch.ai/nl/posts/introducing-geitje/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://goingdutch.ai/nl/posts/introducing-geitje/</guid>
-      <description>Het is nu meer dan twee weken geleden dat ik GEITje 7B heb ge-opensourced. Het was een spannend moment, zeker omdat dit mijn eerste grote open source bijdrage is. Maar ik vind het heel leuk om te zien hoe enthousiast alle reacties zijn geweest!
-GEITje is een Nederlandstalig groot open taalmodel met 7 miljard parameters, gebaseerd op Mistral 7B. Het is (verder) getraind op 10 miljard tokens aan Nederlandstalige tekst. Daardoor heeft het beter Nederlands geleerd, en meer kennis over Nederlandse onderwerpen.</description>
-    </item>
-    
   </channel>
 </rss>
