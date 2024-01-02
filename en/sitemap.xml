@@ -2,6 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goingdutch.ai/en/tags/dutch-large-language-models/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/tags/dutch-large-language-models/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/tags/dutch-large-language-models/"
+                />
+  </url><url>
+    <loc>https://goingdutch.ai/en/tags/geitje/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/tags/geitje/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/tags/geitje/"
+                />
+  </url><url>
+    <loc>https://goingdutch.ai/en/posts/introducing-geitje/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/posts/introducing-geitje/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/posts/introducing-geitje/"
+                />
+  </url><url>
+    <loc>https://goingdutch.ai/en/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/"
+                />
+  </url><url>
+    <loc>https://goingdutch.ai/en/tags/open-language-models/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/tags/open-language-models/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/tags/open-language-models/"
+                />
+  </url><url>
+    <loc>https://goingdutch.ai/en/posts/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/posts/"
+                />
+  </url><url>
+    <loc>https://goingdutch.ai/en/tags/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://goingdutch.ai/nl/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://goingdutch.ai/en/tags/"
+                />
+  </url><url>
     <loc>https://goingdutch.ai/en/tags/bigscience/</loc>
     <lastmod>2023-09-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -41,32 +132,6 @@
                 href="https://goingdutch.ai/en/tags/bloomz/"
                 />
   </url><url>
-    <loc>https://goingdutch.ai/en/tags/dutch-large-language-models/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nl"
-                href="https://goingdutch.ai/nl/tags/dutch-large-language-models/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://goingdutch.ai/en/tags/dutch-large-language-models/"
-                />
-  </url><url>
-    <loc>https://goingdutch.ai/en/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nl"
-                href="https://goingdutch.ai/nl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://goingdutch.ai/en/"
-                />
-  </url><url>
     <loc>https://goingdutch.ai/en/posts/bigscience-bloom/</loc>
     <lastmod>2023-09-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -78,45 +143,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://goingdutch.ai/en/posts/bigscience-bloom/"
-                />
-  </url><url>
-    <loc>https://goingdutch.ai/en/tags/open-language-models/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nl"
-                href="https://goingdutch.ai/nl/tags/open-language-models/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://goingdutch.ai/en/tags/open-language-models/"
-                />
-  </url><url>
-    <loc>https://goingdutch.ai/en/posts/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nl"
-                href="https://goingdutch.ai/nl/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://goingdutch.ai/en/posts/"
-                />
-  </url><url>
-    <loc>https://goingdutch.ai/en/tags/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nl"
-                href="https://goingdutch.ai/nl/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://goingdutch.ai/en/tags/"
                 />
   </url><url>
     <loc>https://goingdutch.ai/en/tags/europython/</loc>
@@ -182,10 +208,6 @@
                 hreflang="en"
                 href="https://goingdutch.ai/en/categories/"
                 />
-  </url><url>
-    <loc>https://goingdutch.ai/en/tags/geitje/</loc>
-  </url><url>
-    <loc>https://goingdutch.ai/en/posts/introducing-geitje/</loc>
   </url><url>
     <loc>https://goingdutch.ai/en/search/</loc>
     <xhtml:link
