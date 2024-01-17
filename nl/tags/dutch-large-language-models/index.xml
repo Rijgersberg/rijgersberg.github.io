@@ -11,7 +11,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl</language>
-    <lastBuildDate>Wed, 03 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/dutch-large-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/dutch-large-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interview in de Poki-podcast: &#34;Het Nederlandse taalmodel: GEITje ft. Edwin Rijgersberg&#34;</title>
+      <link>https://goingdutch.ai/nl/posts/poki-geitje/</link>
+      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/posts/poki-geitje/</guid>
+      <description>Deze week had ik de eer om te gast te zijn in de podcast van Alexander Klöpping en Wietse Hage: Poki – de Podcast over Kunstmatige Intelligentie.
+We hadden een goed gesprek over GEITje, het finetunen van Large Language models in het algemeen en voor het Nederlands in het bijzonder. We hebben ongeveer een half uur gesproken, en het gesprek is bijna integraal in de podcast beland. Inclusief wat nu wel een klassieker moet worden: de Bassietest.</description>
+    </item>
+    
     <item>
       <title>GEITje FAQs: Waarom de naam &#34;GEITje&#34;?</title>
       <link>https://goingdutch.ai/nl/posts/naming-geitje/</link>
