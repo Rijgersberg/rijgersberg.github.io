@@ -11,7 +11,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/geitje/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/geitje/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The end of GEITje 1</title>
+      <link>https://goingdutch.ai/en/posts/geitje-takedown/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/posts/geitje-takedown/</guid>
+      <description>At the pressing request of Stichting BREIN, GEITje is no longer available as of today. All model files (the weights) and checkpoints have been removed from my HuggingFace repositories.
+GEITje was a Dutch-language large open language model with 7 billion parameters, based on Mistral 7B. It was (further) trained on 10 billion tokens of Dutch text, improving its proficiency in Dutch and its knowledge of Dutch-specific topics.
+As stated in the README, GEITje was partially trained in late 2023 using portions of the Dutch Gigacorpus.</description>
+    </item>
+    
     <item>
       <title>Interview in the Poki-podcast: &#34;The Dutch Language Model: GEITje ft. Edwin Rijgersberg&#34;</title>
       <link>https://goingdutch.ai/en/posts/poki-geitje/</link>

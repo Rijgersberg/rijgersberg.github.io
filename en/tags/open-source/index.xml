@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Open Source on GoingDutch.ai</title>
+    <link>https://goingdutch.ai/en/tags/open-source/</link>
+    <description>Recent content in Open Source on GoingDutch.ai</description>
+    <image>
+      <title>GoingDutch.ai</title>
+      <url>https://goingdutch.ai/papermod-cover.png</url>
+      <link>https://goingdutch.ai/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The end of GEITje 1</title>
+      <link>https://goingdutch.ai/en/posts/geitje-takedown/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/posts/geitje-takedown/</guid>
+      <description>At the pressing request of Stichting BREIN, GEITje is no longer available as of today. All model files (the weights) and checkpoints have been removed from my HuggingFace repositories.
+GEITje was a Dutch-language large open language model with 7 billion parameters, based on Mistral 7B. It was (further) trained on 10 billion tokens of Dutch text, improving its proficiency in Dutch and its knowledge of Dutch-specific topics.
+As stated in the README, GEITje was partially trained in late 2023 using portions of the Dutch Gigacorpus.</description>
+    </item>
+    
+  </channel>
+</rss>
