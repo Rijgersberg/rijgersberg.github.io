@@ -18,8 +18,8 @@
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
       
       <guid>https://goingdutch.ai/nl/posts/geitje-takedown/</guid>
-      <description>Op dringend verzoek van Stichting BREIN is GEITje vanaf heden niet meer beschikbaar. Alle model files (de gewichten) en checkpoints zijn verwijderd uit mijn HuggingFace repos.
-GEITje was een Nederlandstalig groot open taalmodel met 7 miljard parameters, gebaseerd op Mistral 7B. Het is (verder) getraind op 10 miljard tokens aan Nederlandstalige tekst. Daardoor heeft het beter Nederlands geleerd, en meer kennis over Nederlandse onderwerpen.
+      <description>Op dringend verzoek van Stichting BREIN is GEITje vanaf heden niet meer beschikbaar. Alle model files zijn verwijderd uit mijn HuggingFace repos1.
+GEITje was een Nederlandstalig groot open taalmodel met 7 miljard parameters, gebaseerd op Mistral 7B. Het was (verder) getraind op 10 miljard tokens aan Nederlandstalige tekst. Daardoor heeft het beter Nederlands geleerd, en meer kennis over Nederlandse onderwerpen.
 Zoals vermeld in de README is GEITje eind 2023 onder meer getraind op gedeeltes van het Nederlandse Gigacorpus.</description>
     </item>
     
