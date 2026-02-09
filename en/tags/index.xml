@@ -11,7 +11,43 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ComparIA</title>
+      <link>https://goingdutch.ai/en/tags/comparia/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/tags/comparia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dutch Large Language Models</title>
+      <link>https://goingdutch.ai/en/tags/dutch-large-language-models/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/tags/dutch-large-language-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Data</title>
+      <link>https://goingdutch.ai/en/tags/open-data/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/tags/open-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Language Models</title>
+      <link>https://goingdutch.ai/en/tags/open-language-models/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/tags/open-language-models/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Copyright Law</title>
       <link>https://goingdutch.ai/en/tags/copyright-law/</link>
@@ -36,24 +72,6 @@
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/open-source/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dutch Large Language Models</title>
-      <link>https://goingdutch.ai/en/tags/dutch-large-language-models/</link>
-      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://goingdutch.ai/en/tags/dutch-large-language-models/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Open Language Models</title>
-      <link>https://goingdutch.ai/en/tags/open-language-models/</link>
-      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://goingdutch.ai/en/tags/open-language-models/</guid>
       <description></description>
     </item>
     

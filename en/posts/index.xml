@@ -11,7 +11,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Take a Page from the French: The Netherlands Needs Data More Than GPUs</title>
+      <link>https://goingdutch.ai/en/posts/data-compar-ia/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/en/posts/data-compar-ia/</guid>
+      <description>“Data!”
+I always give the same answer when I’m asked what kind of investments are needed to further support Dutch-language AI. Data.
+GPUs are nice, but for that I don’t need to be in Groningen. I can already make use of existing European “AI factories” such as the MareNostrum5 supercomputer in Barcelona. What we really need is high-quality, large-scale Dutch-language data. And that’s exactly what they don’t have in Barcelona.</description>
+    </item>
+    
     <item>
       <title>The end of GEITje 1</title>
       <link>https://goingdutch.ai/en/posts/geitje-takedown/</link>

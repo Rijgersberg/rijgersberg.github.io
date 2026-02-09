@@ -11,7 +11,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl</language>
-    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/dutch-large-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/nl/tags/dutch-large-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neem een voorbeeld aan de Fransen: Nederland heeft data harder nodig dan GPUs</title>
+      <link>https://goingdutch.ai/nl/posts/data-compar-ia/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://goingdutch.ai/nl/posts/data-compar-ia/</guid>
+      <description>&amp;ldquo;Data!&amp;rdquo;
+Ik heb altijd hetzelfde antwoord als mij gevraagd wordt wat voor investeringen er nodig zijn om Nederlandstalige AI verder te helpen. Data.
+GPUs zijn fijn, maar daarvoor hoef ik niet in Groningen te zijn. Ik kan nu ook al terecht bij bestaande Europese &amp;ldquo;AI-fabrieken&amp;rdquo; zoals de MareNostrum5 supercomputer in Barcelona. Goede en grote hoeveelheden Nederlandstalige data is wat we écht nodig hebben. En die hebben ze Barcelona dan weer niet.</description>
+    </item>
+    
     <item>
       <title>Interview in de Poki-podcast: &#34;Het Nederlandse taalmodel: GEITje ft. Edwin Rijgersberg&#34;</title>
       <link>https://goingdutch.ai/nl/posts/poki-geitje/</link>

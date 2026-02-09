@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Frankrijk on GoingDutch.ai</title>
+    <link>http://localhost:1313/nl/tags/frankrijk/</link>
+    <description>Recent content in Frankrijk on GoingDutch.ai</description>
+    <image>
+      <title>GoingDutch.ai</title>
+      <url>http://localhost:1313/papermod-cover.png</url>
+      <link>http://localhost:1313/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>nl</language>
+    <lastBuildDate>Tue, 21 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/nl/tags/frankrijk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paris Open Source AI Summit 2025</title>
+      <link>http://localhost:1313/nl/posts/paris-open-source-ai-summit-2025/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/nl/posts/paris-open-source-ai-summit-2025/</guid>
+      <description>Flow van de blogpost
+thema: open source is open flow
+Rapport: open source cruciaal Wat betekent dat precies? de data is waar het moeilijk wordt maar vrije flow van herbruik en modificatie is key voor open source
+andere overheden investeren wel in open source modellen
+titel JenV blogpost: Bezoek Paris Open Source AI Summit: Heel Europa worstelt met AI, maar andere landen bouwen wel zelf écht open modellen
+Aantekeningen
+Welkom en openingspraatje is 15 minuten frans op je bakkes dan de moderator, wel engels de eerste spreker: Cédric VILLANI - Academician - Field Medal vraagt nog even of het frans of engels moet, fransen in de zaal proberen het nog te pivotten naar frans, maar de moderator kiest de kant van de paar buitenlanders die om engels vragen: &amp;ldquo;iedereen wist dat vnadaag in het engels zou zijn&amp;rdquo; dus hij vrolijk in het engels verder is een wiskundige en oud-parlementslid, en een figuur geeft een historie van AI vanaf ~2015: altijd al een beetje politiek geweest ai -&amp;gt; veel data -&amp;gt; veel data is politiek hij heeft een rapport geschreven onder andere voor: drie kernwoorden volgens hem aan de basis moeten liggen van een sensible en responsibly AI-strategie -experimentation -sharing -souvereignty Experimentation omdat de toekomst en impact onmogelijk te voorspellen zijn&amp;quot; sharing souvereignty: you don&amp;rsquo;t want your AI to be imported by people you don&amp;rsquo;t trust Deze drie keywoards zijn niet wat je ziet in de praktijk in de wereld, bv US en china wat we wel zien bluf: historie van overstaten van technologie (vanaf de fake automatische schakers) power: size belangrijker dan kwaliteit van algoritmes concentration of power: this we have to resist open source is het antwoord op alledrie de factoren open zorgt voor vooruitgang die niet uit de mainstream komt (historisch: deep learning koppig aan werken) souvereignty: bv vrouw van Assange vraagt Mistral en Gemini over een CIA plot om Assange te vermoorden: Mistral uitgebreid antwoord met data is essensieel onderdeel, en mogen gebruiken is essensieel want je moet onderdeel van een community die samen bouwt zijn ecology gaat neit opgelost worden met AI: AI is een bedreiging dus je moet in beiden investeren Als iedereen in europa los een dingetje doet Amanda BROCK - CEO OpenUK (opensource business organisation) achtergrond open source, niet AI wel AI ervaring intussen OpenUK focust op &amp;ldquo;open source technologie&amp;rdquo;, niet &amp;ldquo;open source software&amp;rdquo; bv data 10 definities van open source, 5 of 6 de key anyone can use the software for any purpose you subsidize your competitors openwashting ze noemt de &amp;ldquo;there is no moat&amp;rdquo; techbedrijven bang dat ze niet kunnen concurreren met open source binnen drie maanden Llama logo van OpenUK op de website, maar het is niet open source.</description>
+    </item>
+    
+  </channel>
+</rss>
