@@ -11,7 +11,8 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Take a Page from the French: The Netherlands Needs Data More Than GPUs</title>
       <link>https://goingdutch.ai/en/posts/data-compar-ia/</link>

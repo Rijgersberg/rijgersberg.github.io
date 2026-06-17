@@ -10,6 +10,7 @@
       <link>https://goingdutch.ai/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>nl</language><atom:link href="https://goingdutch.ai/nl/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>nl</language>
+    <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright><atom:link href="https://goingdutch.ai/nl/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
