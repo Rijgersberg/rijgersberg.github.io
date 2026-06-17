@@ -12,11 +12,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright>
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/geitje/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0100</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/geitje/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The end of GEITje 1</title>
       <link>https://goingdutch.ai/en/posts/geitje-takedown/</link>
-      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/geitje-takedown/</guid>
       <description>At the pressing request of Stichting BREIN, GEITje is no longer available as of today. All model files have been removed from my HuggingFace repositories1.
@@ -27,7 +27,7 @@ As stated in the README, GEITje was partially trained in late 2023 using portion
     <item>
       <title>Interview in the Poki-podcast: &#34;The Dutch Language Model: GEITje ft. Edwin Rijgersberg&#34;</title>
       <link>https://goingdutch.ai/en/posts/poki-geitje/</link>
-      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Jan 2024 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/poki-geitje/</guid>
       <description>This week I was honored to star as a guest in Alexander Klöpping&amp;rsquo;s en Wietse Hage&amp;rsquo;s podcast: Poki – de Podcast over Kunstmatige Intelligentie.
@@ -37,7 +37,7 @@ We had a good converstation about GEITje, about finetuning Large Language models
     <item>
       <title>GEITje FAQs: Why the name &#34;GEITje&#34;?</title>
       <link>https://goingdutch.ai/en/posts/naming-geitje/</link>
-      <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 03 Jan 2024 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/naming-geitje/</guid>
       <description>The second in a series of posts about questions I get about GEITje.

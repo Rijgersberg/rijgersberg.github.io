@@ -12,11 +12,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright>
-    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/open-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/open-language-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPT-NL as a Dutch Sovereign Alternative? The Preliminary Benchmarks Don&#39;t Look Good</title>
+      <link>https://goingdutch.ai/en/posts/gpt-nl-als-soeverein-alternatief/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://goingdutch.ai/en/posts/gpt-nl-als-soeverein-alternatief/</guid>
+      <description>This blog post was automatically translated from the original Dutch using Mistral Vibe.
+Sovereign AI has never been more relevant. The US government has subjected Anthropic’s latest LLMs to export restrictions, even after the sharp edges of Mythos had already been smoothed out in the form of Fable. In addition to sparking a wave of entertaining Le Chaton Fat memes in Europe, this has reignited a serious discussion: how can we leverage the positive aspects of AI technology without once again becoming fully dependent on foreign parties?</description>
+    </item>
+    
     <item>
       <title>Take a Page from the French: The Netherlands Needs Data More Than GPUs</title>
       <link>https://goingdutch.ai/en/posts/data-compar-ia/</link>
-      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/data-compar-ia/</guid>
       <description>“Data!”
@@ -27,7 +37,7 @@ GPUs are nice, but for that I don’t need to be in Groningen. I can already mak
     <item>
       <title>Interview in the Poki-podcast: &#34;The Dutch Language Model: GEITje ft. Edwin Rijgersberg&#34;</title>
       <link>https://goingdutch.ai/en/posts/poki-geitje/</link>
-      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Jan 2024 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/poki-geitje/</guid>
       <description>This week I was honored to star as a guest in Alexander Klöpping&amp;rsquo;s en Wietse Hage&amp;rsquo;s podcast: Poki – de Podcast over Kunstmatige Intelligentie.
@@ -37,7 +47,7 @@ We had a good converstation about GEITje, about finetuning Large Language models
     <item>
       <title>GEITje FAQs: Why the name &#34;GEITje&#34;?</title>
       <link>https://goingdutch.ai/en/posts/naming-geitje/</link>
-      <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 03 Jan 2024 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/naming-geitje/</guid>
       <description>The second in a series of posts about questions I get about GEITje.
@@ -70,7 +80,7 @@ GEITje is a large open Dutch language model with 7 billion parameters, based on 
     <item>
       <title>Left behind: why the Dutch language is absent from Europe&#39;s foremost open language model</title>
       <link>https://goingdutch.ai/en/posts/bigscience-bloom/</link>
-      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/bigscience-bloom/</guid>
       <description>Three volunteers. A couple of weeks of work. That&amp;rsquo;s what it took to add a language to BigScience BLOOM, the open multilingual language model with no fewer than 176 billion parameters that was released mid-2022. It aimed to become an open and multilingual alternative to GPT-3. In the end, 46 languages from all over the world made it into the dataset BLOOM was trained on. Even relatively small languages like Basque and Catalan managed to be included.</description>

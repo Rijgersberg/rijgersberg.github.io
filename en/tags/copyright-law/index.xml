@@ -12,11 +12,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright>
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/copyright-law/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0100</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/copyright-law/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The end of GEITje 1</title>
       <link>https://goingdutch.ai/en/posts/geitje-takedown/</link>
-      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/geitje-takedown/</guid>
       <description>At the pressing request of Stichting BREIN, GEITje is no longer available as of today. All model files have been removed from my HuggingFace repositories1.

@@ -12,47 +12,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright>
-    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ComparIA</title>
-      <link>https://goingdutch.ai/en/tags/comparia/</link>
-      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://goingdutch.ai/en/tags/comparia/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dutch Large Language Models</title>
       <link>https://goingdutch.ai/en/tags/dutch-large-language-models/</link>
-      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/dutch-large-language-models/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Open Data</title>
-      <link>https://goingdutch.ai/en/tags/open-data/</link>
-      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <title>GPT-NL</title>
+      <link>https://goingdutch.ai/en/tags/gpt-nl/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0200</pubDate>
       
-      <guid>https://goingdutch.ai/en/tags/open-data/</guid>
+      <guid>https://goingdutch.ai/en/tags/gpt-nl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Open Language Models</title>
       <link>https://goingdutch.ai/en/tags/open-language-models/</link>
-      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/open-language-models/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>ComparIA</title>
+      <link>https://goingdutch.ai/en/tags/comparia/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0100</pubDate>
+      
+      <guid>https://goingdutch.ai/en/tags/comparia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Data</title>
+      <link>https://goingdutch.ai/en/tags/open-data/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0100</pubDate>
+      
+      <guid>https://goingdutch.ai/en/tags/open-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Copyright Law</title>
       <link>https://goingdutch.ai/en/tags/copyright-law/</link>
-      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/copyright-law/</guid>
       <description></description>
@@ -61,7 +70,7 @@
     <item>
       <title>GEITje</title>
       <link>https://goingdutch.ai/en/tags/geitje/</link>
-      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/geitje/</guid>
       <description></description>
@@ -70,7 +79,7 @@
     <item>
       <title>Open Source</title>
       <link>https://goingdutch.ai/en/tags/open-source/</link>
-      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0100</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/open-source/</guid>
       <description></description>
@@ -79,7 +88,7 @@
     <item>
       <title>BigScience</title>
       <link>https://goingdutch.ai/en/tags/bigscience/</link>
-      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/bigscience/</guid>
       <description></description>
@@ -88,7 +97,7 @@
     <item>
       <title>BLOOM</title>
       <link>https://goingdutch.ai/en/tags/bloom/</link>
-      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/bloom/</guid>
       <description></description>
@@ -97,7 +106,7 @@
     <item>
       <title>BLOOMZ</title>
       <link>https://goingdutch.ai/en/tags/bloomz/</link>
-      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/bloomz/</guid>
       <description></description>
@@ -106,7 +115,7 @@
     <item>
       <title>EuroPython</title>
       <link>https://goingdutch.ai/en/tags/europython/</link>
-      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/europython/</guid>
       <description></description>
@@ -115,7 +124,7 @@
     <item>
       <title>Netherlands Forensic Institute</title>
       <link>https://goingdutch.ai/en/tags/netherlands-forensic-institute/</link>
-      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/netherlands-forensic-institute/</guid>
       <description></description>
@@ -124,7 +133,7 @@
     <item>
       <title>Text Classification</title>
       <link>https://goingdutch.ai/en/tags/text-classification/</link>
-      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/tags/text-classification/</guid>
       <description></description>

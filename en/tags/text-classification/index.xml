@@ -12,11 +12,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) – [GoingDutch.ai](https://goingdutch.ai).</copyright>
-    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/text-classification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://goingdutch.ai/en/tags/text-classification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My talk at EuroPython 2023: &#34;Threat to Life — Preventing Planned Murders with Python&#34;</title>
       <link>https://goingdutch.ai/en/posts/europython-2023-ttl/</link>
-      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0200</pubDate>
       
       <guid>https://goingdutch.ai/en/posts/europython-2023-ttl/</guid>
       <description>I can&amp;rsquo;t often publicly share details about the kind of projects we undertake at the Netherlands Forensic Institute with the help of AI, but at the recent EuroPython 2023 in Prague, I was able to discuss a case that unfolded a few years ago and on which the NFI had previously issued a press release: the Threat-to-Life project.

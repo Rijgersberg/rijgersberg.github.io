@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="nl" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit | GoingDutch.ai</title>
+<meta name="keywords" content="GPT-NL, Open Language Models, Dutch Large Language models">
+<meta name="description" content="Soevereine AI is nog nooit zo actueel geweest. De Amerikaanse regering heeft de nieuwste LLMs van Anthropic onderworpen aan exportbeperkingen, ook nadat de scherpe randjes van Mythos er al afgehaald waren in de vorm van Fable. Naast dat het in Europa zorgde voor een hoop vermakelijke Le Chaton Fat memes is daarmee ook de serieuze discussie nogmaals losgebarsten: hoe kunnen we de positieve aspecten van AI-technologie inzetten zonder wéér volledig afhankelijk te raken van buitenlandse partijen?">
+<meta name="author" content="Edwin Rijgersberg">
+<link rel="canonical" href="https://goingdutch.ai/nl/posts/gpt-nl-als-soeverein-alternatief/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://goingdutch.ai/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://goingdutch.ai/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://goingdutch.ai/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://goingdutch.ai/apple-touch-icon.png">
+<link rel="mask-icon" href="https://goingdutch.ai/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://goingdutch.ai/en/posts/gpt-nl-als-soeverein-alternatief/">
+<link rel="alternate" hreflang="nl" href="https://goingdutch.ai/nl/posts/gpt-nl-als-soeverein-alternatief/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit" />
+<meta property="og:description" content="Soevereine AI is nog nooit zo actueel geweest. De Amerikaanse regering heeft de nieuwste LLMs van Anthropic onderworpen aan exportbeperkingen, ook nadat de scherpe randjes van Mythos er al afgehaald waren in de vorm van Fable. Naast dat het in Europa zorgde voor een hoop vermakelijke Le Chaton Fat memes is daarmee ook de serieuze discussie nogmaals losgebarsten: hoe kunnen we de positieve aspecten van AI-technologie inzetten zonder wéér volledig afhankelijk te raken van buitenlandse partijen?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://goingdutch.ai/nl/posts/gpt-nl-als-soeverein-alternatief/" />
+<meta property="og:image" content="https://goingdutch.ai/images/gpt-nl-als-soeverein-alternatief/graphs/overview.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-18T00:00:00+02:00" />
+<meta property="article:modified_time" content="2026-06-18T00:00:00+02:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://goingdutch.ai/images/gpt-nl-als-soeverein-alternatief/graphs/overview.png" />
+<meta name="twitter:title" content="GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit"/>
+<meta name="twitter:description" content="Soevereine AI is nog nooit zo actueel geweest. De Amerikaanse regering heeft de nieuwste LLMs van Anthropic onderworpen aan exportbeperkingen, ook nadat de scherpe randjes van Mythos er al afgehaald waren in de vorm van Fable. Naast dat het in Europa zorgde voor een hoop vermakelijke Le Chaton Fat memes is daarmee ook de serieuze discussie nogmaals losgebarsten: hoe kunnen we de positieve aspecten van AI-technologie inzetten zonder wéér volledig afhankelijk te raken van buitenlandse partijen?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://goingdutch.ai/nl/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit",
+      "item": "https://goingdutch.ai/nl/posts/gpt-nl-als-soeverein-alternatief/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit",
+  "name": "GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit",
+  "description": "Soevereine AI is nog nooit zo actueel geweest. De Amerikaanse regering heeft de nieuwste LLMs van Anthropic onderworpen aan exportbeperkingen, ook nadat de scherpe randjes van Mythos er al afgehaald waren in de vorm van Fable. Naast dat het in Europa zorgde voor een hoop vermakelijke Le Chaton Fat memes is daarmee ook de serieuze discussie nogmaals losgebarsten: hoe kunnen we de positieve aspecten van AI-technologie inzetten zonder wéér volledig afhankelijk te raken van buitenlandse partijen?",
+  "keywords": [
+    "GPT-NL", "Open Language Models", "Dutch Large Language models"
+  ],
+  "articleBody": "Soevereine AI is nog nooit zo actueel geweest. De Amerikaanse regering heeft de nieuwste LLMs van Anthropic onderworpen aan exportbeperkingen, ook nadat de scherpe randjes van Mythos er al afgehaald waren in de vorm van Fable. Naast dat het in Europa zorgde voor een hoop vermakelijke Le Chaton Fat memes is daarmee ook de serieuze discussie nogmaals losgebarsten: hoe kunnen we de positieve aspecten van AI-technologie inzetten zonder wéér volledig afhankelijk te raken van buitenlandse partijen?\nEén van de veelgenoemde antwoorden in Nederland is GPT-NL. Daarmee heeft Nederland toch een troef in handen? De verwachtingen zijn in elk geval hoog, zeker binnen de overheid. Voordat het model ook maar is vrijgegeven heeft het al de Nederlandse Privacy Award en de Nederlandse AI Award voor het Beste Initiatief gewonnen.\nToch is niet iedereen even enthousiast: jurist, onderzoeker en schrijver Ot van Daalen vroeg zich vorige week af of het geld aan GPT-NL wel goed besteed is. AI-influencer Alexander Klöpping is stelliger: hij verwijst heel het model resoluut naar de prullenbak, kennelijk op basis van ervaringen waar hij nog niet eerder over gepubliceerd heeft. Dat kwam hem weer op een vinnige reactie te staan van TNO-mediapersoonlijkheid Selmar Smit. Intussen zijn ook de Quote(!) en Hacker News zich ermee gaan bemoeien.\nOok universitair docent information retrieval \u0026 natural language processing David Graus van de Universiteit van Amsterdam en tevens labmanager van het OpenGov lab ergert zich regelmatig aan het gebrek aan realisme en technische inhoud van de publieke GPT-NL-communicatie. Universitair hoofddocent natural language processing, explainable AI and cognitive modelling Jelle Zuidema van de UvA is minder openlijk kritisch op GPT-NL en wijst op de bescheiden doelstellingen, maar spreekt wel zijn teleurstelling uit over het gebrek aan samenwerking met Nederlandse onderzoeksgroepen.\nDe komst van steeds betere AI stelt Nederland voor grote keuzes. Om de goede keuzes voor de toekomst te kunnen maken zijn we allemaal gebaat bij duidelijkheid over waar we nu precies staan. Voor mij een goede aanleiding om eens diep in de feiten te duiken. Bij de overgang van ontwikkeling naar gebruik: zijn de gestelde performance-doelen van GPT-NL al behaald?\nDisclaimer Ik heb van 2015 t/m september 2025 met veel plezier als machine learning engineer en projectleider voor het NFI gewerkt. NFI is een kleine partner in het GPT-NL-project, dat wordt geleid door TNO. Ik was onder andere projectleider voor GPT-NL aan de NFI-kant.\nDeze analyse is gebaseerd op documenten die na die tijd door TNO zelf openbaar zijn gemaakt. Het GPT-NL-model heb ik, net zoals de rest van Nederland, nog niet kunnen proberen. Alle interpretaties van de documenten komen voor mijn persoonlijke rekening.\nGPT-NL Het zijn spannende tijden voor GPT-NL, Nederlands eerste publiek gefinancierde open / toch niet open taalmodel. TNO kondigde drie maanden geleden aan in het GPT-NL Progress Report #2 dat een nieuwe fase is aangebroken. “Nu, in het eerste kwartaal van 2026, breekt een nieuwe fase aan: van ontwikkelen naar gebruiken in de praktijk,” aldus de aankondiging. “Het fundament staat stevig.”\nDat zijn optimistische woorden vanuit ’s werelds meest idealistische taalmodelproject dat van de betrokkenheid van dataleveranciers zijn belangrijkste speerpunt heeft gemaakt. Het project is er trots op dat alleen gedoneerde en gelicenseerde data gebruikt wordt om het model te trainen.\nHet project wijst het gebruik van teksten van het openbare internet principieel af, ook nu het Europese Auteursrecht het toestaat om teksten van het openbare internet te gebruiken voor het trainen van AI, zolang betaalmuren maar niet omzeild worden en opt-outs (bijvoorbeeld van nieuwsorganisaties) netjes gerespecteerd worden. De opt-outs staan sinds vorig jaar uitgewerkt in de General-Purpose AI Code of Practice van de Europese Commissie. Aanvullend daarop leidt de Commissie momenteel een proces om met alle stakeholders tot breedgedragen aanvullende opt-out-standaarden te komen.\nDie principes zijn bewonderingswaardig, maar het zorgt wel voor een kritieke zwakte: een enorm tekort aan trainingsdata en daarmee een risico voor de prestaties van het model. Publieke transparantie over de prestaties van het model dat eind 2025 klaar was met trainen is tot nu toe achtergebleven. Er zijn helaas geen tabellen met benchmarkresultaten te vinden in het eerdergenoemde GPT-NL Progress Report #2 dat de overgang van ontwikkeling naar implementatie viert. In plaats daarvan moeten we het doen met een glossy layout en enthousiaste interviews. Het dichtst in de buurt van een benchmarkscore komt de uitspraak “Je ziet nu al dat het model op bepaalde taken, zoals samenvatten, beter presteert dan oudere modellen als ChatGPT-3”.\nLater kregen we iets meer. Na aanhoudende kritiek op het ontbreken van benchmarkscores van het model verscheen er een nieuwe vraag in de sectie Veelgestelde Vragen op de GPT-NL-website: Een nieuwe passage in de sectie Veelgestelde Vragen op de GPT-NL-website.\nDit is teleurstellend. Het zijn heel veel woorden om nét niets concreets over benchmarkscores te hoeven zeggen, terwijl je toch doet alsof je de vraag beantwoord hebt. Ik weet niet precies wat hier gebeurd is, maar ergens in het proces van TNO lijkt een verhullende PR-woordenbrij het te hebben gewonnen van de betekenisvolle transparantie die gepredikt wordt.\nMeer dan goede intenties Je kunt nog zo veel goede intenties hebben, alléén een verantwoord ontwikkelproces is niet genoeg. Om een model op een verantwoorde manier in te kunnen zetten is het van essentieel belang dat het op een betrouwbare manier taken voor je kan uitvoeren. Dit geldt misschien nog wel dubbel voor de beoogde toepassingen van GPT-NL: de domeinen waar een lokaal, verantwoord soeverein model het meest noodzakelijk is overlappen sterk met de domeinen waar zelfs kleine foutmarges onacceptabel zijn. Bij verantwoorde modelontwikkeling met publiek geld hoort dus ook het deugdelijk afleggen van verantwoording over de prestaties.\nGelukkig is er hoop. Zonder er ruchtbaarheid aan te geven zijn de eerste, tussentijdse benchmarks van GPT-NL eind 2025 publiek gemaakt in het System Architecture Document - Training Pipeline. Het kan dus wel! Hulde aan de onderzoekers die daarvoor intern hard gestreden moeten hebben.\nHet doel voor GPT-NL was nooit om performance-records te verslaan: het doel was om met publiek geld een verantwoord getraind taalmodel te maken waar Nederland echt iets aan heeft. Is dat gelukt volgens de eigen cijfers?\nHet door TNO vrijgegeven System Architecture - Training Pipeline document v1.0.\nBenchmarks Nederlandse benchmarks voor LLMs Ik heb binnen het GPT-NL-project in 2024 gepleit voor meer aandacht voor de gestructureerde evaluatie van Nederlandstalige taalmodellen, omdat daar nog niets voor was opgenomen in de projectplanning. Die evaluaties zouden op een eerlijke manier antwoord kunnen geven op de vraag of de doelstellingen van het GPT-NL-project aan het eind behaald zijn of niet.\nAan mijn interne memo is gehoor gegeven: er is budget vrijgemaakt voor een extra work package Evaluation \u0026 Benchmarking en daar ben ik dankbaar voor. Als work package lead heb ik met een gemengd team van getalenteerde onderzoekers van TNO, SURF en NFI op GPT-NL-budget gewerkt aan het verbeteren van de benchmarkmogelijkheden van LLMs in het Nederlands.\nMet benchmarks kun je de prestaties van allerlei modellen meten in het Nederlands, niet alleen die van GPT-NL. Ook maakt het gerichte vergelijkingen tussen modellen mogelijk. Daarnaast hebben benchmarks een langere levensduur dan modellen: je kunt ze blijven gebruiken voor het evalueren van meerdere generaties modellen totdat ze te makkelijk zijn geworden om nog een goed onderscheid te kunnen maken (benchmark saturation).\nDe afspraak is dat alle ontwikkelde benchmarks volledig open source zullen worden vrijgegeven.\nWat zijn benchmarks precies? Je kunt een benchmark het best vergelijken met het afleggen van een examen. Stel je wilt weten of een LLM goed is in een bepaalde taak in het Nederlands. Een taak kan bijvoorbeeld begrijpend lezen zijn, het bepalen van het sentiment van een tekst (positief of negatief) of het samenvatten van een tekst.\nNet zoals voor mensen kun je een examen maken dat die vaardigheid zo goed mogelijk probeert te toetsen. Als je dat examen afneemt bij verschillende LLMs kun je de resultaten van de modellen vergelijken. Ook kun je voor jezelf van tevoren vaststellen welke score je voldoende vindt, en daarmee besluiten om een model wel of niet in overweging te nemen voor inzet.\nVoor goede benchmarks heb je twee dingen nodig: de examens zelf en een manier om de examens af te nemen bij allerlei verschillende modellen. De examens worden ook wel benchmark-datasets genoemd. Software om de examens af te nemen bij verschillende modellen heet een benchmarking framework.\nLet wel op dat we hier nog in het pre-agentic tijdperk zaten: de benchmarks meten elk een enkele, afgebakende taak. Benchmarks die vereisen dat een model allerlei verschillende stappen zelf aan elkaar rijgt, zoals het programmeren van een nieuwe feature in een softwarepakket, zijn hier buiten scope.\nBenchmarks in EuroEval Voor GPT-NL is ervoor gekozen om het open source benchmarking framework EuroEval in te zetten. Dit pakket biedt de mogelijkheid om allerlei verschillende taalmodellen te draaien, en er zaten ook al wat Nederlandse benchmark-datasets in. Veel van de bestaande datasets zijn automatisch vertaald uit het Engels, wat niet ideaal is. Subtiele kennis van het Nederlands en van de Nederlandse cultuur zul je daar niet mee kunnen meten, maar je moet ergens beginnen. De resultaten van de benchmarks worden door EuroEval verzameld op een leaderboard waarmee modellen met elkaar vergeleken kunnen worden.\nIn het work package Evaluation \u0026 Benchmarking zijn ook betere origineel Nederlandstalige benchmark-datasets verzameld en gemaakt. Door die als open-source bijdrage te doneren aan EuroEval kan iedereen ter wereld betere Nederlandstalige benchmarks draaien. Dat proces van bijdragen loopt nog, maar reeds publiek gemaakte bijdragen zijn de integratie in EuroEval van deze (grotendeels al bestaande) datasets:\nLogisch redeneren: COPA-NL (Choice of Plausible Alternatives) Bias-detectie: MBBQ-NL (Multilingual Bias Benchmark for Question-answering) Versimpelen: Duidelijke taal Het juiste spreekwoord aan een situatie koppelen: Dutch Proverbs In een recente GPT-NL-presentatie is ook te zien dat er wordt gewerkt aan een benchmark die Nederlandse inburgeringsexamens gebruikt. Dat is goede data om kennis van de Nederlandse cultuur te toetsen.\nMeetbare doelen: meten is weten Welke doelen zijn er gesteld voor GPT-NL? Bij het ontwikkelen van een taalmodel horen meetbare doelen, zeker als je er 13,5 miljoen euro belastinggeld voor inzet. De meest concrete formulering van de doelen voor het soevereine taalmodel van Nederland is te vinden in de GPT-NL Definition of Success uit november 2025, bijna twee jaar na de start van het project. Het document is ironisch genoeg alleen in het Engels beschikbaar.\nFunctionality\nThe model will perform text generation, summarization, and simplification tasks at a level of performance comparable to the Llama2 7B model and GPT-3 175B (or equivalent) models. Performance will be measured in Dutch, on benchmarks that are publicly available (i.e. in EuroEval). Where we see gaps in the quality of availably of Dutch benchmarks, we will contribute to fill these gaps with benchmarks that we will release publicly. We do not optimize the model for specific benchmarks.\n(..)\nInstruct-tuned LLM\nWe see this as being delivered successfully when:\nThe model can be used in production by Dutch organisations.\nThe model can summarize, simplify, and support information retrieval implementations.\n(..) GPT-NL Definition of Success, pagina’s 7 en 8.\nEen lage lat Performance vergelijkbaar met Llama 2 7B en GPT-3 175B dus, en alleen voor een aantal nauw gedefinieerde taken. Het is belangrijk om je te realiseren dat dit in 2026 een hele, hele lage lat is.\nGPT-3 is het model uit 2020 dat de basis vormde van de eerste ChatGPT, nadát het eerst zeer uitgebreid was doorgetraind om een goede chatbot te zijn. De chatbot kreeg de naam ChatGPT-3.5 en werd gelanceerd eind 2022. Sinds de lancering van ChatGPT hebben LLMs een enorme verbeterslag doorgemaakt. ChatGPT-3.5 werd binnen 4 maanden al opgevolgd door GPT-4, weer een jaar later door GPT-4o, en anderhalf jaar daarna door GPT-5 en acht maanden later door GPT-5.5. Ook is er serieuze concurrentie gekomen in de vorm van Anthropic, Mistral en meerdere Chinese techbedrijven.\nNu, meer dan 3,5 jaar en een hele AI-revolutie later, zijn we collectief vergeten hoe slecht ChatGPT-3.5 presteerde, hoe veel het hallucineerde en hoe slecht het kon omgaan met taken als rekenen en logica.\nHetzelfde geldt voor het tweede referentiemodel: Llama 2 7B. Het is een klein model: met 7 miljard parameters is het 10x zo klein als de grote broer Llama 2 70B. Bovendien is het bijna drie jaar oud, produceert het gebrekkig Nederlands en blinkt het al helemaal niet uit in intelligentie. Probeer het zelf maar eens: Llama-2 7B Chat. Vergeet niet om een Nederlandstalige system prompt in te vullen.\nScreenshot van LLama 2 7B in actie op HuggingFace. Het prestatieniveau van Llama 2 7B en GPT-3 175B (of gelijkwaardige modellen) is vastgesteld als richtniveau voor GPT-NL.\nDe resultaten De gepubliceerde benchmarkscores De gepubliceerde benchmarkscores staan in het document GPT-NL System Architecture - Training Pipeline v1.0 in de TNO Repository. Het is sinds de start van het project één van de weinige vormen van technische transparantie over het model die naar buiten zijn gekomen, maar het gaat met 109 pagina’s wel meteen de diepte in. Het beschrijft op een gedetailleerde wijze de technologie achter GPT-NL. Dat zijn grotendeels de zinnige, conservatieve keuzes die je verwacht van een project dat in 2024 startte: een standaard dense 26B Llama 3-gebaseerde transformer, AdamW als optimizer, een op SentencePiece-gebaseerde tokenizer met een custom vocabulaire. En het bevat dus ook benchmarkscores van het model.\nOpvallend genoeg is er vanuit GPT-NL geen enkele aandacht geweest voor de vrijgave van dit document. Er was geen nieuwsbericht, geen update op LinkedIn, geen pagina op de website. Ik kan zelfs nergens op de website ook maar een link naar het document ontdekken.\nBenchmarkscores voor GPT-NL. GPT-NL System Architecture document, pagina 47.\nDe benchmark-resultaten zijn te vinden vanaf pagina 46. Wat we hier zien zijn de benchmarkscores op de reeds bestaande benchmark-datasets uit EuroEval. Het zijn dus nog niet de verbeterde en aanvullende benchmarks die in het work package Evaluation \u0026 Benchmarking ontwikkeld zijn.\nWe zien grafieken met scores op benchmarks in het Nederlands en in het Engels, voor een aantal verschillende tussenstappen van het model. Epoch 2 of 3 betekent dat het model de hele trainingsdataset 2 of 3 keer gezien heeft. Annealing is het laatste stukje trainen van het foundation model waarin de performance nog verbeterd wordt door de learning rate af te bouwen terwijl er hoge-kwaliteit data aangeboden wordt. “Epoch-3-annealing” is dus het foundation model nadat het eind 2025 helemaal klaar was met trainen.\nEr heeft nog geen instruction tuning plaatsgevonden op de instruct-dataset voor deze modellen. Deze benchmarkscores zijn een indicatie van de kwaliteit van het foundation model zelf, waar bijna alle rekenkracht in is gaan zitten. Gelukkig houdt EuroEval daar rekening mee: de benchmarks worden met few-shot prompting aangeboden op een manier waar ook een foundation model mee om kan gaan.\nScores van het model na drie epochs plus instruction tuning zullen ongetwijfeld ook beschikbaar zijn bij TNO, maar ze zijn niet publiek gemaakt.\nDe vergelijking Een vergelijking met de gestelde doelen wordt nog niet gemaakt in het document, dus dat moeten we zelf doen. We kunnen de scores van GPT-NL vergelijken met de zelfgestelde performancedoelen: die van Llama 2 7B en GPT-3 175B (of equivalent). Llama 2 7B is open source beschikbaar op HuggingFace, dus die kunnen we gewoon benchmarken met EuroEval.\nDe GPT-3-modellen zijn nooit open source geworden, en je kunt OpenAI ook niet betalen om ze via een API te benaderen. Daarom nemen we het meest equivalente model dat wel al gebenchmarkt is in EuroEval: GPT-3.5 Turbo-0613. Dit gesloten model was in het verleden tegen betaling beschikbaar via een API, en EuroEval ondersteunt het benchmarken van zowel lokale modellen als API-modellen.\nIk vind het toch belangrijk om ook te vergelijken met een model dat in 2026 wél actueel is. Ja, een vergelijking met Claude Opus 4.7 van Anthropic is niet eerlijk omdat er geen enkele manier is om dat soeverein in te zetten zonder afhankelijk te zijn van een Amerikaanse cloudprovider, zoals we deze week zo pijnlijk hebben gezien bij Fable. Het recent uitgekomen en hoog scorende Chinese open weights1 model GLM 5.2 is om soortgelijke strategische redenen ook niet het beste vergelijkingsmateriaal.\nMaar een open weights model van het Europese bedrijf Mistral: dat is toch wel een serieus alternatief waarmee je moet vergelijken. Daarom neem ik de scores van Mistral Small 3.2 24B Instruct 2506 ook mee. De gewichten zijn gratis beschikbaar onder de open source Apache 2.0-licentie, en omdat het met 24 miljard parameters iets kleiner is dan de 26 miljard van GPT-NL kan het offline op dezelfde infrastructuur ingezet worden.\nVoor deze vergelijking heb ik de scores per benchmarkdataset van het publieke Nederlandse leaderboard van EuroEval opgezocht. Zowel de scores van Llama 2 7B als Mistral Small 3.2 24B staan daar al op. Voor GPT-3.5 Turbo-0613 geldt dat het in het verleden is gebenchmarkt op de validation sets van de benchmarkdatasets in plaats van op de testsets. Ik kan het model niet opnieuw benchmarken op de testset, omdat GPT-3.5 Turbo-0613 niet meer aangeboden wordt door OpenAI, ook niet tegen betaling. Gelukkig verwacht ik geen grote verschillen in scores tussen de twee sets.\nOmdat ik geen toegang heb tot GPT-NL, heb ik de scores voor GPT-NL overgenomen uit de getoonde grafieken en de bespreking daarvan vanaf pagina 47 van het GPT-NL System Architecture - Training Pipeline v1.0 document.\nEr staan zeven benchmarks in de grafieken, met scores voor zowel de Engelstalige als Nederlandstalige varianten. Ik kies voor het Nederlands (zoals de Definition of Success aangeeft) en licht er de vier uit die het meest aansluiten op de gestelde doelen voor GPT-NL: feitelijke kennis, begrijpend lezen, grammaticale correctheid en samenvatten.\nBenchmark 1: Feitelijke kennis De eerste benchmark is een kennistest op de MMLU-nl benchmark. Dat is een automatisch vertaalde benchmark van de zeer veelgebruikte Engelstalige Massive Multitask Language Understanding benchmark. Onderwerpen zijn wiskunde, geschiedenis van de VS, computerwetenschappen, recht en meer.\nVragen worden in meerkeuzeformaat gesteld: Hoe kunnen we energiezekerheid definiëren?\nAntwoordopties:\na. Energiezekerheid bereiken betekent ervoor zorgen dat er momenteel voldoende energiebronnen zijn om de huidige consumptie en vraag naar energie wereldwijd te behouden.\nb. Energiezekerheid verwijst naar de mogelijkheid van de huidige energievoorraden om te voldoen aan de eisen van militair verbruik door de staat, waarbij het leger centraal staat in het veiligheidsparadigma.\nc. Energiezekerheid bereiken betekent het veiligstellen van de energietoevoer die nodig is in de huidige context en in de toekomst, met betrekking tot voorzienbare veranderingen in de vraag indien relevant.\nd. Energiezekerheid verwijst naar de mogelijkheid voor individuen, economische en niet-statelijke actoren om toegang te krijgen tot de energie die nodig is voor het handhaven van hun groei en ontwikkeling.\nVoorbeeldvraag uit MMLU-nl in EuroEval. Correct antwoord: “c”. Als je alleen zou meten hoeveel vragen het model goed heeft, dan zou het alsnog 25% kunnen scoren door alleen maar te gokken. Daarom wordt voor de benchmark de MCC-score gebruikt. Die corrigeert als het ware voor de gokkans op basis van de verdeling van de goede antwoorden, zoals ook wel bij universitaire multiple-choice-tentamens gebeurt. Zo krijgt een model dat alleen maar gokt een score van rond de 0 en een model dat alles goed beantwoordt een score van 100.\nDe score van GPT-NL uit het document stelt teleur: een MCC-score van 2 is nauwelijks beter dan gokken. Llama 2 7B doet het al wat beter met een score van 20,19, en ChatGPT-3.5 behaalt een score van 42,28. Geen van alle een voldoende als het een echt examen zou zijn. Mistral Small 3.2 24B komt met 62,57 net uit op een voldoende.\nOp deze test haalt GPT-NL de doelen nog lang niet. Het is nauwelijks in staat beter antwoord te geven dan de gokkans en blijft ver achter bij de zelfgestelde targets die door Llama 2 7B en ChatGPT-3.5 gezet worden. Benchmark 2: Begrijpend lezen Feitenkennis is misschien minder belangrijk voor het model, omdat het in de praktijk vaak zal worden aangesloten op een zoeksysteem dat eerst de juiste informatie bij een gebruikersvraag zoekt. Dat proces wordt Retrieval-Augmented Generation genoemd. Je vraagt het model dan niet om te antwoorden vanuit “eigen kennis”, maar om antwoord te geven op basis van de door het zoeksysteem gevonden informatie. Althans: dat is de theorie die je te horen krijgt als je met TNO praat. Hoewel hier iets voor te zeggen valt als het gaat over pure feitenkennis, vraag ik me toch af: ben je in staat om een goed antwoord te geven op een vraag als je werkelijk geen flauw idee hebt waar zowel de vraag als de bijbehorende zoekresultaten over gaan?\nHet is dus noodzakelijk dat het model de gevonden informatie kan lezen en het juiste antwoord op de gestelde vraag kan extraheren uit de tekst. In EuroEval heet die taak Reading Comprehension: begrijpend lezen.\nDe tweede benchmark om te bestuderen is dus een benchmark die geschikt is om dat te meten: SQuAD-nl (Stanford Question Answering Dataset). Ook deze dataset is automatisch vertaald uit het Engels, maar de vertalingen van de testset zijn wel handmatig verbeterd door acht bachelorstudenten.\nTekst: Door diëten in westerse landen te vergelijken, hebben onderzoekers ontdekt dat hoewel de Fransen meer dierlijk vet eten, de incidentie van hartaandoeningen in Frankrijk laag blijft. Dit fenomeen wordt de Franse paradox genoemd en wordt verondersteld te ontstaan door de beschermende voordelen van het regelmatig consumeren van rode wijn. Afgezien van de mogelijke voordelen van alcohol zelf, waaronder verminderde aggregatie van bloedplaatjes en vasodilatatie, bieden polyfenolen (bijv. Resveratrol), voornamelijk in de druivenschil, andere vermoedelijke gezondheidsvoordelen, zoals:\nBeantwoord de volgende vraag over de bovenstaande tekst in maximaal 3 woorden.\nVraag: Wat eten mensen in Frankrijk meer van dat in de meeste westerse landen?\nVoorbeeldvraag uit SQuAD-nl in EuroEval. Correct antwoord: “dierlijk vet”. Hoe vaak het model het juiste antwoord geeft wordt op twee manieren gemeten: een F1-score op karakter-basis die kleine foutjes minder hard afstraft en de Exact Match score die meet in welk percentage van de vragen het gegeven antwoord exact overeenkomt met het correcte antwoord. De tabel op pagina 92 rapporteert alleen de Exact Match score (EM).\nDe score van GPT-NL is niet bijzonder goed: de Exact Match score is 51. Het is niet verschrikkelijk, maar als je erop wilt vertrouwen dat een taalmodel in kritieke applicaties de juiste informatie uit de Retrieval-Augmented Generation context haalt dan zou ik toch een hogere score vereisen. Eerlijk is eerlijk: het is wel hoger dan Llama 2 7B, dat 44,37 scoort. ChatGPT-3.5 doet het nog een stukje beter dan GPT-NL met 55,57, en Mistral Small 3.2 24B wint ook deze ronde met 66,24.\nWat mij verbaasde is hoe hoog de scores van moderne small language models op het EuroEval leaderboard zijn. Zelfs Qwen3.5-0.8B-Base (met 0,8 miljard parameters ruim 30 keer kleiner dan GPT-NL) scoort 56,77, 5 procentpunt hoger dan GPT-NL. Ik dacht even dat ik hier een geval van benchmaxxing van Qwen gevonden had, maar een paar snelle testjes met recente nieuwsartikelen laten zien dat het model deze taak inderdaad af en toe redelijk kan uitvoeren. Goed nieuws voor de liefhebbers van lokale AI die nog een oude Raspberry Pi hebben liggen.\nHet zou interessant zijn om ook de F1-scores van GPT-NL te zien, omdat de Exact Match score kan vertekenen als een model de instructie om in maximaal 3 woorden te antwoorden negeert. Mijn voorlopige conclusie is dat het model op deze benchmark, een van de meest belangrijke voor GPT-NL, het model nog niet heel overtuigend presteert.\nBenchmark 3: Grammaticale correctheid Over GPT-NL heerst nog weleens de misvatting dat het de Nederlandse taal beter zal hanteren dan bestaande alternatieven. Geen vreemde gedachte als het gaat over een Nederlands taalmodel dat in Nederland getraind wordt. Maar de praktijk is weerbarstiger.\nHet is moeilijk om grote hoeveelheden Nederlandstalige data te vinden, zeker als je besluit om geen teksten van het open internet of van Wikipedia te gebruiken. De uiteindelijke trainingsdataset van GPT-NL bevat daarom maar 10% Nederlandstalige teksten (minder dan 55 miljard tokens). Dit is inclusief de grote deal met NDP Nieuwsmedia voor 23 miljard tokens die er mede voor verantwoordelijk is dat GPT-NL niet open source vrijgegeven wordt.2\nOm die 55 miljard tokens aan Nederlandstalige trainingsdata in perspectief te zetten: alléén de open webcrawl-dataset HPLT v3.0, door de EU gesubsidieerd en speciaal samengesteld om Europese AI-modellen op te trainen maar vanwege de projectprincipes niet gebruikt voor GPT-NL, bevat al meer dan 150 miljard Nederlandstalige tokens. Het splinternieuwe soevereine taalmodel van Duitsland Soofi S is getraind op 27 duizend miljard tokens.\nDe trainingsdata van GPT-NL bestaat maar voor 10% uit Nederlandstalige teksten. Genoemde getallen zijn in miljarden tokens. Bron: Presentatie DNB Data Science Event 2025, pagina 27.\nDe kwaliteit van grote delen van het open gedeelte van de GPT-NL dataset is op zijn zachtst gezegd niet bepaald om over naar huis te schrijven. Ik moet er nog een keer een hele blogpost aan wijden, maar in de tussentijd kan je er een gevoel bij krijgen door hieronder willekeurige documenten uit het GPT-NL Public Corpus te bekijken. Je kunt er meer over lezen in de arXiv preprint die over de publieke dataset geschreven is.\nHet is dus zaak om de taalvaardigheid van GPT-NL ook te testen, wat ons bij de derde benchmark brengt. De Nederlandse versie van de Scandinavian Linguistic Acceptability dataset (ScaLA-nl) is één manier om de taalvaardigheid van een model te testen.\nDe dataset bestaat uit Nederlandse zinnen, en de taak van het model is om van elke zin te beoordelen of deze grammaticaal correct is of niet.\nZin: Met het toepassen van zelfbestuur wordt ook al op de lagere school begonnen.\nBepaal of de zin grammaticaal correct is of niet. Antwoord met ‘ja’ als de zin correct is en ’nee’ als dat niet het geval is.\nVoorbeeldvraag uit ScaLA-nl in EuroEval. Correct antwoord: “ja”.\nZin: Vragen, die door een leek niet zo eenvoudig te zijn.\nBepaal of de zin grammaticaal correct is of niet. Antwoord met ‘ja’ als de zin correct is en ’nee’ als dat niet het geval is.\nVoorbeeldvraag uit ScaLA-nl in EuroEval. Correct antwoord: “nee”. De vragen zijn multiple-choice, maar nu met maar twee mogelijke antwoorden: “ja” en “nee”. Wederom is hier de MCC score de aangewezen score. Willekeurig gokken levert een score van 0 op, alles goed hebben een score van 100.\nHet resultaat is helaas vergelijkbaar met dat van de kennis-benchmark. Met een score van 19 scoort GPT-NL beter dan bij gokken verwacht wordt, maar het is wel een diepe, diepe onvoldoende. Llama 2 7B is, zoals we eerder gezien hebben, ook geen ster in het Nederlands en blijft steken op 15,71. ChatGPT-3.5 scoort het best in deze test: 58,95 is een enigszins respectabele score. Mistral Small 3.2 24B komt daar bij in de buurt: het scoort 54,10.\nBenchmark 4: Samenvatten Dan maar terug naar samenvatten: één van de drie kerntaken waar het model voor ontwikkeld wordt.\nEuroEval bevat de dataset WikiLingua-nl die bestaat uit teksten en referentiesamenvattingen van de Nederlandse WikiHow. Ook dit is geen ideale dataset en hij is zeker voor verbetering vatbaar. In veel andere talen is er een benchmarkdataset met nieuwsartikelen en bijbehorende samenvattingen beschikbaar, maar voor het Nederlands helaas niet. De voorbeelden uit de samenvattingdataset zijn te lang om hier op te nemen, maar je kunt er een paar bekijken in de documentatie van EuroEval.\nSamenvatten is een interessante taak om te benchmarken. In tegenstelling tot een multiple-choice examen heeft de opdracht om iets samen te vatten niet één correct antwoord. Je kunt behoorlijk verschillende samenvattingen schrijven die allebei “goed” zijn.\nEén oplossing is om de door de modellen gegenereerde samenvattingen te laten beoordelen door een mens, die er een score aan geeft. Ook kun je een mens vragen om twee verschillende samenvattingen te bekijken en te beslissen welke “beter” is, volgens criteria die je van tevoren meegeeft. Dit is natuurlijk onpraktisch om te doen omdat we benchmarks geautomatiseerd willen kunnen draaien. Het is mogelijk om de mens te vervangen door een LLM-as-a-judge, maar dat heeft ook zo z’n nadelen. LLMs willen namelijk nog weleens de voorkeur geven aan teksten die meer lijken op wat ze zelf produceren, niet per se aan welke tekst een inhoudelijk betere samenvatting is.\nGelukkig is het veld van natural language processing al een stuk ouder dan Large Language Models. Het beoordelen van samenvattingen is een vrij standaard probleem. Er zijn dus ook allerlei mogelijkheden om die evaluatie geautomatiseerd te doen zonder mensen of LLMs in te zetten.\nBERTScore: een relatieve score EuroEval maakte tot voor kort gebruik van de BERTScore voor het beoordelen van een samenvatting aan de hand van een referentiesamenvatting. Het is niet perfect, maar wel geautomatiseerd te berekenen. Het correleert ook redelijk met menselijke beoordelingen. EuroEval is intussen overgestapt op de ChrF3++-score, maar de resultaten in het TNO-rapport gebruiken nog de BERTScore. Daarom gebruik ik ook de BERTScore van de vergelijkingsmodellen zoals ze op het EuroEval leaderboard stonden.\nEen BERTScore moet je wel anders interpreteren dan bijvoorbeeld eerdergenoemde MCC score. Het is niet zo dat een slechte samenvatting 0 scoort en een perfecte samenvatting 100. De scores liggen verder van 0 af en dichter bij elkaar. Als je de scores simpelweg koppelt aan een kleur waar 0 rood is en 100 groen, dan zullen alle scores er ongeveer lichtgroen uitzien. Die fout wordt ook in de tabel op pagina 92 gemaakt, waardoor het beeld voor samenvattingen er op het eerste gezicht best rooskleurig uitziet.\nWat je eigenlijk moet doen is de scores relatief bekijken. Laten we beginnen met de hoogste BERTScore op het Nederlandse EuroEval leaderboard toen het nog de BERTScore gebruikte: het model Aya Expanse 32B scoort 75,47. Dat wordt de bovengrens. Als ondergrens nemen we een model waarvan we weten dat het niet in staat is om goede Nederlandstalige samenvattingen te creëren: het small language model Llama 3.2 1B dat zonder moeite nog op een smartphone kan draaien. Dat scoort 61,94.\nAls we dus de BERTScores in een grafiek willen tekenen, dan moeten we die ongeveer laten beginnen bij een score van 60 en laten eindigen bij 76 om een goed beeld van de relatieve scores te krijgen.\nDe scores? GPT-NL scoort 61, nog onder de baseline van Llama 3.2 1B die we ons voor deze vergelijking gesteld hebben. De overige drie modellen scoren een stuk hoger en liggen ook dicht bij elkaar: Llama 2 7B scoort 67,59, ChatGPT-3.5 scoort 69,13 en Mistral Small 3.2 24B scoort 68,05.\nDit is het best te zien in onderstaande grafiek. Wederom scoort GPT-NL erg veel lager dan de modellen waarbij het vergelijkbaar zou moeten worden. Het is theoretisch mogelijk dat GPT-NL zo fundamenteel anders schrijft dan de andere modellen dat het de benchmarkscore vertekent, maar eerlijk gezegd acht ik dat niet heel waarschijnlijk. De mededeling in het Progress Report #2 dat GPT-NL nu al beter presteert dan ChatGPT-3 voor samenvatten wordt in elk geval niet door déze benchmarkcijfers gestaafd.\nIk zou wel graag wat output-samenvattingen van het model zien om ze ook kwalitatief te kunnen beoordelen.\nOverige benchmarks Een benchmark die nog mist en voor GPT-NL belangrijk is, is die voor het versimpelen van teksten. De evaluatietaak “versimpelen” werd oorspronkelijk niet ondersteund door EuroEval, maar is door het GPT-NL-project toegevoegd en in de open source tool geaccepteerd. Er hoort ook een bestaande Nederlandstalige benchmarkdataset bij: die van Duidelijke Taal.\nEen score berekenen voor versimpelen heeft soortgelijke uitdagingen als voor samenvatten, maar daar komen we hier niet aan toe. Er zijn namelijk nog geen scores voor versimpelen in het System Architecture - Training Pipeline document opgenomen.\nWat nu? Benchmarks zeggen niet alles, maar ze zeggen ook niet niets. Ik vind het zorgwekkend dat de gerapporteerde scores van het foundation model voor feitelijke kennis en grammaticale correctheid niet ver boven de gokkans uitkomen. De score voor het begrijpend lezen is ook niet overtuigend, en de score voor samenvatten is ongekend laag. Er is nog geen score te melden voor versimpelen, maar gebaseerd op de scores voor samenvatten heb ik daar geen hoge verwachtingen van.\nDe voor GPT-NL relevante tussentijdse benchmarks samengevat in één figuur.\nDoor te vergelijken met alleen oude modellen lag de lat al erg laag, maar zelfs die lat wordt volgens deze scores bij meerdere belangrijke benchmarks bij lange na niet gehaald. Op basis van alleen deze scores zou ik ernstige twijfels hebben of het model al klaar is om in de praktijk in te zetten. Op zijn minst had ik iets in het Progress Report willen lezen over deze uitdagingen en wat er gepland staat om de prestaties te verbeteren.\nWat is de reden voor het schijnbaar niet halen van de doelen? Een gebrek aan trainingsdata zou mijn eerste verdachte zijn. GPT-NL wordt getraind op veel minder data dan welk ander modern taalmodel dan ook. Als dat daadwerkelijk de beperkende factor is dan heeft GPT-NL een groot probleem. Het probleem is namelijk niet op te lossen binnen de randvoorwaarden van GPT-NL: als je data van het open internet en zelfs Wikipedia afwijst dan blijft er voor een middelgrote taal als het Nederlands simpelweg te weinig data over. Daarnaast wordt nog meer data verzamelen onder deze voorwaarden exponentieel moeilijker. Alle grote en makkelijke databronnen heb je immers al verzameld in de afgelopen twee jaar. Wat rest zijn alle kleine en moeilijke databronnen.\nIk wil niets ten nadele zeggen van alle mensen die er de afgelopen twee jaar met zo veel inzet aan gewerkt hebben, maar feit blijft: je kunt een succesvol taalmodel nu eenmaal niet trainen op alleen goede bedoelingen.\nKunnen we het hele project dan nu al afschrijven? Nee, dat misschien nog niet. Het document bevat ook plaatjes van evaluaties met LLM-as-a-judge die er nog steeds slecht, maar wel iets minder dramatisch uitzien. Omdat de testcode daarvan nog niet openbaar is kan ik ze helaas niet vergelijken met de prestaties van ChatGPT-3.5 en Llama 2 7B en dus niet zien of de gestelde doelen volgens die meetmethode wél gehaald zijn.\nOok de scores op de verbeterde Nederlandstalige benchmarks die ontwikkeld zijn in het work package Evaluation \u0026 Benchmarking moeten nog publiek gemaakt worden, waaronder de scores voor versimpelen en de bias-analyse. Misschien dat daar nog iets van verschil te zien is. Ten slotte wordt het model natuurlijk ook nog met instruction tuning doorgetraind, maar op basis van de grote problemen van het foundation model verwacht ik daarvan hoogstens kleinere verbeteringen.\nDe tijdlijn voor GPT-NL. De trainings- en finetuningfases zijn in 2025 afgerond. Bron: Planning van het project GPT-NL.\nDe praktijktests Ondanks deze teleurstellende cijfers is bij TNO de vlag uit en zijn de praktijktests begonnen. Het Ministerie van Binnenlandse Zaken \u0026 Koninkrijksrelaties financiert3 volgens het Progress Report #2 drie Feasibility Studies. Zo gaat ICTU experimenteren met GPT-NL voor de virtuele gemeenteassistent Gem, moet er een digitale assistent komen voor Overheid.nl en wordt er gekeken of brieven versimpeld kunnen worden met de communicatie-assistent HIP. Dit is goed nieuws: hoe bruikbaar het model in de praktijk is zal daar heel snel duidelijk worden.\nDe drie door het Ministerie van Binnenlandse Zaken \u0026 Koninkrijksrelaties gefinancierde Feasibility Studies. Bron: GPT-NL Progress report #2, pagina 10.\nTNO gaat ook zelf met het model aan de slag, en ook het NFI is als partner in het project het getrainde model aan het testen. Ik heb er gelukkig alle vertrouwen in dat mijn oud-collega’s van het forensische AI-team van het NFI het model tot op het bot zullen doorlichten.\nVervolg Intussen lopen er al verkenningen om een vervolgproject op GPT-NL gesubsidieerd te krijgen. In een interview op Tweakers wordt zelfs gesteld dat daar “minimaal tien keer zoveel budget voor nodig” is. Dat zou dan minimaal 135 miljoen euro moeten zijn.\nLos van de discussie over het ontbreken van Europese frontier models: het kan best waardevol zijn om te verkennen hoe de opt-in aanpak van GPT-NL verder gebracht kan worden tot modellen die breder inzetbaar zijn. Niet als ons soevereine alternatief voor Fable, maar misschien wel als klein onderdeel van een nieuwe Nederlandse AI-strategie die duizend bloemen tegelijk laat bloeien.\nWaar moeten we ons dan nog meer op richten? Denk bijvoorbeeld aan meer investeringen in écht open source Europese AI, zoals EuroLLM en OpenEuroLLM. En investeren we wel genoeg in fundamenteel AI-onderzoek bij Nederlandse universiteiten? Hoogleraar Max Welling pleit ervoor om het geld te steken in een Ellis-instituut waar startups uit kunnen ontstaan. Als land met een middelgrote taal zouden we in elk geval veel baat hebben bij het ontwikkelen van nieuwe AI-architecturen die veel efficiënter van onze schaarse data leren dan transformers dat kunnen.\nAls we als Nederland toch besluiten dat GPT-NL een publiek gefinancieerd vervolg nodig heeft dan zou ik wel van de subsidiegevende instanties vragen om heel scherp te krijgen wat het extra geld gaat opleveren. Hoe groot zijn de verbeteringen die er met meer middelen realistisch gezien gehaald kunnen worden? Welke bottlenecks worden getackled en hoe waarschijnlijk is het dat dat lukt? Welke doelstellingen worden bijgesteld, en hoe blijven die wel meetbaar? Kan er misschien extern toezicht gehouden worden door onafhankelijke AI-experts die periodiek over de voortgang rapporteren?\nAls we niet kritisch blijven op de opbrengst, riskeren we dat GPT-NL een project zonder einde wordt. Het níet behalen van de doelen is dan immers reden om meer investeringen te vragen, en het wél behalen van de doelen ook.\nHoe dan ook, de komende tijd wordt cruciaal voor GPT-NL. Ik hoop dat alle overheidspartijen die bij de feasibility studies betrokken zijn hun gedetailleerde testresultaten zo spoedig mogelijk zullen publiceren. En ik hoop ook graag snel de officiële benchmarkresultaten te zien van de versie van het model dat nu in de praktijk ingezet wordt.\nNederlands meest transparante taalmodel kan immers nog wel wat meer transparantie gebruiken.\nIk heb in april contact opgenomen met TNO om te vragen of er binnenkort nog benchmarkscores gepubliceerd zullen worden van het model dat nu in de feasibility studies ingezet wordt. Actuelere cijfers zouden deze analyse van de door TNO gepubliceerde tussentijdse scores natuurlijk overbodig maken.\nHelaas: volgens TNO worden de benchmarks pas breed gepubliceerd bij de brede uitrol van het model eind dit jaar. TNO is van mening dat de huidige tussenresultaten (de eindscores van het foundation model) nog niet een goede weergave zijn. Die resultaten zijn volgens TNO namelijk niet representatief voor waar het model straks na de feasibility studies en iteratieve verbeteringen op uit gaat komen. Hoe groot de verbeteringen zijn die we kunnen verwachten wordt helaas niet vermeld.\nMeer lezen? GPT-NL Progress Report #1 GPT-NL Progress Report #2 GPT-NL System Architecture Document - Training Pipeline v1.0 GPT-NL System Architecture Document - Data Curation Pipeline GPT-NL Presentatie - DNB Data Science Event 2025 GPT-NL Public Corpus: A Permissively Licensed, Dutch-First Dataset for LLM Pre-training Hugging Face – The LLM Evaluation Guidebook Een open weights model is een model waarvan de gewichten (de miljarden parameters die samen met de architectuur het model vormen) vrij beschikbaar zijn, maar in tegenstelling tot open source AI zijn de achterliggende datasets en trainingcode dat bij open weights niet. Het Open Source Initiative heeft een definitie van open weights op zijn website. Het GPT-NL-model is noch open source noch open weights. ↩︎\nOver die deal met twee Vlaamse mediaconglomeraten had de sectie Journalistiek van de Auteursbond overigens nog wel wat vragen. Zo was onduidelijk of naast de uitgevers de daadwerkelijke auteurs van de stukken ook een vergoeding krijgen. In een recent interview blijkt dat daar nog geen oplossing voor is gevonden. Ik geef Saskia en Jesse wel credits voor het geven van een interview aan de Auteursbond over dit heikele punt. ↩︎\nHoeveel TNO betaald krijgt voor de Feasibility Studies is niet bekend gemaakt, maar op LinkedIn heeft iemand een offerte voor een haalbaarheidsstudie gekregen van € 181.000. ↩︎\n",
+  "wordCount" : "6540",
+  "inLanguage": "nl",
+  "image":"https://goingdutch.ai/images/gpt-nl-als-soeverein-alternatief/graphs/overview.png","datePublished": "2026-06-18T00:00:00+02:00",
+  "dateModified": "2026-06-18T00:00:00+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Edwin Rijgersberg"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goingdutch.ai/nl/posts/gpt-nl-als-soeverein-alternatief/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoingDutch.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goingdutch.ai/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://goingdutch.ai/nl/" accesskey="h" title="GoingDutch.ai (Alt + H)">GoingDutch.ai</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://goingdutch.ai/en/" title="English"
+                            aria-label=":uk:">🇬🇧</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://goingdutch.ai/nl/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://goingdutch.ai/nl/search/" title="Zoeken">
+                    <span>Zoeken</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://goingdutch.ai/nl/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Rijgersberg" title="GitHub">
+                    <span>GitHub</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://huggingface.co/Rijgersberg" title="HuggingFace">
+                    <span>HuggingFace</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/edwinrijgersberg/" title="LinkedIn">
+                    <span>LinkedIn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://goingdutch.ai/nl/">Startpagina</a>&nbsp;»&nbsp;<a href="https://goingdutch.ai/nl/posts/">Posts</a></div>
+    <h1 class="post-title">
+      GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit
+    </h1>
+    <div class="post-meta"><span title='2026-06-18 00:00:00 +0200 CEST'>18 juni 2026</span>&nbsp;·&nbsp;31 min&nbsp;·&nbsp;Edwin Rijgersberg&nbsp;|&nbsp;Vertalingen:
+<ul class="i18n_list">
+    <li>
+        <a href="https://goingdutch.ai/en/posts/gpt-nl-als-soeverein-alternatief/">🇬🇧</a>
+    </li>
+</ul>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://goingdutch.ai/images/gpt-nl-als-soeverein-alternatief/graphs/overview.png" alt="GPT-NL benchmarks">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Inhoudsopgave</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#disclaimer" aria-label="Disclaimer">Disclaimer</a></li></ul>
+                    
+                <li>
+                    <a href="#gpt-nl" aria-label="GPT-NL">GPT-NL</a><ul>
+                        
+                <li>
+                    <a href="#meer-dan-goede-intenties" aria-label="Meer dan goede intenties">Meer dan goede intenties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#benchmarks" aria-label="Benchmarks">Benchmarks</a><ul>
+                        
+                <li>
+                    <a href="#nederlandse-benchmarks-voor-llms" aria-label="Nederlandse benchmarks voor LLMs">Nederlandse benchmarks voor LLMs</a></li>
+                <li>
+                    <a href="#wat-zijn-benchmarks-precies" aria-label="Wat zijn benchmarks precies?">Wat zijn benchmarks precies?</a></li>
+                <li>
+                    <a href="#benchmarks-in-euroeval" aria-label="Benchmarks in EuroEval">Benchmarks in EuroEval</a></li></ul>
+                </li>
+                <li>
+                    <a href="#meetbare-doelen-meten-is-weten" aria-label="Meetbare doelen: meten is weten">Meetbare doelen: meten is weten</a><ul>
+                        
+                <li>
+                    <a href="#welke-doelen-zijn-er-gesteld-voor-gpt-nl" aria-label="Welke doelen zijn er gesteld voor GPT-NL?">Welke doelen zijn er gesteld voor GPT-NL?</a></li>
+                <li>
+                    <a href="#een-lage-lat" aria-label="Een lage lat">Een lage lat</a></li></ul>
+                </li>
+                <li>
+                    <a href="#de-resultaten" aria-label="De resultaten">De resultaten</a><ul>
+                        
+                <li>
+                    <a href="#de-gepubliceerde-benchmarkscores" aria-label="De gepubliceerde benchmarkscores">De gepubliceerde benchmarkscores</a></li>
+                <li>
+                    <a href="#de-vergelijking" aria-label="De vergelijking">De vergelijking</a></li>
+                <li>
+                    <a href="#benchmark-1-feitelijke-kennis" aria-label="Benchmark 1: Feitelijke kennis">Benchmark 1: Feitelijke kennis</a></li>
+                <li>
+                    <a href="#benchmark-2-begrijpend-lezen" aria-label="Benchmark 2: Begrijpend lezen">Benchmark 2: Begrijpend lezen</a></li>
+                <li>
+                    <a href="#benchmark-3-grammaticale-correctheid" aria-label="Benchmark 3: Grammaticale correctheid">Benchmark 3: Grammaticale correctheid</a></li>
+                <li>
+                    <a href="#benchmark-4-samenvatten" aria-label="Benchmark 4: Samenvatten">Benchmark 4: Samenvatten</a><ul>
+                        
+                <li>
+                    <a href="#bertscore-een-relatieve-score" aria-label="BERTScore: een relatieve score">BERTScore: een relatieve score</a></li></ul>
+                </li>
+                <li>
+                    <a href="#overige-benchmarks" aria-label="Overige benchmarks">Overige benchmarks</a></li></ul>
+                </li>
+                <li>
+                    <a href="#wat-nu" aria-label="Wat nu?">Wat nu?</a></li>
+                <li>
+                    <a href="#de-praktijktests" aria-label="De praktijktests">De praktijktests</a></li>
+                <li>
+                    <a href="#vervolg" aria-label="Vervolg">Vervolg</a><ul>
+                        
+                <li>
+                    <a href="#meer-lezen" aria-label="Meer lezen?">Meer lezen?</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Soevereine AI is nog nooit zo actueel geweest.
+De Amerikaanse regering heeft de nieuwste LLMs van Anthropic <a href="https://www.anthropic.com/news/fable-mythos-access">onderworpen aan exportbeperkingen</a>,
+ook nadat de scherpe randjes van Mythos <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">er al afgehaald waren</a> in de vorm van Fable.
+Naast dat het in Europa zorgde voor een hoop vermakelijke <a href="https://www.businessinsider.com/what-is-le-chaton-fat-mistral-meme-explained-ai-model-2026-6">Le Chaton Fat memes</a> is daarmee ook de serieuze discussie nogmaals losgebarsten:
+hoe kunnen we de positieve aspecten van AI-technologie inzetten zonder wéér volledig afhankelijk te raken van buitenlandse partijen?</p>
+<p>Eén van de veelgenoemde antwoorden in Nederland is <a href="https://gpt-nl.nl">GPT-NL</a>.
+Daarmee heeft Nederland toch een troef in handen?
+<a href="https://tweakers.net/reviews/14412/nederlandse-gpt-nl-is-klaar-voor-gebruik-voldoet-als-enige-taalmodel-aan-avg.html">De</a> <a href="https://www.nu.nl/tweakers/6387486/overheid-wil-brieven-aan-burgers-begrijpelijker-maken-met-nederlands-ai-model-gpt-nl.html">verwachtingen</a> <a href="https://www.techzine.nl/nieuws/applications/575561/gpt-nl-positioneert-zich-als-alternatief-in-strijd-om-ai-data/">zijn</a> <a href="https://ioplus.nl/nl/posts/oprichter-gpt-nl-eerste-taalmodel-dat-voldoet-aan-wetgeving">in</a> <a href="https://onzetaal.nl/tijdschrift/01-2026/artikel/gpt-nl-hoe-werkt-dit-ai-taalmodel-van-eigen-bodem">elk</a> <a href="https://ioplus.nl/nl/posts/niet-groter-maar-slimmer-de-strategie-achter-gpt-nl">geval</a> <a href="https://www.computable.nl/2026/02/27/gpt-nl-groeit-uit-tot-alternatief-commerciele-ai-modellen/">hoog</a>, zeker binnen de overheid.
+Voordat het model ook maar is vrijgegeven heeft het al de <a href="https://ibestuur.nl/data-en-ai/ethiek/gpt-nl-wint-nederlandse-privacy-award">Nederlandse Privacy Award</a> en de <a href="https://gpt-nl.nl/nieuws/gpt-nl-wint-nederlandse-ai-award-categorie-beste-initiatief-2026/">Nederlandse AI Award voor het Beste Initiatief</a> gewonnen.</p>
+<p>Toch is niet iedereen even enthousiast:
+jurist, onderzoeker en schrijver <a href="https://otvandaalen.nl">Ot van Daalen</a> <a href="https://voorbereid.substack.com/p/alternatieve-ai-leuk-maar-hoe-dan">vroeg zich vorige week af</a> of het geld aan GPT-NL wel goed besteed is.
+AI-influencer <a href="https://www.klopping.nl">Alexander Klöpping</a> is stelliger: hij verwijst heel het model resoluut <a href="https://nitter.net/alexandernl/status/2065821157253677390">naar de prullenbak</a>,
+kennelijk op basis van ervaringen waar hij nog niet eerder over gepubliceerd heeft.
+Dat kwam hem weer op een <a href="https://nitter.net/selmarsmit/status/2065862278973464800#m">vinnige reactie te staan</a> van TNO-mediapersoonlijkheid <a href="https://www.selmarsmit.nl">Selmar Smit</a>.
+Intussen zijn ook <a href="https://www.quotenet.nl/zakelijk/a71588202/techondernemers-maken-nederlandse-chatgpt-belachelijk-kan-echt-helemaal-niks/">de Quote</a>(!) en <a href="https://news.ycombinator.com/item?id=48559188">Hacker News</a> zich ermee gaan bemoeien.</p>
+<p>Ook universitair docent <em>information retrieval &amp; natural language processing</em> <a href="https://graus.nu">David Graus</a> van de Universiteit van Amsterdam en tevens labmanager van het <a href="https://opengov.nl">OpenGov</a> lab <a href="https://graus.nu/blog/wordt-gpt-nl-een-succes-nee-het-zit-genuanceerder/">ergert</a> <a href="https://bsky.app/profile/graus.nu/post/3lv3sldyjak24">zich</a> <a href="https://bsky.app/profile/graus.nu/post/3lshhtknuvk23">regelmatig</a> <a href="https://bsky.app/profile/graus.nu/post/3mduizjnr6c2c">aan</a> het <a href="https://bsky.app/profile/graus.nu/post/3lsb74appy22j">gebrek aan realisme en technische inhoud</a> van de publieke GPT-NL-communicatie.
+Universitair hoofddocent <em>natural language processing, explainable AI and cognitive modelling</em> <a href="https://staff.fnwi.uva.nl/w.zuidema/">Jelle Zuidema</a> van de UvA is minder openlijk kritisch op GPT-NL en wijst op de bescheiden doelstellingen, maar <a href="https://www.linkedin.com/feed/update/urn:li:activity:7471970019095158785/?dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287472160312658583552%2Curn%3Ali%3Aactivity%3A7471970019095158785%29&dashReplyUrn=urn%3Ali%3Afsd_comment%3A%287472350511820750848%2Curn%3Ali%3Aactivity%3A7471970019095158785%29">spreekt wel zijn teleurstelling uit</a> over het gebrek aan samenwerking met Nederlandse onderzoeksgroepen.</p>
+<p>De komst van steeds betere AI stelt Nederland voor grote keuzes.
+Om de goede keuzes voor de toekomst te kunnen maken zijn we allemaal gebaat bij duidelijkheid over waar we nu precies staan.
+Voor mij een goede aanleiding om eens diep in de feiten te duiken.
+Bij de overgang van ontwikkeling naar gebruik: zijn de gestelde performance-doelen van GPT-NL al behaald?</p>
+<h3 id="disclaimer">Disclaimer<a hidden class="anchor" aria-hidden="true" href="#disclaimer">#</a></h3>
+<p>Ik heb van 2015 t/m september 2025 met veel plezier als <em>machine learning engineer</em> en projectleider voor het NFI gewerkt.
+NFI is een kleine partner in het GPT-NL-project, dat wordt geleid door TNO.
+Ik was onder andere projectleider voor GPT-NL aan de NFI-kant.</p>
+<p>Deze analyse is gebaseerd op documenten die na die tijd door TNO zelf openbaar zijn gemaakt.
+Het GPT-NL-model heb ik, net zoals de rest van Nederland, nog niet kunnen proberen.
+Alle interpretaties van de documenten komen voor mijn persoonlijke rekening.</p>
+<h2 id="gpt-nl">GPT-NL<a hidden class="anchor" aria-hidden="true" href="#gpt-nl">#</a></h2>
+<p>Het zijn spannende tijden voor <a href="https://gpt-nl.nl">GPT-NL</a>, Nederlands eerste publiek gefinancierde <a href="https://www.tno.nl/nl/newsroom/2023/11/nederland-start-bouw-gpt-nl-eigen-ai/">open</a> / <a href="https://tweakers.net/nieuws/231282/tno-nederlands-gpt-nl-taalmodel-wordt-niet-volledig-opensource-vanwege-subsidie.html">toch niet open</a> taalmodel.
+TNO <a href="https://www.linkedin.com/posts/tno_een-jaar-geleden-stond-gpt-nl-nog-volop-in-activity-7432698449416056832-Kaxy">kondigde drie maanden geleden aan</a> in het <a href="https://gpt-nl.nl/nieuws/progress-report-2/">GPT-NL Progress Report #2</a> dat een nieuwe fase is aangebroken.
+<em>&ldquo;Nu, in het eerste kwartaal van 2026, breekt een nieuwe fase aan: van ontwikkelen naar gebruiken in de praktijk,&rdquo;</em> aldus de aankondiging.
+&ldquo;<em>Het fundament staat stevig.</em>&rdquo;</p>
+<p>Dat zijn optimistische woorden vanuit &rsquo;s werelds meest <a href="https://gpt-nl.nl/commitments/">idealistische</a> taalmodelproject dat van de betrokkenheid van dataleveranciers zijn belangrijkste speerpunt heeft gemaakt.
+Het project is er trots op dat alleen gedoneerde en gelicenseerde data gebruikt wordt om het model te trainen.</p>
+<p>Het project wijst het gebruik van teksten van het openbare internet principieel af, ook nu het Europese Auteursrecht <a href="https://www.cliffordchance.com/insights/resources/blogs/ip-insights/2025/10/copyright-compliance-under-the-eu-ai-act-for-gpai-model-providers.html">het toestaat</a> om teksten van het openbare internet te gebruiken voor het trainen van AI, zolang betaalmuren maar niet omzeild worden en opt-outs (bijvoorbeeld van nieuwsorganisaties) netjes gerespecteerd worden.
+De opt-outs staan sinds vorig jaar uitgewerkt in de <a href="https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai">General-Purpose AI Code of Practice</a> van de Europese Commissie.
+Aanvullend daarop <a href="https://digital-strategy.ec.europa.eu/en/faqs/stakeholder-consultation-ai-and-copyright-compliance">leidt de Commissie momenteel een proces</a> om met alle stakeholders tot breedgedragen aanvullende opt-out-standaarden te komen.</p>
+<p>Die principes zijn bewonderingswaardig, maar het zorgt wel voor een kritieke zwakte: een enorm tekort aan trainingsdata en daarmee een risico voor de prestaties van het model.
+Publieke transparantie over de prestaties van het model dat eind 2025 klaar was met trainen is tot nu toe achtergebleven.
+Er zijn helaas geen tabellen met benchmarkresultaten te vinden in het eerdergenoemde <a href="https://publications.tno.nl/publication/34645720/dNo6mcVV/TNO-2026-R10516.pdf">GPT-NL Progress Report #2</a> dat de overgang van ontwikkeling naar implementatie viert.
+In plaats daarvan moeten we het doen met een glossy layout en enthousiaste interviews.
+Het dichtst in de buurt van een benchmarkscore komt de uitspraak <em>&ldquo;Je ziet nu al dat het model op bepaalde taken, zoals samenvatten, beter presteert dan oudere modellen als ChatGPT-3&rdquo;</em>.</p>
+<p>Later kregen we iets meer.
+Na <a href="https://www.linkedin.com/posts/activity-7442168681926705154-lf8A/">aanhoudende</a> <a href="https://www.linkedin.com/feed/update/urn:li:activity:7432698449416056832?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7432698449416056832%2C7433904659200684032%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287433904659200684032%2Curn%3Ali%3Aactivity%3A7432698449416056832%29">kritiek</a> op het ontbreken van benchmarkscores van het model verscheen er een nieuwe vraag in de sectie Veelgestelde Vragen op de GPT-NL-website:
+<img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/benchmarkgebrabbel.png" alt="Benchmarkgebrabbel"  />
+
+<small>Een nieuwe passage in de sectie <a href="https://gpt-nl.nl/veelgestelde-vragen/">Veelgestelde Vragen</a> op de GPT-NL-website.</small></p>
+<p>Dit is teleurstellend.
+Het zijn heel veel woorden om nét niets concreets over benchmarkscores te hoeven zeggen, terwijl je toch doet alsof je de vraag beantwoord hebt.
+Ik weet niet precies wat hier gebeurd is, maar ergens in het proces van TNO lijkt een verhullende PR-woordenbrij het te hebben gewonnen van de betekenisvolle transparantie die gepredikt wordt.</p>
+<h3 id="meer-dan-goede-intenties">Meer dan goede intenties<a hidden class="anchor" aria-hidden="true" href="#meer-dan-goede-intenties">#</a></h3>
+<p>Je kunt nog zo veel goede intenties hebben, alléén een verantwoord ontwikkelproces is niet genoeg.
+Om een model op een verantwoorde manier in te kunnen zetten is het van essentieel belang dat het op een betrouwbare manier taken voor je kan uitvoeren.
+Dit geldt misschien nog wel dubbel voor de beoogde toepassingen van GPT-NL:
+de domeinen waar een lokaal, verantwoord soeverein model het meest noodzakelijk is overlappen sterk met de domeinen waar zelfs kleine foutmarges onacceptabel zijn.
+Bij verantwoorde modelontwikkeling met publiek geld hoort dus ook het deugdelijk afleggen van verantwoording over de prestaties.</p>
+<p>Gelukkig is er hoop.
+Zonder er ruchtbaarheid aan te geven zijn de eerste, tussentijdse benchmarks van GPT-NL eind 2025 publiek gemaakt in het <a href="https://resolver.tno.nl/uuid:2e3fdebe-7284-4539-a863-0b7f1c3bcc3b">System Architecture Document - Training Pipeline</a>.
+Het kan dus wel!
+Hulde aan de onderzoekers die daarvoor intern hard gestreden moeten hebben.</p>
+<p>Het doel voor GPT-NL was nooit om performance-records te verslaan: het doel was om met publiek geld een verantwoord getraind taalmodel te maken waar Nederland echt iets aan heeft.
+Is dat gelukt volgens de eigen cijfers?</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/system-architecture-document.png" alt="System Architecture Document"  />
+
+<small>Het door TNO vrijgegeven <a href="https://resolver.tno.nl/uuid:2e3fdebe-7284-4539-a863-0b7f1c3bcc3b">System Architecture - Training Pipeline document v1.0</a>.</small></p>
+<h2 id="benchmarks">Benchmarks<a hidden class="anchor" aria-hidden="true" href="#benchmarks">#</a></h2>
+<h3 id="nederlandse-benchmarks-voor-llms">Nederlandse benchmarks voor LLMs<a hidden class="anchor" aria-hidden="true" href="#nederlandse-benchmarks-voor-llms">#</a></h3>
+<p>Ik heb binnen het GPT-NL-project in 2024 gepleit voor meer aandacht voor de gestructureerde evaluatie van Nederlandstalige taalmodellen,
+omdat daar nog niets voor was opgenomen in de projectplanning.
+Die evaluaties zouden op een eerlijke manier antwoord kunnen geven op de vraag of de doelstellingen van het GPT-NL-project aan het eind behaald zijn of niet.</p>
+<p>Aan mijn interne memo is gehoor gegeven:
+er is budget vrijgemaakt voor een extra <em>work package Evaluation &amp; Benchmarking</em> en daar ben ik dankbaar voor.
+Als <em>work package lead</em> heb ik met een gemengd team van getalenteerde onderzoekers van TNO, SURF en NFI op GPT-NL-budget gewerkt aan het verbeteren van de benchmarkmogelijkheden van LLMs in het Nederlands.</p>
+<p>Met benchmarks kun je de prestaties van allerlei modellen meten in het Nederlands, niet alleen die van GPT-NL.
+Ook maakt het gerichte vergelijkingen tussen modellen mogelijk.
+Daarnaast hebben benchmarks een langere levensduur dan modellen: je kunt ze blijven gebruiken voor het evalueren van meerdere generaties modellen totdat ze te makkelijk zijn geworden om nog een goed onderscheid te kunnen maken (<em>benchmark saturation</em>).</p>
+<p>De afspraak is dat alle ontwikkelde benchmarks volledig open source zullen worden vrijgegeven.</p>
+<h3 id="wat-zijn-benchmarks-precies">Wat zijn benchmarks precies?<a hidden class="anchor" aria-hidden="true" href="#wat-zijn-benchmarks-precies">#</a></h3>
+<p>Je kunt een benchmark het best vergelijken met het afleggen van een examen.
+Stel je wilt weten of een LLM goed is in een bepaalde taak in het Nederlands.
+Een taak kan bijvoorbeeld begrijpend lezen zijn, het bepalen van het sentiment van een tekst (positief of negatief) of het samenvatten van een tekst.</p>
+<p>Net zoals voor mensen kun je een examen maken dat die vaardigheid zo goed mogelijk probeert te toetsen.
+Als je dat examen afneemt bij verschillende LLMs kun je de resultaten van de modellen vergelijken.
+Ook kun je voor jezelf van tevoren vaststellen welke score je voldoende vindt, en daarmee besluiten om een model wel of niet in overweging te nemen voor inzet.</p>
+<p>Voor goede benchmarks heb je twee dingen nodig: de examens zelf en een manier om de examens af te nemen bij allerlei verschillende modellen.
+De examens worden ook wel <em>benchmark-datasets</em> genoemd.
+Software om de examens af te nemen bij verschillende modellen heet een <em>benchmarking framework</em>.</p>
+<p>Let wel op dat we hier nog in het pre-<em>agentic</em> tijdperk zaten: de benchmarks meten elk een enkele, afgebakende taak.
+Benchmarks die vereisen dat een model allerlei verschillende stappen zelf aan elkaar rijgt,
+zoals het programmeren van een nieuwe feature in een softwarepakket,
+zijn hier buiten scope.</p>
+<h3 id="benchmarks-in-euroeval">Benchmarks in EuroEval<a hidden class="anchor" aria-hidden="true" href="#benchmarks-in-euroeval">#</a></h3>
+<p>Voor GPT-NL is ervoor gekozen om het open source benchmarking framework <a href="https://euroeval.com">EuroEval</a> in te zetten.
+Dit pakket biedt de mogelijkheid om allerlei verschillende taalmodellen te draaien,
+en er zaten ook al wat <a href="https://euroeval.com/datasets/dutch/">Nederlandse benchmark-datasets</a> in.
+Veel van de bestaande datasets zijn automatisch vertaald uit het Engels, wat niet ideaal is.
+Subtiele kennis van het Nederlands en van de Nederlandse cultuur zul je daar niet mee kunnen meten, maar je moet ergens beginnen.
+De resultaten van de benchmarks worden door EuroEval verzameld op een <a href="https://euroeval.com/leaderboards/Monolingual/dutch/">leaderboard</a> waarmee modellen met elkaar vergeleken kunnen worden.</p>
+<p>In het <em>work package Evaluation &amp; Benchmarking</em> zijn ook betere origineel Nederlandstalige benchmark-datasets verzameld en gemaakt.
+Door die als open-source bijdrage <a href="https://github.com/EuroEval/EuroEval/discussions/499">te doneren aan EuroEval</a> kan iedereen ter wereld betere Nederlandstalige benchmarks draaien.
+Dat proces van bijdragen loopt nog, maar reeds publiek gemaakte bijdragen zijn de integratie in EuroEval van deze (grotendeels al bestaande) datasets:</p>
+<ul>
+<li>Logisch redeneren: <a href="https://euroeval.com/datasets/dutch/#unofficial-copa-nl">COPA-NL</a> (Choice of Plausible Alternatives)</li>
+<li>Bias-detectie: <a href="https://euroeval.com/datasets/dutch/#mbbq-nl">MBBQ-NL</a> (Multilingual Bias Benchmark for Question-answering)</li>
+<li>Versimpelen: <a href="https://euroeval.com/datasets/dutch/#duidelijke-taal">Duidelijke taal</a></li>
+<li>Het juiste spreekwoord aan een situatie koppelen: <a href="https://euroeval.com/datasets/dutch#unofficial-dutch-proverbs">Dutch Proverbs</a></li>
+</ul>
+<p>In een <a href="https://gpt-nl.nl/nieuws/presentatie-dnb-data-science-event-2025/">recente GPT-NL-presentatie</a> is ook te zien dat er wordt gewerkt aan een benchmark die Nederlandse inburgeringsexamens gebruikt.
+Dat is goede data om kennis van de Nederlandse cultuur te toetsen.</p>
+<h2 id="meetbare-doelen-meten-is-weten">Meetbare doelen: meten is weten<a hidden class="anchor" aria-hidden="true" href="#meetbare-doelen-meten-is-weten">#</a></h2>
+<h3 id="welke-doelen-zijn-er-gesteld-voor-gpt-nl">Welke doelen zijn er gesteld voor GPT-NL?<a hidden class="anchor" aria-hidden="true" href="#welke-doelen-zijn-er-gesteld-voor-gpt-nl">#</a></h3>
+<p>Bij het ontwikkelen van een taalmodel horen <strong>meetbare</strong> doelen,
+zeker als je er <a href="https://www.tno.nl/nl/newsroom/2023/11/nederland-start-bouw-gpt-nl-eigen-ai/">13,5 miljoen euro belastinggeld</a> voor inzet.
+De meest concrete formulering van de doelen voor het soevereine taalmodel van Nederland is te vinden in de <a href="https://gpt-nl.nl/nieuws/definition-success-2025/">GPT-NL Definition of Success</a> uit november 2025, bijna twee jaar na de start van het project.
+Het document is ironisch genoeg alleen in het Engels beschikbaar.</p>
+<blockquote>
+<p><strong>Functionality</strong></p>
+<p><em>The model will perform <mark>text generation, summarization, and simplification tasks at a level of performance comparable to the <strong>Llama2 7B</strong> model and <strong>GPT-3 175B</strong> (or equivalent) models.
+Performance will be measured in Dutch, on benchmarks that are publicly available (i.e. in EuroEval).</mark>
+Where we see gaps in the quality of availably of Dutch benchmarks,
+we will contribute to fill these gaps with benchmarks that we will release publicly.
+We do not optimize the model for specific benchmarks.</em></p>
+<p>(..)</p>
+<p><strong>Instruct-tuned LLM</strong></p>
+<p>We see this as being delivered successfully when:<br></p>
+<ul>
+<li>The model can be used in production by Dutch organisations.<br></li>
+<li>The model can <mark>summarize, simplify, and support information retrieval implementations.</mark><br></li>
+<li>(..)</li>
+</ul>
+<p><small> <a href="https://gpt-nl.nl/nieuws/definition-success-2025/">GPT-NL Definition of Success</a>, pagina&rsquo;s 7 en 8.</small></p>
+</blockquote>
+<h3 id="een-lage-lat">Een lage lat<a hidden class="anchor" aria-hidden="true" href="#een-lage-lat">#</a></h3>
+<p>Performance vergelijkbaar met Llama 2 7B en GPT-3 175B dus, en alleen voor een aantal nauw gedefinieerde taken.
+Het is belangrijk om je te realiseren dat dit in 2026 een hele, hele lage lat is.</p>
+<p>GPT-3 is het model uit 2020 dat de basis vormde van de eerste ChatGPT, nadát het eerst zeer uitgebreid was doorgetraind om een goede chatbot te zijn.
+De chatbot kreeg de naam ChatGPT-3.5 en werd gelanceerd eind 2022.
+Sinds de lancering van ChatGPT hebben LLMs een enorme verbeterslag doorgemaakt.
+ChatGPT-3.5 werd binnen 4 maanden al opgevolgd door GPT-4, weer een jaar later door GPT-4o, en anderhalf jaar daarna door GPT-5 en acht maanden later door GPT-5.5.
+Ook is er serieuze concurrentie gekomen in de vorm van Anthropic, Mistral en meerdere Chinese techbedrijven.</p>
+<p>Nu, meer dan 3,5 jaar en een hele AI-revolutie later, zijn we collectief vergeten hoe slecht ChatGPT-3.5 presteerde, hoe veel het hallucineerde en hoe slecht het kon omgaan met taken als rekenen en logica.</p>
+<p>Hetzelfde geldt voor het tweede referentiemodel: Llama 2 7B.
+Het is een klein model: met 7 miljard parameters is het 10x zo klein als de grote broer Llama 2 70B.
+Bovendien is het bijna drie jaar oud, produceert het gebrekkig Nederlands en blinkt het al helemaal niet uit in intelligentie.
+Probeer het zelf maar eens: <a href="https://huggingface.co/spaces/huggingface-projects/llama-2-7b-chat">Llama-2 7B Chat</a>. Vergeet niet om een Nederlandstalige <em>system prompt</em> in te vullen.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/llama-2-7b-chat.png" alt="Llama-2 7B Chat"  />
+
+<small>Screenshot van LLama 2 7B in actie <a href="https://huggingface.co/spaces/huggingface-projects/llama-2-7b-chat">op HuggingFace</a>. Het prestatieniveau van Llama 2 7B en GPT-3 175B (of gelijkwaardige modellen) is vastgesteld als richtniveau voor GPT-NL.</small></p>
+<h2 id="de-resultaten">De resultaten<a hidden class="anchor" aria-hidden="true" href="#de-resultaten">#</a></h2>
+<h3 id="de-gepubliceerde-benchmarkscores">De gepubliceerde benchmarkscores<a hidden class="anchor" aria-hidden="true" href="#de-gepubliceerde-benchmarkscores">#</a></h3>
+<p>De gepubliceerde benchmarkscores staan in het document <a href="https://resolver.tno.nl/uuid:2e3fdebe-7284-4539-a863-0b7f1c3bcc3b">GPT-NL System Architecture - Training Pipeline v1.0</a> in de <a href="https://repository.tno.nl/">TNO Repository</a>.
+Het is sinds de start van het project één van de weinige vormen van technische transparantie over het model die naar buiten zijn gekomen, maar het gaat met 109 pagina&rsquo;s wel meteen de diepte in.
+Het beschrijft op een gedetailleerde wijze de technologie achter GPT-NL.
+Dat zijn grotendeels de zinnige, conservatieve keuzes die je verwacht van een project dat in 2024 startte: een standaard dense 26B Llama 3-gebaseerde transformer, AdamW als optimizer, een op SentencePiece-gebaseerde tokenizer met een custom vocabulaire.
+En het bevat dus ook benchmarkscores van het model.</p>
+<p>Opvallend genoeg is er vanuit GPT-NL geen enkele aandacht geweest voor de vrijgave van dit document.
+Er was geen nieuwsbericht, geen update op LinkedIn, geen pagina op de website.
+Ik kan zelfs nergens op de website ook maar een link naar het document ontdekken.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/graphs.png" alt="EuroEval scores"  />
+
+<small>Benchmarkscores voor GPT-NL. <a href="https://resolver.tno.nl/uuid:2e3fdebe-7284-4539-a863-0b7f1c3bcc3b">GPT-NL System Architecture document</a>, pagina 47.</small></p>
+<p>De benchmark-resultaten zijn te vinden vanaf pagina 46.
+Wat we hier zien zijn de benchmarkscores op de reeds bestaande benchmark-datasets uit EuroEval.
+Het zijn dus nog niet de verbeterde en aanvullende benchmarks die in het <em>work package Evaluation &amp; Benchmarking</em> ontwikkeld zijn.</p>
+<p>We zien grafieken met scores op benchmarks in het Nederlands en in het Engels, voor een aantal verschillende tussenstappen van het model.
+Epoch 2 of 3 betekent dat het model de hele trainingsdataset 2 of 3 keer gezien heeft.
+Annealing is het laatste stukje trainen van het foundation model waarin de performance nog verbeterd wordt door de <em>learning rate</em> af te bouwen terwijl er hoge-kwaliteit data aangeboden wordt.
+&ldquo;Epoch-3-annealing&rdquo; is dus het foundation model nadat het eind 2025 helemaal klaar was met trainen.</p>
+<p>Er heeft nog geen <em>instruction tuning</em> plaatsgevonden op de <em>instruct</em>-dataset voor deze modellen.
+Deze benchmarkscores zijn een indicatie van de kwaliteit van het foundation model zelf, waar bijna alle rekenkracht in is gaan zitten.
+Gelukkig houdt EuroEval daar rekening mee: de benchmarks worden met <a href="https://www.promptingguide.ai/techniques/fewshot">few-shot prompting</a> aangeboden op een manier waar ook een foundation model mee om kan gaan.</p>
+<p>Scores van het model na drie epochs plus instruction tuning zullen ongetwijfeld ook beschikbaar zijn bij TNO, maar ze zijn niet publiek gemaakt.</p>
+<h3 id="de-vergelijking">De vergelijking<a hidden class="anchor" aria-hidden="true" href="#de-vergelijking">#</a></h3>
+<p>Een vergelijking met de gestelde doelen wordt nog niet gemaakt in het document, dus dat moeten we zelf doen.
+We kunnen de scores van GPT-NL vergelijken met de zelfgestelde performancedoelen: die van <strong>Llama 2 7B</strong> en <strong>GPT-3 175B</strong> (of equivalent).
+Llama 2 7B is open source beschikbaar <a href="https://huggingface.co/meta-llama/Llama-2-7b-hf">op HuggingFace</a>, dus die kunnen we gewoon benchmarken met EuroEval.</p>
+<p>De GPT-3-modellen zijn nooit open source geworden, en je kunt OpenAI ook niet betalen om ze via een API te benaderen.
+Daarom nemen we het meest equivalente model dat wel al gebenchmarkt is in EuroEval: <a href="https://developers.openai.com/api/docs/models/gpt-3.5-turbo?snapshot=gpt-3.5-turbo-1106">GPT-3.5 Turbo-0613</a>.
+Dit gesloten model was in het verleden tegen betaling beschikbaar via een API, en EuroEval ondersteunt het benchmarken van zowel lokale modellen als API-modellen.</p>
+<p>Ik vind het toch belangrijk om ook te vergelijken met een model dat in 2026 wél actueel is.
+Ja, een vergelijking met <a href="https://www.anthropic.com/news/claude-opus">Claude Opus 4.7</a> van Anthropic is niet eerlijk omdat er geen enkele manier is om dat <em>soeverein</em> in te zetten zonder afhankelijk te zijn van een Amerikaanse cloudprovider,
+zoals we deze week zo pijnlijk hebben <a href="https://www.anthropic.com/news/fable-mythos-access">gezien bij Fable</a>.
+Het recent uitgekomen en hoog scorende Chinese open weights<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> model <a href="https://huggingface.co/zai-org/GLM-5.2">GLM 5.2</a> is om soortgelijke strategische redenen ook niet het beste vergelijkingsmateriaal.</p>
+<p>Maar een open weights model van het Europese bedrijf <a href="https://mistral.ai">Mistral</a>: dat is toch wel een serieus alternatief waarmee je moet vergelijken.
+Daarom neem ik de scores van <a href="https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"><strong>Mistral Small 3.2 24B Instruct 2506</strong></a> ook mee.
+De gewichten zijn gratis beschikbaar onder de open source Apache 2.0-licentie, en omdat het met 24 miljard parameters iets kleiner is dan de 26 miljard van GPT-NL kan het offline op dezelfde infrastructuur ingezet worden.</p>
+<p>Voor deze vergelijking heb ik de scores per benchmarkdataset van het <a href="https://euroeval.com/leaderboards/Monolingual/dutch/">publieke Nederlandse leaderboard</a> van EuroEval opgezocht.
+Zowel de scores van Llama 2 7B als Mistral Small 3.2 24B staan daar al op.
+Voor GPT-3.5 Turbo-0613 geldt dat het in het verleden is gebenchmarkt op de <em>validation</em> sets van de benchmarkdatasets in plaats van op de <i>test</i>sets.
+Ik kan het model niet opnieuw benchmarken op de testset, omdat GPT-3.5 Turbo-0613 niet meer aangeboden wordt door OpenAI, ook niet tegen betaling.
+Gelukkig verwacht ik geen grote verschillen in scores tussen de twee sets.</p>
+<p>Omdat ik geen toegang heb tot GPT-NL, heb ik de scores voor GPT-NL overgenomen uit de getoonde grafieken en de bespreking daarvan vanaf pagina 47 van het <a href="https://resolver.tno.nl/uuid:2e3fdebe-7284-4539-a863-0b7f1c3bcc3b">GPT-NL System Architecture - Training Pipeline v1.0</a> document.</p>
+<p>Er staan zeven benchmarks in de grafieken, met scores voor zowel de Engelstalige als Nederlandstalige varianten.
+Ik kies voor het Nederlands (zoals de <em>Definition of Success</em> aangeeft) en licht er de vier uit die het meest aansluiten op de gestelde doelen voor GPT-NL: <em>feitelijke kennis</em>, <em>begrijpend lezen</em>, <em>grammaticale correctheid</em> en <em>samenvatten</em>.</p>
+<h3 id="benchmark-1-feitelijke-kennis">Benchmark 1: Feitelijke kennis<a hidden class="anchor" aria-hidden="true" href="#benchmark-1-feitelijke-kennis">#</a></h3>
+<p>De eerste benchmark is een kennistest op de <a href="https://euroeval.com/datasets/dutch/#mmlu-nl">MMLU-nl</a> benchmark.
+Dat is een automatisch vertaalde benchmark van de zeer veelgebruikte Engelstalige <a href="https://openreview.net/forum?id=d7KBjmI3GmQ"><em>Massive Multitask Language Understanding</em></a> benchmark.
+Onderwerpen zijn wiskunde, geschiedenis van de VS, computerwetenschappen, recht en meer.</p>
+<p>Vragen worden in meerkeuzeformaat gesteld:
+<small></p>
+<blockquote>
+<p>Hoe kunnen we energiezekerheid definiëren?<br>
+Antwoordopties:<br>
+a. Energiezekerheid bereiken betekent ervoor zorgen dat er momenteel voldoende energiebronnen zijn om de huidige consumptie en vraag naar energie wereldwijd te behouden.<br>
+b. Energiezekerheid verwijst naar de mogelijkheid van de huidige energievoorraden om te voldoen aan de eisen van militair verbruik door de staat, waarbij het leger centraal staat in het veiligheidsparadigma.<br>
+c. Energiezekerheid bereiken betekent het veiligstellen van de energietoevoer die nodig is in de huidige context en in de toekomst, met betrekking tot voorzienbare veranderingen in de vraag indien relevant.<br>
+d. Energiezekerheid verwijst naar de mogelijkheid voor individuen, economische en niet-statelijke actoren om toegang te krijgen tot de energie die nodig is voor het handhaven van hun groei en ontwikkeling.</p>
+<p><small><em>Voorbeeldvraag uit MMLU-nl in EuroEval. Correct antwoord: &ldquo;c&rdquo;.</em></small>
+</small></p>
+</blockquote>
+<p>Als je alleen zou meten hoeveel vragen het model goed heeft, dan zou het alsnog 25% kunnen scoren door alleen maar te gokken.
+Daarom wordt voor de benchmark de <a href="https://en.wikipedia.org/wiki/Phi_coefficient">MCC-score</a> gebruikt.
+Die corrigeert als het ware voor de gokkans op basis van de verdeling van de goede antwoorden, zoals ook wel bij universitaire multiple-choice-tentamens gebeurt.
+Zo krijgt een model dat alleen maar gokt een score van rond de 0 en een model dat alles goed beantwoordt een score van 100.</p>
+<p>De score van GPT-NL uit het document stelt teleur: een MCC-score van <strong>2</strong> is nauwelijks beter dan gokken.
+Llama 2 7B doet het al wat beter met een score van <strong>20,19</strong>, en ChatGPT-3.5 behaalt een score van <strong>42,28</strong>.
+Geen van alle een voldoende als het een echt examen zou zijn.
+Mistral Small 3.2 24B komt met <strong>62,57</strong> net uit op een voldoende.</p>
+<p>Op deze test haalt GPT-NL de doelen nog lang niet.
+Het is nauwelijks in staat beter antwoord te geven dan de gokkans en blijft ver achter bij de zelfgestelde targets die door Llama 2 7B en ChatGPT-3.5 gezet worden.
+<img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/graphs/MMLU-nl.svg" alt="MMLU-nl"  />
+</p>
+<h3 id="benchmark-2-begrijpend-lezen">Benchmark 2: Begrijpend lezen<a hidden class="anchor" aria-hidden="true" href="#benchmark-2-begrijpend-lezen">#</a></h3>
+<p>Feitenkennis is misschien minder belangrijk voor het model, omdat het in de praktijk vaak zal worden aangesloten op een zoeksysteem dat eerst de juiste informatie bij een gebruikersvraag zoekt.
+Dat proces wordt <a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">Retrieval-Augmented Generation</a> genoemd.
+Je vraagt het model dan niet om te antwoorden vanuit &ldquo;eigen kennis&rdquo;, maar om antwoord te geven op basis van de door het zoeksysteem gevonden informatie.
+Althans: dat is de theorie die je te horen krijgt als je met TNO praat.
+Hoewel hier iets voor te zeggen valt als het gaat over pure feitenkennis, vraag ik me toch af: ben je in staat om een goed antwoord te geven op een vraag als je werkelijk geen flauw idee hebt waar zowel de vraag als de bijbehorende zoekresultaten over gaan?</p>
+<p>Het is dus noodzakelijk dat het model de gevonden informatie kan lezen en het juiste antwoord op de gestelde vraag kan extraheren uit de tekst.
+In EuroEval heet die taak <a href="https://euroeval.com/tasks/reading-comprehension/"><em>Reading Comprehension</em></a>: begrijpend lezen.</p>
+<p>De tweede benchmark om te bestuderen is dus een benchmark die geschikt is om dat te meten: <a href="https://euroeval.com/datasets/dutch/#squad-nl">SQuAD-nl</a> (Stanford Question Answering Dataset).
+Ook deze dataset is automatisch vertaald uit het Engels, maar de vertalingen van de testset zijn wel handmatig verbeterd door acht bachelorstudenten.</p>
+<small>
+<blockquote>
+<p>Tekst: Door diëten in westerse landen te vergelijken, hebben onderzoekers ontdekt dat hoewel de Fransen meer dierlijk vet eten, de incidentie van hartaandoeningen in Frankrijk laag blijft. Dit fenomeen wordt de Franse paradox genoemd en wordt verondersteld te ontstaan door de beschermende voordelen van het regelmatig consumeren van rode wijn. Afgezien van de mogelijke voordelen van alcohol zelf, waaronder verminderde aggregatie van bloedplaatjes en vasodilatatie, bieden polyfenolen (bijv. Resveratrol), voornamelijk in de druivenschil, andere vermoedelijke gezondheidsvoordelen, zoals:</p>
+<p>Beantwoord de volgende vraag over de bovenstaande tekst in maximaal 3 woorden.</p>
+<p>Vraag: Wat eten mensen in Frankrijk meer van dat in de meeste westerse landen?</p>
+<p><small><em>Voorbeeldvraag uit SQuAD-nl in EuroEval. Correct antwoord: &ldquo;dierlijk vet&rdquo;.</em></small>
+</small></p>
+</blockquote>
+<p>Hoe vaak het model het juiste antwoord geeft wordt op twee manieren gemeten: een <a href="https://en.wikipedia.org/wiki/F-score">F1-score</a> op karakter-basis die kleine foutjes minder hard afstraft
+en de Exact Match score die meet in welk percentage van de vragen het gegeven antwoord exact overeenkomt met het correcte antwoord.
+De tabel op pagina 92 rapporteert alleen de Exact Match score (EM).</p>
+<p>De score van GPT-NL is niet bijzonder goed: de Exact Match score is <strong>51</strong>.
+Het is niet verschrikkelijk, maar als je erop wilt vertrouwen dat een taalmodel in kritieke applicaties de juiste informatie uit de Retrieval-Augmented Generation context haalt dan zou ik toch een hogere score vereisen.
+Eerlijk is eerlijk: het is wel hoger dan Llama 2 7B, dat <strong>44,37</strong> scoort.
+ChatGPT-3.5 doet het nog een stukje beter dan GPT-NL met <strong>55,57</strong>, en Mistral Small 3.2 24B wint ook deze ronde met <strong>66,24</strong>.</p>
+<p>Wat mij verbaasde is hoe hoog de scores van moderne <em>small language models</em> op het EuroEval leaderboard zijn.
+Zelfs <a href="https://huggingface.co/Qwen/Qwen3.5-0.8B-Base">Qwen3.5-0.8B-Base</a> (met 0,8 miljard parameters ruim 30 keer kleiner dan GPT-NL) scoort <strong>56,77</strong>, 5 procentpunt hoger dan GPT-NL.
+Ik dacht even dat ik hier een geval van <em>benchmaxxing</em> van Qwen gevonden had,
+maar een paar snelle testjes met recente nieuwsartikelen laten zien dat het model deze taak inderdaad af en toe redelijk kan uitvoeren.
+Goed nieuws voor de liefhebbers van lokale AI die nog een oude Raspberry Pi hebben liggen.</p>
+<p>Het zou interessant zijn om ook de F1-scores van GPT-NL te zien, omdat de Exact Match score kan vertekenen als een model de instructie om in maximaal 3 woorden te antwoorden negeert.
+Mijn voorlopige conclusie is dat het model op deze benchmark, een van de meest belangrijke voor GPT-NL, het model nog niet heel overtuigend presteert.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/graphs/SQuAD-nl.svg" alt="SQuAD-nl"  />
+</p>
+<h3 id="benchmark-3-grammaticale-correctheid">Benchmark 3: Grammaticale correctheid<a hidden class="anchor" aria-hidden="true" href="#benchmark-3-grammaticale-correctheid">#</a></h3>
+<p>Over GPT-NL <a href="https://www.ewmagazine.nl/economie/news/2025/07/publiek-geld-nederlands-ai-model-gptnl-1490494/">heerst nog weleens de misvatting</a> dat het de Nederlandse taal beter zal hanteren dan bestaande alternatieven.
+Geen vreemde gedachte als het gaat over een Nederlands taalmodel dat in Nederland getraind wordt.
+Maar de praktijk is weerbarstiger.</p>
+<p>Het is moeilijk om grote hoeveelheden Nederlandstalige data te vinden,
+zeker als je besluit om geen teksten van het open internet of van Wikipedia te gebruiken.
+De uiteindelijke trainingsdataset van GPT-NL bevat daarom maar 10% Nederlandstalige teksten (minder dan 55 miljard tokens).
+Dit is inclusief <a href="https://gpt-nl.nl/nieuws/gpt-nl-branchevereniging-ndp-nieuwsmedia/">de grote deal met NDP Nieuwsmedia</a> voor 23 miljard tokens die er <a href="https://gpt-nl.nl/nieuws/open-gpt-nl/">mede voor verantwoordelijk is</a> dat GPT-NL niet open source vrijgegeven wordt.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Om die 55 miljard tokens aan Nederlandstalige trainingsdata in perspectief te zetten: alléén de open webcrawl-dataset <a href="https://hplt-project.org/datasets/v3.0">HPLT v3.0</a>,
+door de EU gesubsidieerd en speciaal samengesteld om Europese AI-modellen op te trainen maar vanwege de projectprincipes niet gebruikt voor GPT-NL,
+bevat al meer dan 150 miljard Nederlandstalige tokens.
+Het splinternieuwe soevereine taalmodel van Duitsland <a href="https://www.soofi.info">Soofi S</a> is getraind op 27 <em>duizend</em> miljard tokens.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/training-data.png" alt="GPT-NL Trainingsdata"  />
+
+<small>De trainingsdata van GPT-NL bestaat maar voor 10% uit Nederlandstalige teksten. Genoemde getallen zijn in miljarden tokens. Bron: <a href="https://gpt-nl.nl/nieuws/presentatie-dnb-data-science-event-2025/">Presentatie DNB Data Science Event 2025</a>, pagina 27.</small></p>
+<p>De kwaliteit van grote delen van het open gedeelte van de GPT-NL dataset is op zijn zachtst gezegd niet bepaald om over naar huis te schrijven.
+Ik moet er nog een keer een hele blogpost aan wijden,
+maar in de tussentijd kan je er een gevoel bij krijgen door hieronder willekeurige documenten uit het <a href="https://huggingface.co/datasets/GPT-NL/GPT-NL_Public_Corpus">GPT-NL Public Corpus</a> te bekijken.
+Je kunt er meer over lezen in de <a href="https://arxiv.org/abs/2604.00920">arXiv preprint</a> die over de publieke dataset geschreven is.</p>
+<iframe
+	src="https://rijgersberg-random-gpt-nl-document-embedded.hf.space?dataset=all"
+	frameborder="1"
+	width="850"
+	height="650"
+></iframe>
+<p>Het is dus zaak om de taalvaardigheid van GPT-NL ook te testen,
+wat ons bij de derde benchmark brengt.
+De Nederlandse versie van de <em>Scandinavian Linguistic Acceptability</em> dataset (<a href="https://euroeval.com/datasets/dutch/#scala-nl">ScaLA-nl</a>) is één manier om de taalvaardigheid van een model te testen.</p>
+<p>De dataset bestaat uit Nederlandse zinnen, en de taak van het model is om van elke zin te beoordelen of deze grammaticaal correct is of niet.</p>
+<small>
+<blockquote>
+<p>Zin: Met het toepassen van zelfbestuur wordt ook al op de lagere school begonnen.</p>
+<p>Bepaal of de zin grammaticaal correct is of niet. Antwoord met &lsquo;ja&rsquo; als de zin correct is en &rsquo;nee&rsquo; als dat niet het geval is.</p>
+<p><small><em>Voorbeeldvraag uit ScaLA-nl in EuroEval. Correct antwoord: &ldquo;ja&rdquo;.</em></small></p>
+</blockquote>
+<blockquote>
+<p>Zin: Vragen, die door een leek niet zo eenvoudig te zijn.</p>
+<p>Bepaal of de zin grammaticaal correct is of niet. Antwoord met &lsquo;ja&rsquo; als de zin correct is en &rsquo;nee&rsquo; als dat niet het geval is.</p>
+<p><small><em>Voorbeeldvraag uit ScaLA-nl in EuroEval. Correct antwoord: &ldquo;nee&rdquo;.</em></small>
+</small></p>
+</blockquote>
+<p>De vragen zijn multiple-choice, maar nu met maar twee mogelijke antwoorden: &ldquo;ja&rdquo; en &ldquo;nee&rdquo;.
+Wederom is hier de MCC score de aangewezen score.
+Willekeurig gokken levert een score van 0 op, alles goed hebben een score van 100.</p>
+<p>Het resultaat is helaas vergelijkbaar met dat van de kennis-benchmark.
+Met een score van <strong>19</strong> scoort GPT-NL beter dan bij gokken verwacht wordt, maar het is wel een diepe, diepe onvoldoende.
+Llama 2 7B is, zoals we eerder gezien hebben, ook geen ster in het Nederlands en blijft steken op <strong>15,71</strong>.
+ChatGPT-3.5 scoort het best in deze test: <strong>58,95</strong> is een enigszins respectabele score.
+Mistral Small 3.2 24B komt daar bij in de buurt: het scoort <strong>54,10</strong>.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/graphs/ScaLA-nl.svg" alt="ScaLA-nl"  />
+</p>
+<h3 id="benchmark-4-samenvatten">Benchmark 4: Samenvatten<a hidden class="anchor" aria-hidden="true" href="#benchmark-4-samenvatten">#</a></h3>
+<p>Dan maar terug naar samenvatten: één van de drie kerntaken waar het model voor ontwikkeld wordt.</p>
+<p>EuroEval bevat de dataset <a href="https://euroeval.com/datasets/dutch/#wikilingua-nl">WikiLingua-nl</a> die bestaat uit teksten en referentiesamenvattingen van de Nederlandse <a href="https://nl.wikihow.com/">WikiHow</a>.
+Ook dit is geen ideale dataset en hij is zeker voor verbetering vatbaar.
+In veel andere talen is er een benchmarkdataset met nieuwsartikelen en bijbehorende samenvattingen beschikbaar, maar voor het Nederlands helaas niet.
+De voorbeelden uit de samenvattingdataset zijn te lang om hier op te nemen, maar je kunt er een paar bekijken in de <a href="https://euroeval.com/datasets/dutch/#wikilingua-nl">documentatie van EuroEval</a>.</p>
+<p>Samenvatten is een interessante taak om te benchmarken.
+In tegenstelling tot een multiple-choice examen heeft de opdracht om iets samen te vatten niet één correct antwoord.
+Je kunt behoorlijk verschillende samenvattingen schrijven die allebei &ldquo;goed&rdquo; zijn.</p>
+<p>Eén oplossing is om de door de modellen gegenereerde samenvattingen te laten beoordelen door een mens, die er een score aan geeft.
+Ook kun je een mens vragen om twee verschillende samenvattingen te bekijken en te beslissen welke &ldquo;beter&rdquo; is, volgens criteria die je van tevoren meegeeft.
+Dit is natuurlijk onpraktisch om te doen omdat we benchmarks geautomatiseerd willen kunnen draaien.
+Het is mogelijk om de mens te vervangen door een <em>LLM-as-a-judge</em>, maar dat heeft ook zo z&rsquo;n nadelen.
+LLMs willen namelijk nog weleens de voorkeur geven aan teksten die meer lijken op wat ze zelf produceren, niet per se aan welke tekst een inhoudelijk betere samenvatting is.</p>
+<p>Gelukkig is het veld van <em>natural language processing</em> al een stuk ouder dan Large Language Models.
+Het beoordelen van samenvattingen is een vrij standaard probleem.
+Er zijn dus ook allerlei mogelijkheden om die evaluatie geautomatiseerd te doen zonder mensen of LLMs in te zetten.</p>
+<h4 id="bertscore-een-relatieve-score">BERTScore: een relatieve score<a hidden class="anchor" aria-hidden="true" href="#bertscore-een-relatieve-score">#</a></h4>
+<p>EuroEval maakte tot voor kort gebruik van de <a href="https://arxiv.org/abs/1904.09675">BERTScore</a> voor het beoordelen van een samenvatting aan de hand van een referentiesamenvatting.
+Het is niet perfect, maar wel geautomatiseerd te berekenen.
+Het correleert ook redelijk met menselijke beoordelingen.
+EuroEval is intussen <a href="https://euroeval.com/tasks/summarization/#metrics">overgestapt</a> op de <a href="https://aclanthology.org/W17-4770/">ChrF3++</a>-score,
+maar de resultaten in het TNO-rapport gebruiken nog de BERTScore.
+Daarom gebruik ik ook de BERTScore van de vergelijkingsmodellen zoals ze op het EuroEval leaderboard stonden.</p>
+<p>Een BERTScore moet je wel anders interpreteren dan bijvoorbeeld eerdergenoemde MCC score.
+Het is niet zo dat een slechte samenvatting 0 scoort en een perfecte samenvatting 100.
+De scores liggen verder van 0 af en dichter bij elkaar.
+Als je de scores simpelweg koppelt aan een kleur waar 0 rood is en 100 groen,
+dan zullen alle scores er ongeveer lichtgroen uitzien.
+Die fout wordt ook in de tabel op pagina 92 gemaakt, waardoor het beeld voor samenvattingen er op het eerste gezicht best rooskleurig uitziet.</p>
+<p>Wat je eigenlijk moet doen is de scores relatief bekijken.
+Laten we beginnen met de hoogste BERTScore op het <a href="https://euroeval.com/leaderboards/Monolingual/dutch/">Nederlandse EuroEval leaderboard</a> toen het nog de BERTScore gebruikte:
+het model <a href="https://huggingface.co/CohereLabs/aya-expanse-32b"><em>Aya Expanse 32B</em></a> scoort 75,47.
+Dat wordt de bovengrens.
+Als ondergrens nemen we een model waarvan we weten dat het niet in staat is om goede Nederlandstalige samenvattingen te creëren: het <em>small language model</em> Llama 3.2 1B dat zonder moeite nog op een smartphone kan draaien.
+Dat scoort 61,94.</p>
+<p>Als we dus de BERTScores in een grafiek willen tekenen, dan moeten we die ongeveer laten beginnen bij een score van 60 en laten eindigen bij 76 om een goed beeld van de relatieve scores te krijgen.</p>
+<p>De scores?
+GPT-NL scoort <strong>61</strong>, nog onder de baseline van Llama 3.2 1B die we ons voor deze vergelijking gesteld hebben.
+De overige drie modellen scoren een stuk hoger en liggen ook dicht bij elkaar:
+Llama 2 7B scoort <strong>67,59</strong>, ChatGPT-3.5 scoort <strong>69,13</strong> en Mistral Small 3.2 24B scoort <strong>68,05</strong>.</p>
+<p>Dit is het best te zien in onderstaande grafiek.
+Wederom scoort GPT-NL erg veel lager dan de modellen waarbij het vergelijkbaar zou moeten worden.
+Het <em>is</em> theoretisch mogelijk dat GPT-NL zo fundamenteel anders schrijft dan de andere modellen dat het de benchmarkscore vertekent, maar eerlijk gezegd acht ik dat niet heel waarschijnlijk.
+De mededeling in het <a href="https://gpt-nl.nl/nieuws/progress-report-2/">Progress Report #2</a> dat GPT-NL nu al beter presteert dan ChatGPT-3 voor samenvatten wordt in elk geval niet door déze benchmarkcijfers gestaafd.</p>
+<p>Ik zou wel graag wat output-samenvattingen van het model zien om ze ook kwalitatief te kunnen beoordelen.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/graphs/WikiLingua-nl.svg" alt="WikiLingua-nl"  />
+</p>
+<h3 id="overige-benchmarks">Overige benchmarks<a hidden class="anchor" aria-hidden="true" href="#overige-benchmarks">#</a></h3>
+<p>Een benchmark die nog mist en voor GPT-NL belangrijk is, is die voor het versimpelen van teksten.
+De evaluatietaak &ldquo;versimpelen&rdquo; werd oorspronkelijk niet ondersteund door EuroEval, maar is door het GPT-NL-project <a href="https://euroeval.com/tasks/simplification/">toegevoegd</a> en in de open source tool geaccepteerd.
+Er hoort ook een bestaande Nederlandstalige benchmarkdataset bij: die van <a href="https://euroeval.com/datasets/dutch/#duidelijke-taal">Duidelijke Taal</a>.</p>
+<p>Een score berekenen voor versimpelen heeft soortgelijke uitdagingen als voor samenvatten, maar daar komen we hier niet aan toe.
+Er zijn namelijk nog geen scores voor versimpelen in het System Architecture - Training Pipeline document opgenomen.</p>
+<h2 id="wat-nu">Wat nu?<a hidden class="anchor" aria-hidden="true" href="#wat-nu">#</a></h2>
+<p>Benchmarks zeggen niet alles, maar ze zeggen ook niet niets.
+Ik vind het zorgwekkend dat de gerapporteerde scores van het foundation model voor feitelijke kennis en grammaticale correctheid niet ver boven de gokkans uitkomen.
+De score voor het begrijpend lezen is ook niet overtuigend, en de score voor samenvatten is ongekend laag.
+Er is nog geen score te melden voor versimpelen, maar gebaseerd op de scores voor samenvatten heb ik daar geen hoge verwachtingen van.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/graphs/overview.svg" alt="Benchmark overview"  />
+
+<small>De voor GPT-NL relevante tussentijdse benchmarks samengevat in één figuur.</small></p>
+<p>Door te vergelijken met alleen oude modellen lag de lat al erg laag, maar zelfs die lat wordt volgens deze scores bij meerdere belangrijke benchmarks bij lange na niet gehaald.
+Op basis van alleen deze scores zou ik ernstige twijfels hebben of het model al klaar is om in de praktijk in te zetten.
+Op zijn minst had ik iets in het Progress Report willen lezen over deze uitdagingen en wat er gepland staat om de prestaties te verbeteren.</p>
+<p>Wat is de reden voor het schijnbaar niet halen van de doelen?
+Een gebrek aan trainingsdata zou mijn eerste verdachte zijn.
+GPT-NL wordt getraind op veel minder data dan welk ander modern taalmodel dan ook.
+Als dat daadwerkelijk de beperkende factor is dan heeft GPT-NL een groot probleem.
+Het probleem is namelijk niet op te lossen binnen de randvoorwaarden van GPT-NL: als je data van het open internet en zelfs Wikipedia afwijst dan blijft er voor een middelgrote taal als het Nederlands simpelweg te weinig data over.
+Daarnaast wordt nog meer data verzamelen onder deze voorwaarden exponentieel moeilijker.
+Alle grote en makkelijke databronnen heb je immers al verzameld in de afgelopen twee jaar.
+Wat rest zijn alle kleine en moeilijke databronnen.</p>
+<p>Ik wil niets ten nadele zeggen van alle mensen die er de afgelopen twee jaar met zo veel inzet aan gewerkt hebben, maar feit blijft: je kunt een succesvol taalmodel nu eenmaal niet trainen op alleen goede bedoelingen.</p>
+<p>Kunnen we het hele project dan nu al afschrijven?
+Nee, dat misschien nog niet.
+Het document bevat ook plaatjes van evaluaties met LLM-as-a-judge die er nog steeds slecht, maar wel iets minder dramatisch uitzien.
+Omdat de testcode daarvan nog niet openbaar is kan ik ze helaas niet vergelijken met de prestaties van ChatGPT-3.5 en Llama 2 7B en dus niet zien of de gestelde doelen volgens die meetmethode wél gehaald zijn.</p>
+<p>Ook de scores op de verbeterde Nederlandstalige benchmarks die ontwikkeld zijn in het <em>work package</em> Evaluation &amp; Benchmarking moeten nog publiek gemaakt worden, waaronder de scores voor versimpelen en de bias-analyse.
+Misschien dat daar nog iets van verschil te zien is.
+Ten slotte wordt het model natuurlijk ook nog met <em>instruction tuning</em> doorgetraind, maar op basis van de grote problemen van het foundation model verwacht ik daarvan hoogstens kleinere verbeteringen.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/GPT-NL-timeline.png" alt="Benchmark overview"  />
+
+<small>De tijdlijn voor GPT-NL. De trainings- en finetuningfases zijn in 2025 afgerond. Bron: <a href="https://gpt-nl.nl/planning/">Planning van het project GPT-NL</a>.</small></p>
+<h2 id="de-praktijktests">De praktijktests<a hidden class="anchor" aria-hidden="true" href="#de-praktijktests">#</a></h2>
+<p>Ondanks deze teleurstellende cijfers is bij TNO de vlag uit en zijn de praktijktests begonnen.
+Het Ministerie van Binnenlandse Zaken &amp; Koninkrijksrelaties financiert<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> volgens het <a href="https://gpt-nl.nl/nieuws/progress-report-2/">Progress Report #2</a> drie <em>Feasibility Studies</em>.
+Zo gaat ICTU <a href="https://www.ictu.nl/artikelen/tno-en-ictu-starten-met-praktijkproef-gpt-nl-voor-virtuele-assistent-gem/">experimenteren</a> met GPT-NL voor de virtuele gemeenteassistent Gem,
+moet er een digitale assistent komen voor Overheid.nl en wordt er gekeken of brieven versimpeld kunnen worden met de communicatie-assistent HIP.
+Dit is goed nieuws: hoe bruikbaar het model in de praktijk is zal daar heel snel duidelijk worden.</p>
+<p><img loading="lazy" src="/images/gpt-nl-als-soeverein-alternatief/feasibility-studies.png" alt="Feasibility studies"  />
+
+<small>De drie door het Ministerie van Binnenlandse Zaken &amp; Koninkrijksrelaties gefinancierde <em>Feasibility Studies</em>. Bron: <a href="https://gpt-nl.nl/nieuws/progress-report-2/">GPT-NL Progress report #2</a>, pagina 10.</small></p>
+<p>TNO gaat ook zelf met het model aan de slag, en ook het NFI is als partner in het project het getrainde model aan het testen.
+Ik heb er gelukkig alle vertrouwen in dat mijn oud-collega&rsquo;s van het forensische AI-team van het NFI het model tot op het bot zullen doorlichten.</p>
+<h2 id="vervolg">Vervolg<a hidden class="anchor" aria-hidden="true" href="#vervolg">#</a></h2>
+<p>Intussen lopen er al verkenningen om een vervolgproject op GPT-NL gesubsidieerd te krijgen.
+In een interview op <a href="https://tweakers.net/reviews/14412/nederlandse-gpt-nl-is-klaar-voor-gebruik-voldoet-als-enige-taalmodel-aan-avg.html">Tweakers</a> wordt zelfs gesteld dat daar <em>&ldquo;minimaal tien keer zoveel budget voor nodig&rdquo;</em> is.
+Dat zou dan minimaal 135 miljoen euro moeten zijn.</p>
+<p>Los van de discussie over het ontbreken van Europese <em>frontier models</em>:
+het kan best waardevol zijn om te verkennen hoe de opt-in aanpak van GPT-NL verder gebracht kan worden tot modellen die breder inzetbaar zijn.
+Niet als ons soevereine alternatief voor Fable,
+maar misschien wel als klein onderdeel van een nieuwe Nederlandse AI-strategie die duizend bloemen tegelijk laat bloeien.</p>
+<p>Waar moeten we ons dan nog meer op richten?
+Denk bijvoorbeeld aan meer investeringen in écht open source Europese AI, zoals <a href="https://eurollm.io">EuroLLM</a> en <a href="https://openeurollm.eu">OpenEuroLLM</a>.
+En investeren we wel genoeg in fundamenteel AI-onderzoek bij Nederlandse universiteiten?
+Hoogleraar <a href="https://amlab.science.uva.nl/people/MaxWelling/">Max Welling</a> <a href="https://www.linkedin.com/feed/update/urn:li:activity:7471970019095158785/?dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287472160312658583552%2Curn%3Ali%3Aactivity%3A7471970019095158785%2">pleit ervoor</a> om het geld te steken in een <a href="https://ellis.eu">Ellis-instituut</a> waar startups uit kunnen ontstaan.
+Als land met een middelgrote taal zouden we in elk geval veel baat hebben bij het ontwikkelen van nieuwe AI-architecturen die veel efficiënter van onze schaarse data leren dan transformers dat kunnen.</p>
+<p>Als we als Nederland toch besluiten dat GPT-NL een publiek gefinancieerd vervolg nodig heeft dan zou ik wel van de subsidiegevende instanties vragen om heel scherp te krijgen wat het extra geld gaat opleveren.
+Hoe groot zijn de verbeteringen die er met meer middelen realistisch gezien gehaald kunnen worden?
+Welke bottlenecks worden getackled en hoe waarschijnlijk is het dat dat lukt?
+Welke doelstellingen worden bijgesteld, en hoe blijven die wel meetbaar?
+Kan er misschien extern toezicht gehouden worden door onafhankelijke AI-experts die periodiek over de voortgang rapporteren?</p>
+<p>Als we niet kritisch blijven op de opbrengst, riskeren we dat GPT-NL een project zonder einde wordt.
+Het níet behalen van de doelen is dan immers reden om meer investeringen te vragen, en het wél behalen van de doelen ook.</p>
+<p>Hoe dan ook, de komende tijd wordt cruciaal voor GPT-NL.
+Ik hoop dat alle overheidspartijen die bij de <em>feasibility studies</em> betrokken zijn hun gedetailleerde testresultaten zo spoedig mogelijk zullen publiceren.
+En ik hoop ook graag snel de officiële benchmarkresultaten te zien van de versie van het model dat nu in de praktijk ingezet wordt.</p>
+<p>Nederlands meest transparante taalmodel kan immers nog wel wat meer transparantie gebruiken.</p>
+<hr>
+<p><small><em>Ik heb in april contact opgenomen met TNO om te vragen of er binnenkort nog benchmarkscores gepubliceerd zullen worden van het model dat nu in de feasibility studies ingezet wordt.
+Actuelere cijfers zouden deze analyse van de door TNO gepubliceerde tussentijdse scores natuurlijk overbodig maken.</em></small></p>
+<p><small><em>Helaas: volgens TNO worden de benchmarks pas breed gepubliceerd bij de brede uitrol van het model eind dit jaar. TNO is van mening dat de huidige tussenresultaten (de eindscores van het foundation model) nog niet een goede weergave zijn.
+Die resultaten zijn volgens TNO namelijk niet representatief voor waar het model straks na de feasibility studies en iteratieve verbeteringen op uit gaat komen.
+Hoe groot de verbeteringen zijn die we kunnen verwachten wordt helaas niet vermeld.</em></small></p>
+<hr>
+<h3 id="meer-lezen">Meer lezen?<a hidden class="anchor" aria-hidden="true" href="#meer-lezen">#</a></h3>
+<ul>
+<li><a href="https://gpt-nl.nl/nieuws/progress-report-1/">GPT-NL Progress Report #1</a></li>
+<li><a href="https://gpt-nl.nl/nieuws/progress-report-2/">GPT-NL Progress Report #2</a></li>
+<li><a href="https://resolver.tno.nl/uuid:2e3fdebe-7284-4539-a863-0b7f1c3bcc3b">GPT-NL System Architecture Document - Training Pipeline v1.0</a></li>
+<li><a href="https://resolver.tno.nl/uuid:9b9afee3-3cd1-44e7-95d7-03964f1b3520">GPT-NL System Architecture Document - Data Curation Pipeline</a></li>
+<li><a href="https://gpt-nl.nl/nieuws/presentatie-dnb-data-science-event-2025/">GPT-NL Presentatie - DNB Data Science Event 2025</a></li>
+<li><a href="https://arxiv.org/abs/2604.00920">GPT-NL Public Corpus: A Permissively Licensed, Dutch-First Dataset for LLM Pre-training</a></li>
+<li><a href="https://huggingface.co/spaces/OpenEvals/evaluation-guidebook">Hugging Face – The LLM Evaluation Guidebook</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Een <em>open weights</em> model is een model waarvan de <em>gewichten</em> (de miljarden parameters die samen met de architectuur het model vormen) vrij beschikbaar zijn, maar in tegenstelling tot <em>open source AI</em> zijn de achterliggende datasets en trainingcode dat bij open weights niet. Het Open Source Initiative heeft een <a href="https://opensource.org/ai/open-weights">definitie van open weights</a> op zijn website. Het GPT-NL-model is noch open source noch open weights.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Over die deal met twee Vlaamse mediaconglomeraten had de sectie Journalistiek van de Auteursbond overigens nog wel <a href="https://auteursbond.nl/standpunt-gebruik-artikelen-voor-training-ai/">wat vragen</a>. Zo was onduidelijk of naast de uitgevers de daadwerkelijke auteurs van de stukken ook een vergoeding krijgen. In een recent <a href="https://auteursbond.nl/nieuwsmedia-leveren-archieven-aan-gpt-nl-vergoeding-voor-freelance-journalisten-nog-onduidelijk/">interview</a> blijkt dat daar nog geen oplossing voor is gevonden. Ik geef Saskia en Jesse wel credits voor het geven van een interview aan de Auteursbond over dit heikele punt.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Hoeveel TNO betaald krijgt voor de Feasibility Studies is niet bekend gemaakt,
+maar <a href="https://www.linkedin.com/feed/update/urn:li:activity:7432837315850461184?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7432837315850461184%2C7432852644227919872%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287432852644227919872%2Curn%3Ali%3Aactivity%3A7432837315850461184%29">op LinkedIn</a> heeft iemand een offerte voor een haalbaarheidsstudie gekregen van € 181.000.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://goingdutch.ai/nl/tags/gpt-nl/">GPT-NL</a></li>
+      <li><a href="https://goingdutch.ai/nl/tags/open-language-models/">Open Language Models</a></li>
+      <li><a href="https://goingdutch.ai/nl/tags/dutch-large-language-models/">Dutch Large Language Models</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://goingdutch.ai/nl/posts/data-compar-ia/">
+    <span class="title">Volgende »</span>
+    <br>
+    <span>Neem een voorbeeld aan de Fransen: Nederland heeft data harder nodig dan GPUs</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on twitter"
+        href="https://twitter.com/intent/tweet/?text=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit&amp;url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f&amp;hashtags=GPT-NL%2cOpenLanguageModels%2cDutchLargeLanguagemodels">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f&amp;title=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit&amp;summary=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit&amp;source=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f&title=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on whatsapp"
+        href="https://api.whatsapp.com/send?text=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit%20-%20https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on telegram"
+        href="https://telegram.me/share/url?text=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit&amp;url=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share GPT-NL als soeverein Nederlands alternatief? De tussentijdse benchmarks zien er nog niet goed uit on ycombinator"
+        href="https://news.ycombinator.com/submitlink?t=GPT-NL%20als%20soeverein%20Nederlands%20alternatief%3f%20De%20tussentijdse%20benchmarks%20zien%20er%20nog%20niet%20goed%20uit&u=https%3a%2f%2fgoingdutch.ai%2fnl%2fposts%2fgpt-nl-als-soeverein-alternatief%2f">
+        <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+            <path
+                d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <script id="partials/analytics.html" 
+  data-goatcounter="https://goingdutch.goatcounter.com/count"
+  async src="//gc.zgo.at/count.js"></script>
+    
+<footer class="footer">
+    <span><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> – <a href="https://goingdutch.ai">GoingDutch.ai</a>.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'kopieer';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'gekopieerd!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'kopieer';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
